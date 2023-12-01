@@ -1,0 +1,83 @@
+@mixin monster-types {
+    &.normal {
+        background-color: #aa9;
+    }
+
+    &.fire {
+        background-color: #f42;
+    }
+
+    &.electric {
+        background-color: #fc3;
+    }
+
+    &.grass {
+        background-color: #7c5;
+    }
+
+    &.bug {
+        background-color: #ab2;
+    }
+
+    &.psychic {
+        background-color: #f59;	
+    }
+
+    &.fighting {
+        background-color: #b54;
+    }
+
+    &.water {
+        background-color: #39f;
+    }
+
+    &.fairy {
+        background-color: #e9e;
+    }
+
+    &.ice {
+        background-color: #6cf;
+    }
+
+    &.dragon {
+        background-color: #76e;
+    }
+    
+    &.ground {
+        background-color: #db5;
+    }
+
+    &.ghost {
+        background-color: #66b;
+    }
+
+    &.poison {
+        background-color: #a59;
+    }
+
+    &.flying {
+        background-color: #89f;
+    }
+}
+
+@mixin monster-sizes {
+    &.size-s {
+        width: 8rem;
+        height: 8rem;
+    }
+
+    &.size-m {
+        width: 12rem;
+        height: 12rem;
+    }
+
+    &.size-l {
+        width: 15rem;
+        height: 15rem;
+    }
+
+    &.size-xl {
+        width: 18rem;
+        height: 18rem;
+    }
+}

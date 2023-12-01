@@ -1,0 +1,178 @@
+@import 'variables';
+@import 'mixins';
+@import 'general';
+
+.monster-type {
+	width: 1.3rem;
+	height: 1.3rem;
+	border-radius: 100%;
+	background-color: #FFFFFF;
+	display: inline-block;
+
+	// Import all monster type colors
+	@include monster-types;
+}
+
+// Monster list
+#monster-list {
+	> h2 {
+		font-size: 2rem;
+	}
+
+	ul {
+		margin-left: 0;
+		padding-left: 0;
+		list-style: none;
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 1rem;
+		row-gap: 1.5rem;
+		
+		li {	
+			cursor: pointer;
+			padding: 0.7rem;
+			padding-bottom: 0.25rem;
+			border: solid 1px transparent;
+			border-radius: $border-radius-m;
+			position: relative;
+
+			&:hover {
+				border: solid 1px $color-lightgray;
+				img {
+						transform: scale(1.2);
+				}
+			}
+			
+			.monster-name {
+				margin-bottom: 0.5rem;
+				font-weight: bold;
+			}
+
+			.monster-number {
+				font-weight: normal;
+				font-style: italic;
+				font-size: 0.8rem;
+			}
+
+			.monster-type {
+				position: absolute;
+				right: 0.5rem;
+				bottom: 0.5rem;
+				z-index: 3;
+			}
+
+			img {
+				max-width: 7rem;
+				max-height: 7rem;
+				width: 100%;
+				height: 100%;
+				object-fit: contain;
+				transition: transform 0.5s ease;
+			}
+		}
+	}
+}
+
+// Player image during game
+.player-images {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 1rem;
+	z-index: 1;
+	position: relative;
+	overflow: hidden;
+
+	.monster-image {
+		width: 7rem;
+		height: 7rem;
+		object-fit: contain;
+		@include monster-sizes;
+	}
+
+	.trainer-image {
+		width: 7rem;
+		height: 7rem;
+		object-fit: contain;
+	}
+}
+
+// Healthbar
+.healthbar {
+	width: 100%;
+	height: 1.7rem;
+	margin: 1rem 0;
+	margin-top: 0;
+	background: #fde5e5;
+	border-radius: $border-radius-s;
+	overflow: hidden;
+	z-index: 2;
+	position: relative;
+
+	.healthbar__value {
+		background-color: #00a876;
+		width: 100%;
+		height: 100%;
+		transition: width 0.5s ease-in-out;
+	}
+	
+}
+
+#monster h2,
+#player h2 {
+	display: flex;
+	align-items: center;
+	margin-top: 0;
+	margin-bottom: 1rem;
+	justify-content: center;
+	gap: 1rem;
+
+	.monster-health,
+	.player-health {
+		font-weight: normal;
+	}
+}
+
+// Game controls
+#controls {
+	max-width: 30rem;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1.5rem;
+	row-gap: 1.5rem;
+	align-items: center;
+	justify-content: center;
+	justify-items: center;
+	margin-bottom: 1.5rem;
+	button {
+		width: 100%;
+	}
+}
+
+// Log list
+#log {
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		li {
+			margin: 0.5rem 0;
+		}
+	
+		.log--player {
+			color: #7700ff;
+		}
+		
+		.log--monster {
+			color: #da8d00;
+		}
+		
+		.log--damage {
+			color: red;
+		}
+		
+		.log--heal {
+			color: green;
+		}
+	}
+}

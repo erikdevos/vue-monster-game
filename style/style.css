@@ -1,0 +1,279 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+header {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  padding: 0.5rem;
+  background-color: #c11e1e;
+  color: white;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+header h1 {
+  margin: 0;
+}
+
+section {
+  width: 90%;
+  max-width: 45rem;
+  margin: auto;
+}
+
+.container {
+  text-align: center;
+  padding: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  margin: 1rem auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+button {
+  font: inherit;
+  background-color: #c11e1e;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 0.3rem;
+  width: auto;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  transition: background-color 0.3s ease-in-out;
+}
+button:focus {
+  outline: none;
+}
+button:hover, button:active {
+  background-color: #951717;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+button:disabled {
+  background-color: #ccc;
+  box-shadow: none;
+  color: #3f3f3f;
+  cursor: not-allowed;
+}
+
+.monster-type {
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 100%;
+  background-color: #FFFFFF;
+  display: inline-block;
+}
+.monster-type.normal {
+  background-color: #aa9;
+}
+.monster-type.fire {
+  background-color: #f42;
+}
+.monster-type.electric {
+  background-color: #fc3;
+}
+.monster-type.grass {
+  background-color: #7c5;
+}
+.monster-type.bug {
+  background-color: #ab2;
+}
+.monster-type.psychic {
+  background-color: #f59;
+}
+.monster-type.fighting {
+  background-color: #b54;
+}
+.monster-type.water {
+  background-color: #39f;
+}
+.monster-type.fairy {
+  background-color: #e9e;
+}
+.monster-type.ice {
+  background-color: #6cf;
+}
+.monster-type.dragon {
+  background-color: #76e;
+}
+.monster-type.ground {
+  background-color: #db5;
+}
+.monster-type.ghost {
+  background-color: #66b;
+}
+.monster-type.poison {
+  background-color: #a59;
+}
+.monster-type.flying {
+  background-color: #89f;
+}
+
+#monster-list > h2 {
+  font-size: 2rem;
+}
+#monster-list ul {
+  margin-left: 0;
+  padding-left: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  row-gap: 1.5rem;
+}
+#monster-list ul li {
+  cursor: pointer;
+  padding: 0.7rem;
+  padding-bottom: 0.25rem;
+  border: solid 1px transparent;
+  border-radius: 1rem;
+  position: relative;
+}
+#monster-list ul li:hover {
+  border: solid 1px #dfdfdf;
+}
+#monster-list ul li:hover img {
+  transform: scale(1.2);
+}
+#monster-list ul li .monster-name {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+#monster-list ul li .monster-number {
+  font-weight: normal;
+  font-style: italic;
+  font-size: 0.8rem;
+}
+#monster-list ul li .monster-type {
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  z-index: 3;
+}
+#monster-list ul li img {
+  max-width: 7rem;
+  max-height: 7rem;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  transition: transform 0.5s ease;
+}
+
+.player-images {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  z-index: 1;
+  position: relative;
+  overflow: hidden;
+}
+.player-images .monster-image {
+  width: 7rem;
+  height: 7rem;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.player-images .monster-image.size-s {
+  width: 8rem;
+  height: 8rem;
+}
+.player-images .monster-image.size-m {
+  width: 12rem;
+  height: 12rem;
+}
+.player-images .monster-image.size-l {
+  width: 15rem;
+  height: 15rem;
+}
+.player-images .monster-image.size-xl {
+  width: 18rem;
+  height: 18rem;
+}
+.player-images .trainer-image {
+  width: 7rem;
+  height: 7rem;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.healthbar {
+  width: 100%;
+  height: 1.7rem;
+  margin: 1rem 0;
+  margin-top: 0;
+  background: #fde5e5;
+  border-radius: 0.3rem;
+  overflow: hidden;
+  z-index: 2;
+  position: relative;
+}
+.healthbar .healthbar__value {
+  background-color: #00a876;
+  width: 100%;
+  height: 100%;
+  transition: width 0.5s ease-in-out;
+}
+
+#monster h2,
+#player h2 {
+  display: flex;
+  align-items: center;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  justify-content: center;
+  gap: 1rem;
+}
+#monster h2 .monster-health,
+#monster h2 .player-health,
+#player h2 .monster-health,
+#player h2 .player-health {
+  font-weight: normal;
+}
+
+#controls {
+  max-width: 30rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  row-gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  margin-bottom: 1.5rem;
+}
+#controls button {
+  width: 100%;
+}
+
+#log ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#log ul li {
+  margin: 0.5rem 0;
+}
+#log ul .log--player {
+  color: #7700ff;
+}
+#log ul .log--monster {
+  color: #da8d00;
+}
+#log ul .log--damage {
+  color: red;
+}
+#log ul .log--heal {
+  color: green;
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,74 @@
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-family: sans-serif;
+}
+
+body {
+	margin: 0;
+	font-size: 1rem;
+	line-height: 1.2;
+}
+
+header {
+	box-shadow: $box-shadow;
+	padding: 0.5rem;
+	background-color: $color-primary;
+	color: white;
+	text-align: center;
+	margin-bottom: 2rem;
+	h1 {
+		margin: 0;
+	}
+}
+
+section {
+	width: 90%;
+	max-width: 45rem;
+	margin: auto;
+}
+
+.container {
+	text-align: center;
+	padding: 1rem;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+	margin: 1rem auto;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+	border-radius: $border-radius-m;
+	overflow: hidden;
+}
+
+button {
+	font: inherit;
+	background-color: $color-primary;
+	color: white;
+	padding: 1rem 2rem;
+	border: none;
+	border-radius: $border-radius-s;
+	width: auto;
+	cursor: pointer;
+	box-shadow: $box-shadow;
+	transition: background-color 0.3s ease-in-out;
+	
+	&:focus {
+		outline: none;
+	}
+
+	&:hover,
+	&:active {
+		background-color: darken($color-primary, 10%);
+		box-shadow: $box-shadow;
+	}
+
+	&:disabled {
+		background-color: #ccc;
+		box-shadow: none;
+		color: #3f3f3f;
+		cursor: not-allowed;
+	}
+}
+
+

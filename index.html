@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Pokemon game</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+	<link rel="stylesheet" href="style/style.css">
+	<link rel="shortcut icon" href="#">
+  </head>
+
+  <body>
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+	<header>
+	  <h1>Pok&eacute;mon</h1>
+	</header>
+	
+   
+	<div id="game">
+			
+		<!-- Character select screen -->
+		<section v-if="!gameStarted" id="monster-list" class="container">
+			<h2>Select an enemy</h2>
+			<ul>
+				<li v-for="monster in sortedEnemyMonsters" @click="selectMonster(monster)">
+					<div class="monster-name">{{monster.name}} 
+						<span class="monster-number">
+							#{{monster.number}}
+						</span>
+					</div>
+					<div class="monster-type" :class="monster.type"></div>
+					<img :src="monster.image" :alt="monster.name">
+				</li>
+			</ul>
+			
+		</section>
+		
+		<!-- Enemy monster -->
+		<section v-if="gameStarted" id="monster" class="container">
+			<h2>
+				<span class="monster-type" :class="currentEnemyMonster.type"></span>
+				<span class="monster-name">{{currentEnemyMonster.name}}</span>
+				<span class="monster-health">{{enemyMonsterHealth}} hp</span>
+			</h2>
+			
+			<div v-if="gameStarted" class="player-images">
+				<img
+				:src="currentEnemyMonster ? currentEnemyMonster.image : ''"
+				class="monster-image animate__animated"
+				:class="{
+				  'animate__flash': playerAttacked,
+				  'animate__wobble': specialAttackAttacked,
+				  ['size-' + (currentEnemyMonster ? currentEnemyMonster.size : '')]: true
+				}"
+				@transitionend="resetAttackedStatus"
+			  >
+			</div>
+			
+			<div class="healthbar">
+				<div class="healthbar__value" :style="monsterBarStyles"></div>
+			</div>
+		</section>
+			
+		<!-- Player character-->
+		<section v-if="gameStarted" id="player" class="container">
+			<h2>
+				<span>{{playerName}} and {{playerMonsterName}}</span>
+				<span class="player-health">{{playerHealth}} hp</span>				
+			</h2>
+
+			<div v-if="gameStarted" class="player-images">
+				<!-- Player trainer -->
+				<img src="https://ssb.wiki.gallery/images/thumb/1/11/Pok%C3%A9mon_Trainer_Male.png/800px-Pok%C3%A9mon_Trainer_Male.png" class="trainer-image monster-image animate__animated">
+				<!-- Player Monster -->
+				<img src="https://img.pokemondb.net/artwork/large/pikachu.jpg" class="monster-image animate__animated"  :class="{ 'animate__flash': playerAttacked, 'animate__wobble': specialAttackAttacked, 'animate__pulse': healAnimation, 'animate__fadeOutDown' : surrenderAnimation }" @transitionend="resetAttackedStatus">
+			</div>
+
+			<div v-if="gameStarted" class="healthbar">
+				<div class="healthbar__value" :style="playerBarStyles" class="monster-image"></div>
+			</div>
+		</section>
+
+		<!-- Game menu -->
+		<section class="container" v-if="winner && gameStarted">
+
+			<h2 v-if="winner === 'monster'">You lost!</h2>
+			<h2 v-else-if="winner === 'player'">You won!</h2>
+			<h2 v-else>It's a draw!</h2>
+
+			<button @click="resetGame">Start again!</button>
+		</section>
+
+		<!-- Game controls -->
+		<section v-if="gameStarted" id="controls">
+			<button @click="attackMonster">ATTACK</button>
+			<button :disabled="mayUseSpecialAttack" @click="specialAttackMonster">SPECIAL ATTACK</button>
+			<button :disabled="mayUseHeal" @click="healPlayer">HEAL</button>
+			<button @click="surrender">RUN</button>
+		</section>
+			
+		<!-- Battle Log -->
+		<section v-if="!isLogEmpty || gameStarted" id="log" class="container">
+			<h2>Battle Log</h2>
+			<ul>
+				<li v-for="logMessage in logMessages">
+					<span :class="{ 'log--player': logMessage['log--player'], 'log--monster': logMessage['log--monster'] }">
+							{{ logMessage.attackerName }}
+					</span>
+					<span v-if="logMessage.actionType === 'heal'" :class="{ 'log--heal': logMessage['log--heal'] }">
+							heals himself for <span>{{ logMessage.actionValue }}</span>
+					</span>
+					<span v-else :class="{ 'log--attack': logMessage['log--attack'] }">
+							attacks and deals <span class="log--attack"><span><strong>{{ logMessage.actionValue }}</strong></span> damage</span>
+					</span>
+					<span v-if="logMessage.actionType !== 'heal' && logMessages.indexOf(logMessage) !== logMessages.length - 1">
+					</span>
+				</li>
+			</ul>
+		</section>
+
+	</div>
+
+	<script src="scripts.js" type="text/javascript"></script>
+  </body>
+
+</html>
