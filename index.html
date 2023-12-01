@@ -21,6 +21,10 @@
 			
 		<!-- Character select screen -->
 		<section v-if="!gameStarted" id="monster-list" class="container">
+			<h2>What's your name?</h2>
+			<div class="name-input-wrapper">
+				<input v-model="playerName" type="text" value="Ash">
+			</div>
 			<h2>Select an enemy</h2>
 			<ul>
 				<li v-for="monster in sortedEnemyMonsters" @click="selectMonster(monster)">

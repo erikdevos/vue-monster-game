@@ -125,7 +125,7 @@ const app = Vue.createApp({
 			winner: null,
 			logMessages: [],
 			playerMonsterName: "Pikachu",
-			playerName: "Ash",
+			playerName: '',
 			playerAttacked: false,
 			monsterAttacked: false,
 			specialAttackAttacked: false,

@@ -67,6 +67,14 @@ button:disabled {
   cursor: not-allowed;
 }
 
+.name-input-wrapper input {
+  padding: 0.3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 1rem;
+  text-align: center;
+}
+
 .monster-type {
   width: 1.3rem;
   height: 1.3rem;
