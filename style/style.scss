@@ -31,7 +31,7 @@
 }
 
 // Monster list
-#monster-list {
+.monster-select {
 	> h2 {
 		font-size: 2rem;
 	}
@@ -62,7 +62,8 @@
 			
 			.monster-name {
 				margin-bottom: 0.5rem;
-				font-weight: bold;
+				display: flex;
+				flex-direction: column;
 			}
 
 			.monster-number {
@@ -110,6 +111,7 @@
 		width: 7rem;
 		height: 7rem;
 		object-fit: contain;
+		margin-top: auto;
 	}
 }
 
@@ -143,8 +145,15 @@
 	justify-content: center;
 	gap: 1rem;
 
+	span {
+		display: flex;
+		align-items: baseline;
+		gap: 1rem;
+	}
+
 	.monster-health,
 	.player-health {
+		font-size: 1rem;
 		font-weight: normal;
 	}
 }

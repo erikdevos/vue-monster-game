@@ -145,11 +145,11 @@ const app = Vue.createApp({
 			}
 		];
 
-		const randomIndex = Math.floor(Math.random() * enemyMonsters.length);
-		const initialMonsterHealth = enemyMonsters[randomIndex].health;
 		return {
 			enemyMonsters,
 			currentEnemyMonster: null,
+			currentPlayerMonster: null,
+			enemyMonster: null,
 			gameStarted: null,
 			playerHealth: 100,
 			monsterHealth: 100,
@@ -157,7 +157,6 @@ const app = Vue.createApp({
 			currentRound: 0,
 			winner: null,
 			logMessages: [],
-			playerMonsterName: "Pikachu",
 			playerName: 'Ash',
 			playerAttacked: false,
 			monsterAttacked: false,
@@ -199,23 +198,51 @@ const app = Vue.createApp({
 			this.currentRound = 0;
 			this.surrenderAnimation = false;
 			this.monsterSelect = false;	
+	
+			// Check if there's a selected enemy monster
+			if (this.currentEnemyMonster) {
+				// If there is, use the selected enemy monster
+				this.currentEnemyMonster = this.currentEnemyMonster;
+			} else {
+				// If not, default to the first enemy monster in the list
+				this.currentEnemyMonster = this.enemyMonsters[0];
+			}
+	
+			// Check if there's a selected player monster
+			if (this.currentPlayerMonster) {
+				// If there is, use the selected player monster
+				this.currentPlayerMonster = this.currentPlayerMonster;
+				console.log("Selected Player Monster: " + this.currentPlayerMonster.name);
+			} else {
+				// If not, default to the first player monster in the list
+				this.currentPlayerMonster = this.enemyMonsters[0]; // Change this to the correct array
+				console.log("Default Player Monster: " + this.currentPlayerMonster.name);
+			}
+	
+			this.enemyMonsterHealth = this.currentEnemyMonster.health;
 
-        if (this.selectedMonster) {
-        this.currentEnemyMonster = this.selectedMonster;
-        } else {
-        // Handle the case where no monster is selected (you can add custom logic here)
-        // For now, let's set it to use the first monster in the list
-        this.currentEnemyMonster = this.enemyMonsters[0];
-        }
+		if (this.selectPlayerMonster) {
+			currentPlayerMonster = this.playerMonster;
+			console.log(this.selectPlayerMonster.name);
+		}
 
         this.enemyMonsterHealth = this.currentEnemyMonster.health;
         },
+
+		selectPlayerMonster(playerMonster) {
+			this.currentPlayerMonster = playerMonster; // Update this line
+			this.playerSelect = false;
+			this.monsterSelect = true;
+			console.log(this.currentPlayerMonster.name);
+		},
 		
-        selectMonster(monster) {
-            this.selectedMonster = monster;
+		selectEnemyMonster(enemyMonster) {
+			this.currentEnemyMonster = enemyMonster; // Update this line
 			this.monsterSelect = false;
-            this.startGame();
-        },
+			console.log(this.currentEnemyMonster.name);
+			this.startGame();
+		},
+		
 
 		resetAttackedStatus() {
 			setTimeout(() => {
@@ -318,7 +345,7 @@ const app = Vue.createApp({
 		addLogMessage(who, what, value) {
 			const attackerName =
 				who === "player"
-					? this.playerName + "'s " + this.playerMonsterName
+					? this.playerName + "'s " + this.currentPlayerMonster.name
 					: this.currentEnemyMonster.name;
 			const actionType = what === "heal" ? "heals" : "attacks and deals";
 
@@ -348,11 +375,6 @@ const app = Vue.createApp({
 			this.logMessages = [];
 		},
 
-		confirmPlayer() {
-			this.playerSelect = false;
-			this.monsterSelect = true;
-			console.log("Player selected true");
-		}
 	},
 
 	computed: {
@@ -392,9 +414,10 @@ const app = Vue.createApp({
 		isLogEmpty() {
 			return this.logMessages.length === 0;
 		},
-    sortedEnemyMonsters() {
-      return this.enemyMonsters.slice().sort((a, b) => a.number - b.number);
-    },
+		
+		sortedEnemyMonsters() {
+		return this.enemyMonsters.slice().sort((a, b) => a.number - b.number);
+		},
 	}
 });
 

@@ -25,23 +25,41 @@
 			<div class="name-input-wrapper">
 				<div class="input-wrapper">
 					<input v-model="playerName" type="text" value="Ash">
-				</div>
-				<button @click="confirmPlayer()">Start!</button>
+				</div>		
 			</div>
+
 		</section>
 
-		<!-- Monster select screen -->
-		<section v-if="monsterSelect" id="monster-list" class="container">
-			<h2>Select an enemy</h2>
+		<!-- Player monster select screen -->
+		<section v-if="playerSelect" id="player-monster-select" class="container monster-select">
+			<h2>Select your monster</h2>
 			<ul>
-				<li v-for="monster in sortedEnemyMonsters" @click="selectMonster(monster)">
-					<div class="monster-name">{{monster.name}} 
+				<li v-for="playerMonster in sortedEnemyMonsters" @click="selectPlayerMonster(playerMonster)">
+					<div class="monster-name">
+						<strong>{{playerMonster.name}}</strong>
 						<span class="monster-number">
-							#{{monster.number}}
+							#{{playerMonster.number}}
 						</span>
 					</div>
-					<div class="monster-type" :class="monster.type"></div>
-					<img :src="monster.image" :alt="monster.name">
+					<div class="monster-type" :class="playerMonster.type"></div>
+					<img class="monster-image" :src="playerMonster.image" :alt="playerMonster.name">
+				</li>
+			</ul>
+		</section>
+
+		<!-- Enemy Monster select screen -->
+		<section v-if="monsterSelect" id="monster-list" class="container monster-select">
+			<h2>Select an enemy</h2>
+			<ul>
+				<li v-for="enemyMonster in sortedEnemyMonsters" @click="selectEnemyMonster(enemyMonster)">
+					<div class="monster-name">
+						<strong>{{enemyMonster.name}}</strong>
+						<span class="monster-number">
+							#{{enemyMonster.number}}
+						</span>
+					</div>
+					<div class="monster-type" :class="enemyMonster.type"></div>
+					<img class="monster-image" :src="enemyMonster.image" :alt="enemyMonster.name">
 				</li>
 			</ul>
 			
@@ -76,15 +94,28 @@
 		<!-- Player character-->
 		<section v-if="gameStarted" id="player" class="container">
 			<h2>
-				<span>{{playerName}} and {{playerMonsterName}}</span>
-				<span class="player-health">{{playerHealth}} hp</span>				
+				<span>{{playerName}} and
+				<span class="monster-type" :class="currentPlayerMonster.type"></span>	
+				{{this.currentPlayerMonster.name}}</span>
+				<span class="player-health">{{this.currentPlayerMonster.health}} hp</span>				
 			</h2>
 
 			<div v-if="gameStarted" class="player-images">
 				<!-- Player trainer -->
 				<img src="https://ssb.wiki.gallery/images/thumb/1/11/Pok%C3%A9mon_Trainer_Male.png/800px-Pok%C3%A9mon_Trainer_Male.png" class="trainer-image monster-image animate__animated">
 				<!-- Player Monster -->
-				<img src="https://img.pokemondb.net/artwork/large/pikachu.jpg" class="monster-image animate__animated"  :class="{ 'animate__flash': playerAttacked, 'animate__wobble': specialAttackAttacked, 'animate__pulse': healAnimation, 'animate__fadeOutDown' : surrenderAnimation }" @transitionend="resetAttackedStatus">
+				<img 
+				:src="currentPlayerMonster ? currentPlayerMonster.image : ''" 
+				class="monster-image animate__animated"  
+				:class="{ 'animate__flash': playerAttacked, 
+				'animate__wobble': specialAttackAttacked, 
+				'animate__pulse': healAnimation, 
+				'animate__fadeOutDown' : surrenderAnimation, 
+				['size-' + (currentPlayerMonster ? currentPlayerMonster.size : '')]: true
+				}" 
+				@transitionend="resetAttackedStatus"
+				
+				>
 			</div>
 
 			<div v-if="gameStarted" class="healthbar">
@@ -122,7 +153,7 @@
 							heals himself for <span>{{ logMessage.actionValue }}</span>
 					</span>
 					<span v-else :class="{ 'log--attack': logMessage['log--attack'] }">
-							attacks and deals <span class="log--attack"><span><strong>{{ logMessage.actionValue }}</strong></span> damage</span>
+						attacks and deals <span class="log--attack"><span><strong>{{ logMessage.actionValue }}</strong></span> damage</span>
 					</span>
 					<span v-if="logMessage.actionType !== 'heal' && logMessages.indexOf(logMessage) !== logMessages.length - 1">
 					</span>
