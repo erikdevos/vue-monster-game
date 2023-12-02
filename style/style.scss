@@ -4,12 +4,18 @@
 
 
 .name-input-wrapper {
+	
+	.input-wrapper {
+		margin-bottom: 1rem;
+	}
+
 	input {
 		padding: 0.3rem;
 		padding-left: 1rem;
 		padding-right: 1rem;
 		font-size: 1rem;
 		text-align: center;
+		
 	}
 }
 

@@ -45,7 +45,7 @@ button {
   font: inherit;
   background-color: #c11e1e;
   color: white;
-  padding: 1rem 2rem;
+  padding: 0.8rem 2.5rem;
   border: none;
   border-radius: 0.3rem;
   width: auto;
@@ -67,6 +67,9 @@ button:disabled {
   cursor: not-allowed;
 }
 
+.name-input-wrapper .input-wrapper {
+  margin-bottom: 1rem;
+}
 .name-input-wrapper input {
   padding: 0.3rem;
   padding-left: 1rem;
