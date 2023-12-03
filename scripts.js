@@ -1326,6 +1326,7 @@ const app = Vue.createApp({
 			imagePathThumb: 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/',
 			imagePathFull: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/'
 		};
+		
 	},
 
 	watch: {
@@ -1365,47 +1366,35 @@ const app = Vue.createApp({
 			this.currentRound = 0;
 			this.playerLoseAnimation = false;
 			this.monsterLoseAnimation = false;
-			this.monsterSelect = false;	
-	
-			// Check if there's a selected enemy monster
-			if (this.currentEnemyMonster) {
-				// If there is, use the selected enemy monster
-				this.currentEnemyMonster = this.currentEnemyMonster;
-			} else {
-				// If not, default to the first enemy monster in the list
-				this.currentEnemyMonster = this.enemyMonsters[0];
-			}
-	
-			// Check if there's a selected player monster
-			if (this.currentPlayerMonster) {
-				// If there is, use the selected player monster
-				this.currentPlayerMonster = this.currentPlayerMonster;
-				console.log("Selected Player Monster: " + this.currentPlayerMonster.name);
-			} else {
-				// If not, default to the first player monster in the list
-				this.currentPlayerMonster = this.enemyMonsters[0]; // Change this to the correct array
-				console.log("Default Player Monster: " + this.currentPlayerMonster.name);
-			}
-	
+			this.monsterSelect = false;
 			this.enemyMonsterHealth = this.currentEnemyMonster.health;
-
-		if (this.selectPlayerMonster) {
-			currentPlayerMonster = this.playerMonster;
-			console.log(this.selectPlayerMonster.name);
-		}
-
-        this.enemyMonsterHealth = this.currentEnemyMonster.health;
-        },
+		},
 
 		selectPlayerMonster(playerMonster) {
-			this.currentPlayerMonster = playerMonster; // Update this line
+			if (playerMonster === "random") {
+				// Select a random monster from the array
+				const randomIndex = Math.floor(Math.random() * this.enemyMonsters.length);
+				this.currentPlayerMonster = this.enemyMonsters[randomIndex];
+			} else {
+				// Set the selected player monster
+				this.currentPlayerMonster = playerMonster;
+			}
+		
 			this.playerSelect = false;
 			this.monsterSelect = true;
 			console.log(this.currentPlayerMonster.name);
 		},
 		
+		
 		selectEnemyMonster(enemyMonster) {
-			this.currentEnemyMonster = enemyMonster; // Update this line
+			if (enemyMonster === "random") {
+				// Select a random monster from the array
+				const randomIndex = Math.floor(Math.random() * this.enemyMonsters.length);
+				this.currentEnemyMonster = this.enemyMonsters[randomIndex];
+			} else {
+				// Set the selected enemy monster
+				this.currentEnemyMonster = enemyMonster;
+			}
 			this.monsterSelect = false;
 			console.log(this.currentEnemyMonster.name);
 			this.startGame();
@@ -1516,7 +1505,6 @@ const app = Vue.createApp({
 		resetGame() {
 			this.gameStarted = false;
 			this.playerSelect = true;
-			this.isLogEmpty = true;
 			this.clearLog();
 		},
 

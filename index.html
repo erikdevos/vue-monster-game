@@ -34,6 +34,13 @@
 		<section v-if="playerSelect" id="player-monster-select" class="container monster-select">
 			<h2>Select your partner</h2>
 			<ul>
+				<li @click="selectPlayerMonster('random')">
+					<div class="monster-name">
+						<strong>Random</strong>
+						<span>&nbsp;</span>
+					</div>
+					<img class="monster-image" src="/resources/icon-random.png" alt="">
+				</li>
 				<li v-for="playerMonster in sortedEnemyMonsters" @click="selectPlayerMonster(playerMonster)">
 					<div class="monster-name">
 						<strong>{{playerMonster.name}}</strong>
@@ -51,6 +58,13 @@
 		<section v-if="monsterSelect" id="monster-list" class="container monster-select">
 			<h2>Select an enemy</h2>
 			<ul>
+				<li @click="selectEnemyMonster('random')">
+					<div class="monster-name">
+						<strong>Random</strong>
+						<span>&nbsp;</span>
+					</div>
+					<img class="monster-image" src="/resources/icon-random.png" alt="">
+				</li>
 				<li v-for="enemyMonster in sortedEnemyMonsters" @click="selectEnemyMonster(enemyMonster)">
 					<div class="monster-name">
 						<strong>{{enemyMonster.name}}</strong>
