@@ -66,7 +66,7 @@
 		</section>
 		
 		<!-- Enemy monster -->
-		<section v-if="gameStarted" id="monster" class="container">
+		<section v-if="gameStarted" id="monster" class="container battle-stage-wrapper">
 			<h2>
 				<span class="monster-type" :class="currentEnemyMonster.type"></span>
 				<span class="monster-name">{{currentEnemyMonster.name}}</span>
@@ -92,7 +92,7 @@
 		</section>
 			
 		<!-- Player character-->
-		<section v-if="gameStarted" id="player" class="container">
+		<section v-if="gameStarted" id="player" class="container battle-stage-wrapper">
 			<h2>
 				<span>{{playerName}} and
 				<span class="monster-type" :class="currentPlayerMonster.type"></span>	

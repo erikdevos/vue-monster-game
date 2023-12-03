@@ -34,12 +34,19 @@
 .monster-select {
 	> h2 {
 		font-size: 2rem;
+		margin-top: 1rem;
+		margin-bottom: 1rem;
 	}
 
 	ul {
+		margin-top: 0;
+		margin-bottom: 0;
 		margin-left: 0;
 		padding-left: 0;
+		padding-right: 1rem;
 		list-style: none;
+		max-height: 25rem;
+		overflow-x: auto;
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
 		gap: 1rem;
@@ -61,6 +68,7 @@
 			}
 			
 			.monster-name {
+				font-size: 1.1rem;
 				margin-bottom: 0.5rem;
 				display: flex;
 				flex-direction: column;
@@ -108,8 +116,8 @@
 	}
 
 	.trainer-image {
-		width: 7rem;
-		height: 7rem;
+		width: 5rem;
+		height: auto;
 		object-fit: contain;
 		margin-top: auto;
 	}
@@ -138,6 +146,12 @@
 	
 }
 
+.battle-stage-wrapper {
+	.monster-type {
+		border: solid 2px #FFFFFF;
+	}
+}
+
 #monster,
 #player {
 	background-image: url('/resources/battle-background.jpg');
@@ -158,6 +172,7 @@
 		display: flex;
 		align-items: baseline;
 		gap: 1rem;
+		text-shadow: 1px 1px white;
 	}
 
 	.monster-health,
