@@ -202,6 +202,7 @@ button:disabled {
 .player-images {
   display: flex;
   justify-content: center;
+  margin-top: auto;
   margin-bottom: 1rem;
   z-index: 1;
   position: relative;
@@ -241,7 +242,6 @@ button:disabled {
   width: 100%;
   height: 1.7rem;
   margin: 1rem 0;
-  margin-top: 0;
   background: #fde5e5;
   border: solid 2px #FFFFFF;
   border-radius: 0.3rem;
@@ -256,6 +256,21 @@ button:disabled {
   transition: width 0.5s ease-in-out;
 }
 
+.battle-stage-section {
+  display: flex;
+  gap: 1.5rem;
+  max-width: 60rem;
+}
+.battle-stage-section .battle-stage-wrapper {
+  flex: 1;
+  padding: 1.5rem;
+  border-radius: 1rem;
+}
+
+.battle-stage-wrapper {
+  display: flex;
+  flex-direction: column;
+}
 .battle-stage-wrapper .monster-type {
   border: solid 2px #FFFFFF;
 }

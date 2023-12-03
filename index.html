@@ -64,62 +64,63 @@
 			</ul>
 			
 		</section>
-		
-		<!-- Enemy monster -->
-		<section v-if="gameStarted" id="monster" class="container battle-stage-wrapper">
-			<h2>
-				<span class="monster-type" :class="currentEnemyMonster.type"></span>
-				<span class="monster-name">{{currentEnemyMonster.name}}</span>
-				<span class="monster-health">{{enemyMonsterHealth}} hp</span>
-			</h2>
-			
-			<div v-if="gameStarted" class="player-images">
-				<img
-				:src="currentEnemyMonster ? currentEnemyMonster.image : ''"
-				class="monster-image animate__animated"
-				:class="{
-				  'animate__flash': playerAttacked,
-				  'animate__wobble': specialAttackAttacked,
-				  ['size-' + (currentEnemyMonster ? currentEnemyMonster.size : '')]: true
-				}"
-				@transitionend="resetAttackedStatus"
-			  >
-			</div>
-			
-			<div class="healthbar">
-				<div class="healthbar__value" :style="monsterBarStyles"></div>
-			</div>
-		</section>
-			
-		<!-- Player character-->
-		<section v-if="gameStarted" id="player" class="container battle-stage-wrapper">
-			<h2>
-				<span>{{playerName}} and
-				<span class="monster-type" :class="currentPlayerMonster.type"></span>	
-				{{this.currentPlayerMonster.name}}</span>
-				<span class="player-health">{{this.currentPlayerMonster.health}} hp</span>				
-			</h2>
-
-			<div v-if="gameStarted" class="player-images">
-				<!-- Player trainer -->
-				<img src="https://ssb.wiki.gallery/images/thumb/1/11/Pok%C3%A9mon_Trainer_Male.png/800px-Pok%C3%A9mon_Trainer_Male.png" class="trainer-image monster-image animate__animated">
-				<!-- Player Monster -->
-				<img 
-				:src="currentPlayerMonster ? currentPlayerMonster.image : ''" 
-				class="monster-image animate__animated"  
-				:class="{ 'animate__flash': playerAttacked, 
-				'animate__wobble': specialAttackAttacked, 
-				'animate__pulse': healAnimation, 
-				'animate__fadeOutDown' : surrenderAnimation, 
-				['size-' + (currentPlayerMonster ? currentPlayerMonster.size : '')]: true
-				}" 
-				@transitionend="resetAttackedStatus"
+		<section class="container battle-stage-section">
+			<!-- Enemy monster -->
+			<div v-if="gameStarted" id="monster" class="battle-stage-wrapper">
+				<h2>
+					<span class="monster-type" :class="currentEnemyMonster.type"></span>
+					<span class="monster-name">{{currentEnemyMonster.name}}</span>
+					<span class="monster-health">{{enemyMonsterHealth}} hp</span>
+				</h2>
 				
+				<div v-if="gameStarted" class="player-images">
+					<img
+					:src="currentEnemyMonster ? currentEnemyMonster.image : ''"
+					class="monster-image animate__animated"
+					:class="{
+					'animate__flash': playerAttacked,
+					'animate__wobble': specialAttackAttacked,
+					['size-' + (currentEnemyMonster ? currentEnemyMonster.size : '')]: true
+					}"
+					@transitionend="resetAttackedStatus"
 				>
+				</div>
+				
+				<div class="healthbar">
+					<div class="healthbar__value" :style="monsterBarStyles"></div>
+				</div>
 			</div>
+				
+			<!-- Player character-->
+			<div v-if="gameStarted" id="player" class="battle-stage-wrapper">
+				<h2>
+					<span>{{playerName}} and
+					<span class="monster-type" :class="currentPlayerMonster.type"></span>	
+					{{this.currentPlayerMonster.name}}</span>
+					<span class="player-health">{{this.currentPlayerMonster.health}} hp</span>				
+				</h2>
 
-			<div v-if="gameStarted" class="healthbar">
-				<div class="healthbar__value" :style="playerBarStyles" class="monster-image"></div>
+				<div v-if="gameStarted" class="player-images">
+					<!-- Player trainer -->
+					<img src="https://ssb.wiki.gallery/images/thumb/1/11/Pok%C3%A9mon_Trainer_Male.png/800px-Pok%C3%A9mon_Trainer_Male.png" class="trainer-image monster-image animate__animated">
+					<!-- Player Monster -->
+					<img 
+					:src="currentPlayerMonster ? currentPlayerMonster.image : ''" 
+					class="monster-image animate__animated"  
+					:class="{ 'animate__flash': playerAttacked, 
+					'animate__wobble': specialAttackAttacked, 
+					'animate__pulse': healAnimation, 
+					'animate__fadeOutDown' : surrenderAnimation, 
+					['size-' + (currentPlayerMonster ? currentPlayerMonster.size : '')]: true
+					}" 
+					@transitionend="resetAttackedStatus"
+					
+					>
+				</div>
+
+				<div v-if="gameStarted" class="healthbar">
+					<div class="healthbar__value" :style="playerBarStyles" class="monster-image"></div>
+				</div>
 			</div>
 		</section>
 
