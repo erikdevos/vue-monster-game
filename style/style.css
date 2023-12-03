@@ -204,6 +204,7 @@ button:disabled {
   justify-content: center;
   margin-top: auto;
   margin-bottom: 1rem;
+  gap: 1rem;
   z-index: 1;
   position: relative;
   overflow: hidden;
@@ -213,6 +214,8 @@ button:disabled {
   height: 7rem;
   -o-object-fit: contain;
      object-fit: contain;
+  margin-top: auto;
+  filter: drop-shadow(3px 2px 0px rgb(255, 255, 255));
 }
 .player-images .monster-image.size-s {
   width: 8rem;
@@ -260,6 +263,7 @@ button:disabled {
   display: flex;
   gap: 1.5rem;
   max-width: 60rem;
+  padding: 1.5rem;
 }
 .battle-stage-section .battle-stage-wrapper {
   flex: 1;
@@ -277,9 +281,9 @@ button:disabled {
 
 #monster,
 #player {
-  background-image: url("/resources/battle-background.jpg");
+  background-image: url("/resources/battle-background.webp");
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center bottom;
   background-size: cover;
 }
 #monster h2,
@@ -295,6 +299,7 @@ button:disabled {
 #player span {
   display: flex;
   align-items: baseline;
+  white-space: nowrap;
   gap: 1rem;
   text-shadow: 1px 1px white;
 }
@@ -325,6 +330,8 @@ button:disabled {
   list-style: none;
   margin: 0;
   padding: 0;
+  max-height: 5rem;
+  overflow-x: auto;
 }
 #log ul li {
   margin: 0.5rem 0;

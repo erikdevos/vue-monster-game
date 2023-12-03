@@ -41,7 +41,7 @@ const app = Vue.createApp({
 		const enemyMonsters = [
 			{
 				name: 'MewTwo',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/150.png',
+				image: '150.png',
 				health: 120,
 				number: '0151',
 				size: 'm',
@@ -49,7 +49,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Mew',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/151.png',
+				image: '151.png',
 				health: 120,
 				number: '0150',
 				size: 's',
@@ -57,7 +57,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Bulbasaur',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png',
+				image: '001.png',
 				health: 80,
 				number: '0001',
 				size: 's',
@@ -65,7 +65,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Ivysaur',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/002.png',
+				image: '002.png',
 				health: 100,
 				number: '0002',
 				size: 'm',
@@ -73,7 +73,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Venusaur',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/003.png',
+				image: '003.png',
 				health: 180,
 				number: '0003',
 				size: 'l',
@@ -81,7 +81,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Charmander',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png',
+				image: '004.png',
 				health: 80,
 				number: '0004',
 				size: 's',
@@ -89,7 +89,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Charmeleon',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/005.png',
+				image: '005.png',
 				health: 100,
 				number: '0005',
 				size: 'm',
@@ -97,7 +97,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Charizard',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/006.png',
+				image: '006.png',
 				health: 180,
 				number: '0006',
 				size: 'l',
@@ -105,7 +105,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Squirtle',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png',
+				image: '007.png',
 				health: 80,
 				number: '0007',
 				size: 's',
@@ -113,7 +113,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Wartortle',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/008.png',
+				image: '008.png',
 				health: 100,
 				number: '0008',
 				size: 'm',
@@ -121,7 +121,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Gastly',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/092.png',
+				image: '092.png',
 				health: 80,
 				number: '0092',
 				size: 'm',
@@ -129,7 +129,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Blastoise',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/009.png',
+				image: '009.png',
 				health: 180,
 				number: '0009',
 				size: 'l',
@@ -137,7 +137,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Caterpie',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/010.png',
+				image: '010.png',
 				health: 40,
 				number: '0010',
 				size: 's',
@@ -145,7 +145,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Metapod',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/011.png',
+				image: '011.png',
 				health: 60,
 				number: '0011',
 				size: 'm',
@@ -153,7 +153,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Butterfree',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/012.png',
+				image: '012.png',
 				health: 120,
 				number: '0012',
 				size: 'l',
@@ -161,7 +161,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Weedle',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/013.png',
+				image: '013.png',
 				health: 40,
 				number: '0013',
 				size: 's',
@@ -169,7 +169,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Kakuna',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/014.png',
+				image: '014.png',
 				health: 60,
 				number: '0014',
 				size: 'm',
@@ -177,7 +177,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Beedrill',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/015.png',
+				image: '015.png',
 				health: 120,
 				number: '0015',
 				size: 'l',
@@ -185,7 +185,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Beedrill',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/015.png',
+				image: '015.png',
 				health: 120,
 				number: '0015',
 				size: 'l',
@@ -193,7 +193,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Pidgey',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/016.png',
+				image: '016.png',
 				health: 60,
 				number: '0016',
 				size: 's',
@@ -201,7 +201,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Pidgeotto',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/017.png',
+				image: '017.png',
 				health: 80,
 				number: '0017',
 				size: 'm',
@@ -209,7 +209,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Pidgeot',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/018.png',
+				image: '018.png',
 				health: 140,
 				number: '0018',
 				size: 'l',
@@ -217,7 +217,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Rattata',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/019.png',
+				image: '019.png',
 				health: 40,
 				number: '0019',
 				size: 's',
@@ -225,7 +225,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Raticate',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/020.png',
+				image: '020.png',
 				health: 80,
 				number: '0020',
 				size: 'm',
@@ -233,7 +233,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Spearow',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/021.png',
+				image: '021.png',
 				health: 60,
 				number: '0021',
 				size: 's',
@@ -241,7 +241,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Fearow',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/022.png',
+				image: '022.png',
 				health: 120,
 				number: '0022',
 				size: 'l',
@@ -249,7 +249,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Ekans',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/023.png',
+				image: '023.png',
 				health: 70,
 				number: '0023',
 				size: 'm',
@@ -257,7 +257,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Arbok',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/024.png',
+				image: '024.png',
 				health: 120,
 				number: '0024',
 				size: 'l',
@@ -265,14 +265,14 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Pikachu',
-				image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png",
+				image: "025.png",
 				number: '0025',
 				size: 's',
 				type: 'electric'
 			},
 			{
 				name: 'Raichu',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/026.png',
+				image: '026.png',
 				health: 120,
 				number: '0026',
 				size: 'm',
@@ -280,7 +280,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Sandshrew',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/027.png',
+				image: '027.png',
 				health: 60,
 				number: '0027',
 				size: 's',
@@ -288,7 +288,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Sandslash',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/028.png',
+				image: '028.png',
 				health: 120,
 				number: '0028',
 				size: 'm',
@@ -296,7 +296,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Nidoran♀',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/029.png',
+				image: '029.png',
 				health: 70,
 				number: '0029',
 				size: 's',
@@ -304,7 +304,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Nidorina',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/030.png',
+				image: '030.png',
 				health: 100,
 				number: '0030',
 				size: 'm',
@@ -312,7 +312,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Nidoqueen',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/031.png',
+				image: '031.png',
 				health: 180,
 				number: '0031',
 				size: 'l',
@@ -320,7 +320,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Nidoran♂',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/032.png',
+				image: '032.png',
 				health: 70,
 				number: '0032',
 				size: 's',
@@ -328,7 +328,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Nidorino',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/033.png',
+				image: '033.png',
 				health: 100,
 				number: '0033',
 				size: 'm',
@@ -336,7 +336,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Nidoking',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/034.png',
+				image: '034.png',
 				health: 180,
 				number: '0034',
 				size: 'l',
@@ -344,7 +344,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Clefairy',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/035.png',
+				image: '035.png',
 				health: 120,
 				number: '0035',
 				size: 'm',
@@ -352,7 +352,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Clefable',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/036.png',
+				image: '036.png',
 				health: 180,
 				number: '0036',
 				size: 'l',
@@ -360,7 +360,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Vulpix',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/037.png',
+				image: '037.png',
 				health: 80,
 				number: '0037',
 				size: 's',
@@ -368,7 +368,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Ninetales',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/038.png',
+				image: '038.png',
 				health: 140,
 				number: '0038',
 				size: 'l',
@@ -376,7 +376,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Jigglypuff',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/039.png',
+				image: '039.png',
 				health: 120,
 				number: '0039',
 				size: 'm',
@@ -384,7 +384,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Wigglytuff',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/040.png',
+				image: '040.png',
 				health: 180,
 				number: '0040',
 				size: 'l',
@@ -392,7 +392,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Zubat',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/041.png',
+				image: '041.png',
 				health: 60,
 				number: '0041',
 				size: 's',
@@ -400,7 +400,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Golbat',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/042.png',
+				image: '042.png',
 				health: 120,
 				number: '0042',
 				size: 'l',
@@ -408,7 +408,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Oddish',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/043.png',
+				image: '043.png',
 				health: 80,
 				number: '0043',
 				size: 's',
@@ -416,7 +416,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Gloom',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/044.png',
+				image: '044.png',
 				health: 120,
 				number: '0044',
 				size: 'm',
@@ -424,7 +424,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Vileplume',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/045.png',
+				image: '045.png',
 				health: 180,
 				number: '0045',
 				size: 'l',
@@ -432,7 +432,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Paras',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/046.png',
+				image: '046.png',
 				health: 70,
 				number: '0046',
 				size: 's',
@@ -440,7 +440,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Parasect',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/047.png',
+				image: '047.png',
 				health: 120,
 				number: '0047',
 				size: 'm',
@@ -448,7 +448,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Venonat',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/048.png',
+				image: '048.png',
 				health: 80,
 				number: '0048',
 				size: 's',
@@ -456,7 +456,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Venomoth',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/049.png',
+				image: '049.png',
 				health: 140,
 				number: '0049',
 				size: 'l',
@@ -464,7 +464,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Diglett',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/050.png',
+				image: '050.png',
 				health: 60,
 				number: '0050',
 				size: 's',
@@ -472,7 +472,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Dugtrio',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/051.png',
+				image: '051.png',
 				health: 120,
 				number: '0051',
 				size: 'm',
@@ -480,7 +480,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Meowth',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/052.png',
+				image: '052.png',
 				health: 80,
 				number: '0052',
 				size: 's',
@@ -488,7 +488,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Persian',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/053.png',
+				image: '053.png',
 				health: 140,
 				number: '0053',
 				size: 'm',
@@ -496,7 +496,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Psyduck',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/054.png',
+				image: '054.png',
 				health: 80,
 				number: '0054',
 				size: 's',
@@ -504,7 +504,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Golduck',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/055.png',
+				image: '055.png',
 				health: 140,
 				number: '0055',
 				size: 'm',
@@ -512,7 +512,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Mankey',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/056.png',
+				image: '056.png',
 				health: 80,
 				number: '0056',
 				size: 's',
@@ -520,7 +520,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Primeape',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/057.png',
+				image: '057.png',
 				health: 120,
 				number: '0057',
 				size: 'm',
@@ -528,7 +528,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Growlithe',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/058.png',
+				image: '058.png',
 				health: 90,
 				number: '0058',
 				size: 's',
@@ -536,7 +536,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Arcanine',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/059.png',
+				image: '059.png',
 				health: 160,
 				number: '0059',
 				size: 'l',
@@ -544,7 +544,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Poliwag',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/060.png',
+				image: '060.png',
 				health: 80,
 				number: '0060',
 				size: 's',
@@ -552,7 +552,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Poliwhirl',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/061.png',
+				image: '061.png',
 				health: 120,
 				number: '0061',
 				size: 'm',
@@ -560,7 +560,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Poliwrath',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/062.png',
+				image: '062.png',
 				health: 180,
 				number: '0062',
 				size: 'l',
@@ -568,7 +568,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Abra',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/063.png',
+				image: '063.png',
 				health: 60,
 				number: '0063',
 				size: 's',
@@ -576,7 +576,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Kadabra',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/064.png',
+				image: '064.png',
 				health: 120,
 				number: '0064',
 				size: 'm',
@@ -584,7 +584,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Alakazam',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/065.png',
+				image: '065.png',
 				health: 180,
 				number: '0065',
 				size: 'm',
@@ -592,7 +592,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Machop',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/066.png',
+				image: '066.png',
 				health: 80,
 				number: '0066',
 				size: 's',
@@ -600,7 +600,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Machoke',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/067.png',
+				image: '067.png',
 				health: 140,
 				number: '0067',
 				size: 'm',
@@ -608,7 +608,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Machamp',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/068.png',
+				image: '068.png',
 				health: 180,
 				number: '0068',
 				size: 'l',
@@ -616,7 +616,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Bellsprout',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/069.png',
+				image: '069.png',
 				health: 80,
 				number: '0069',
 				size: 's',
@@ -624,7 +624,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Weepinbell',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/070.png',
+				image: '070.png',
 				health: 120,
 				number: '0070',
 				size: 'm',
@@ -632,7 +632,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Victreebel',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/071.png',
+				image: '071.png',
 				health: 180,
 				number: '0071',
 				size: 'l',
@@ -640,7 +640,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Tentacool',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/072.png',
+				image: '072.png',
 				health: 90,
 				number: '0072',
 				size: 's',
@@ -648,7 +648,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Tentacruel',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/073.png',
+				image: '073.png',
 				health: 150,
 				number: '0073',
 				size: 'l',
@@ -656,7 +656,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Geodude',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/074.png',
+				image: '074.png',
 				health: 90,
 				number: '0074',
 				size: 's',
@@ -664,7 +664,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Graveler',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/075.png',
+				image: '075.png',
 				health: 140,
 				number: '0075',
 				size: 'm',
@@ -672,7 +672,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Golem',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/076.png',
+				image: '076.png',
 				health: 180,
 				number: '0076',
 				size: 'l',
@@ -680,7 +680,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Ponyta',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/077.png',
+				image: '077.png',
 				health: 90,
 				number: '0077',
 				size: 's',
@@ -688,7 +688,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Rapidash',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/078.png',
+				image: '078.png',
 				health: 160,
 				number: '0078',
 				size: 'l',
@@ -696,7 +696,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Slowpoke',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/079.png',
+				image: '079.png',
 				health: 120,
 				number: '0079',
 				size: 'm',
@@ -704,7 +704,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Slowbro',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/080.png',
+				image: '080.png',
 				health: 180,
 				number: '0080',
 				size: 'l',
@@ -712,7 +712,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Magnemite',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/081.png',
+				image: '081.png',
 				health: 80,
 				number: '0081',
 				size: 's',
@@ -720,7 +720,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Magneton',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/082.png',
+				image: '082.png',
 				health: 140,
 				number: '0082',
 				size: 'm',
@@ -728,7 +728,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Farfetch\'d',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/083.png',
+				image: '083.png',
 				health: 120,
 				number: '0083',
 				size: 'm',
@@ -736,7 +736,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Doduo',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/084.png',
+				image: '084.png',
 				health: 80,
 				number: '0084',
 				size: 's',
@@ -744,7 +744,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Dodrio',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/085.png',
+				image: '085.png',
 				health: 160,
 				number: '0085',
 				size: 'l',
@@ -752,7 +752,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Seel',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/086.png',
+				image: '086.png',
 				health: 100,
 				number: '0086',
 				size: 'm',
@@ -760,7 +760,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Dewgong',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/087.png',
+				image: '087.png',
 				health: 160,
 				number: '0087',
 				size: 'l',
@@ -768,7 +768,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Grimer',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/088.png',
+				image: '088.png',
 				health: 90,
 				number: '0088',
 				size: 's',
@@ -776,7 +776,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Muk',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/089.png',
+				image: '089.png',
 				health: 160,
 				number: '0089',
 				size: 'l',
@@ -784,7 +784,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Shellder',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/090.png',
+				image: '090.png',
 				health: 90,
 				number: '0090',
 				size: 's',
@@ -792,7 +792,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Cloyster',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/091.png',
+				image: '091.png',
 				health: 160,
 				number: '0091',
 				size: 'l',
@@ -800,7 +800,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Gastly',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/092.png',
+				image: '092.png',
 				health: 60,
 				number: '0092',
 				size: 's',
@@ -808,7 +808,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Haunter',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/093.png',
+				image: '093.png',
 				health: 120,
 				number: '0093',
 				size: 'm',
@@ -816,7 +816,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Gengar',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/094.png',
+				image: '094.png',
 				health: 160,
 				number: '0094',
 				size: 'l',
@@ -824,7 +824,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Onix',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/095.png',
+				image: '095.png',
 				health: 180,
 				number: '0095',
 				size: 'l',
@@ -832,7 +832,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Drowzee',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/096.png',
+				image: '096.png',
 				health: 120,
 				number: '0096',
 				size: 'm',
@@ -840,7 +840,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Hypno',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/097.png',
+				image: '097.png',
 				health: 160,
 				number: '0097',
 				size: 'l',
@@ -848,7 +848,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Krabby',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/098.png',
+				image: '098.png',
 				health: 90,
 				number: '0098',
 				size: 's',
@@ -856,7 +856,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Kingler',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/099.png',
+				image: '099.png',
 				health: 160,
 				number: '0099',
 				size: 'l',
@@ -864,7 +864,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Voltorb',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/100.png',
+				image: '100.png',
 				health: 80,
 				number: '0100',
 				size: 's',
@@ -872,7 +872,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Electrode',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/101.png',
+				image: '101.png',
 				health: 140,
 				number: '0101',
 				size: 'm',
@@ -880,7 +880,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Exeggcute',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/102.png',
+				image: '102.png',
 				health: 80,
 				number: '0102',
 				size: 's',
@@ -888,7 +888,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Exeggutor',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/103.png',
+				image: '103.png',
 				health: 180,
 				number: '0103',
 				size: 'l',
@@ -896,7 +896,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Cubone',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/104.png',
+				image: '104.png',
 				health: 100,
 				number: '0104',
 				size: 's',
@@ -904,7 +904,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Marowak',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/105.png',
+				image: '105.png',
 				health: 160,
 				number: '0105',
 				size: 'l',
@@ -912,7 +912,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Hitmonlee',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/106.png',
+				image: '106.png',
 				health: 160,
 				number: '0106',
 				size: 'l',
@@ -920,7 +920,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Hitmonchan',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/107.png',
+				image: '107.png',
 				health: 160,
 				number: '0107',
 				size: 'l',
@@ -928,7 +928,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Lickitung',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/108.png',
+				image: '108.png',
 				health: 180,
 				number: '0108',
 				size: 'l',
@@ -936,7 +936,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Koffing',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/109.png',
+				image: '109.png',
 				health: 90,
 				number: '0109',
 				size: 's',
@@ -944,7 +944,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Weezing',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/110.png',
+				image: '110.png',
 				health: 160,
 				number: '0110',
 				size: 'l',
@@ -952,7 +952,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Rhyhorn',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/111.png',
+				image: '111.png',
 				health: 140,
 				number: '0111',
 				size: 'm',
@@ -960,7 +960,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Rhydon',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/112.png',
+				image: '112.png',
 				health: 180,
 				number: '0112',
 				size: 'l',
@@ -968,7 +968,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Chansey',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/113.png',
+				image: '113.png',
 				health: 250,
 				number: '0113',
 				size: 'xl',
@@ -976,7 +976,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Tangela',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/114.png',
+				image: '114.png',
 				health: 130,
 				number: '0114',
 				size: 'm',
@@ -984,7 +984,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Kangaskhan',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/115.png',
+				image: '115.png',
 				health: 210,
 				number: '0115',
 				size: 'xl',
@@ -992,7 +992,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Horsea',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/116.png',
+				image: '116.png',
 				health: 80,
 				number: '0116',
 				size: 's',
@@ -1000,7 +1000,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Seadra',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/117.png',
+				image: '117.png',
 				health: 140,
 				number: '0117',
 				size: 'm',
@@ -1008,7 +1008,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Goldeen',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/118.png',
+				image: '118.png',
 				health: 90,
 				number: '0118',
 				size: 's',
@@ -1016,7 +1016,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Seaking',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/119.png',
+				image: '119.png',
 				health: 160,
 				number: '0119',
 				size: 'l',
@@ -1024,7 +1024,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Staryu',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/120.png',
+				image: '120.png',
 				health: 80,
 				number: '0120',
 				size: 's',
@@ -1032,7 +1032,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Starmie',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/121.png',
+				image: '121.png',
 				health: 160,
 				number: '0121',
 				size: 'l',
@@ -1040,7 +1040,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Mr. Mime',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/122.png',
+				image: '122.png',
 				health: 160,
 				number: '0122',
 				size: 'l',
@@ -1048,7 +1048,7 @@ const app = Vue.createApp({
 			},	
 			{
 				name: 'Scyther',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/123.png',
+				image: '123.png',
 				health: 160,
 				number: '0123',
 				size: 'l',
@@ -1056,7 +1056,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Jynx',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/124.png',
+				image: '124.png',
 				health: 180,
 				number: '0124',
 				size: 'l',
@@ -1064,7 +1064,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Electabuzz',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/125.png',
+				image: '125.png',
 				health: 180,
 				number: '0125',
 				size: 'l',
@@ -1072,7 +1072,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Magmar',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/126.png',
+				image: '126.png',
 				health: 180,
 				number: '0126',
 				size: 'l',
@@ -1080,7 +1080,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Pinsir',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/127.png',
+				image: '127.png',
 				health: 160,
 				number: '0127',
 				size: 'l',
@@ -1088,7 +1088,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Tauros',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/128.png',
+				image: '128.png',
 				health: 180,
 				number: '0128',
 				size: 'l',
@@ -1096,7 +1096,7 @@ const app = Vue.createApp({
 			},			
 			{
 				name: 'Magikarp',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/129.png',
+				image: '129.png',
 				health: 30,
 				number: '0129',
 				size: 's',
@@ -1104,7 +1104,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Gyarados',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/130.png',
+				image: '130.png',
 				health: 120,
 				number: '0130',
 				size: 'm',
@@ -1112,7 +1112,7 @@ const app = Vue.createApp({
 			},		
 			{
 				name: 'Lapras',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/131.png',
+				image: '131.png',
 				health: 220,
 				number: '0131',
 				size: 'l',
@@ -1120,7 +1120,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Ditto',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/132.png',
+				image: '132.png',
 				health: 80,
 				number: '0132',
 				size: 's',
@@ -1128,7 +1128,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Eevee',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/133.png',
+				image: '133.png',
 				health: 120,
 				number: '0133',
 				size: 'm',
@@ -1136,7 +1136,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Vaporeon',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/134.png',
+				image: '134.png',
 				health: 220,
 				number: '0134',
 				size: 'l',
@@ -1144,7 +1144,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Jolteon',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/135.png',
+				image: '135.png',
 				health: 180,
 				number: '0135',
 				size: 'l',
@@ -1152,7 +1152,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Flareon',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/136.png',
+				image: '136.png',
 				health: 180,
 				number: '0136',
 				size: 'l',
@@ -1160,7 +1160,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Porygon',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/137.png',
+				image: '137.png',
 				health: 120,
 				number: '0137',
 				size: 'm',
@@ -1168,7 +1168,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Omanyte',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/138.png',
+				image: '138.png',
 				health: 160,
 				number: '0138',
 				size: 's',
@@ -1176,7 +1176,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Omastar',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/139.png',
+				image: '139.png',
 				health: 200,
 				number: '0139',
 				size: 'm',
@@ -1184,14 +1184,14 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Kabuto',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/140.png',
+				image: '140.png',
 				number: '0140',
 				size: 's',
 				type: 'rock'
 			},
 			{
 				name: 'Kabutops',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/141.png',
+				image: '141.png',
 				health: 200,
 				number: '0141',
 				size: 'm',
@@ -1199,7 +1199,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Aerodactyl',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/142.png',
+				image: '142.png',
 				health: 200,
 				number: '0142',
 				size: 'l',
@@ -1207,7 +1207,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Snorlax',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/143.png',
+				image: '143.png',
 				health: 320,
 				number: '0143',
 				size: 'xl',
@@ -1215,7 +1215,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Articuno',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/144.png',
+				image: '144.png',
 				health: 280,
 				number: '0144',
 				size: 'l',
@@ -1223,7 +1223,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Zapdos',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/145.png',
+				image: '145.png',
 				health: 280,
 				number: '0145',
 				size: 'l',
@@ -1231,7 +1231,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Moltres',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/146.png',
+				image: '146.png',
 				health: 220,
 				number: '0146',
 				size: 'l',
@@ -1239,7 +1239,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Dratini',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/147.png',
+				image: '147.png',
 				health: 120,
 				number: '0147',
 				size: 's',
@@ -1247,7 +1247,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Dragonair',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/148.png',
+				image: '148.png',
 				health: 160,
 				number: '0148',
 				size: 'm',
@@ -1255,7 +1255,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Dragonite',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/149.png',
+				image: '149.png',
 				health: 180,
 				number: '0149',
 				size: 'l',
@@ -1263,7 +1263,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Articuno',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/144.png',
+				image: '144.png',
 				health: 220,
 				number: '0144',
 				size: 'l',
@@ -1271,7 +1271,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Togepi',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/175.png',
+				image: '175.png',
 				health: 120,
 				number: '0175',
 				size: 's',
@@ -1279,7 +1279,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Lugia',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/249.png',
+				image: '249.png',
 				health: 220,
 				number: '0249',
 				size: 'l',
@@ -1287,7 +1287,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Ho-Oh',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/250.png',
+				image: '250.png',
 				health: 220,
 				number: '0250',
 				size: 'xl',
@@ -1295,7 +1295,7 @@ const app = Vue.createApp({
 			},
 			{
 				name: 'Eternatus',
-				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/890.png',
+				image: '890.png',
 				health: 320,
 				number: '0890',
 				size: 'xl',
@@ -1320,26 +1320,35 @@ const app = Vue.createApp({
 			monsterAttacked: false,
 			specialAttackAttacked: false,
 			healAnimation: false,
-			surrenderAnimation: false,
+			playerLoseAnimation: false,
 			playerSelect: true,
-			monsterSelect: null
+			monsterSelect: null,
+			imagePathThumb: 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/',
+			imagePathFull: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/'
 		};
 	},
 
 	watch: {
 		playerHealth(value) {
+			// In case of a draw
 			if (value <= 0 && this.enemyMonsterHealth <= 0) {
 				this.winner = "draw";
 			} else if (value <= 0) {
+				// In case the enemy wins
 				this.winner = "monster";
+				this.playerLoseAnimation = true;
+				console.log("monster wins");
 			}
 		},
+
 		enemyMonsterHealth(value) {
+			// In case of a draw
 			if (value <= 0 && this.playerHealth <= 0) {
 				this.winner = "draw";
 			} else if (value <= 0) {
+				// If the player wins
 				this.winner = "player";
-				this.loseAnimation = true;
+				this.monsterLoseAnimation = true;
 				this.enemyMonsterHealth = 0;
 			}
 		}
@@ -1354,7 +1363,8 @@ const app = Vue.createApp({
 			this.enemyMonsterHealth = 0;
 			this.winner = null;
 			this.currentRound = 0;
-			this.surrenderAnimation = false;
+			this.playerLoseAnimation = false;
+			this.monsterLoseAnimation = false;
 			this.monsterSelect = false;	
 	
 			// Check if there's a selected enemy monster
@@ -1417,37 +1427,42 @@ const app = Vue.createApp({
 				"enemyMonsterHealth",
 				this.enemyMonsterHealth
 			);
-
+		
 			if (this.playerHealth <= 0) {
 				// Player's health is already 0 or below, no further attacks allowed
 				return;
 			}
-
+		
 			this.currentRound++;
 			const playerAttackValue = getrandomvalue(5, 12);
 			const monsterAttackValue = getrandomvalue(8, 15);
-
+		
 			this.enemyMonsterHealth -= playerAttackValue;
 			this.addLogMessage("player", "attack", playerAttackValue);
-
-			this.playerAttacked = true;
-			this.attackPlayer();
-
-			if (this.enemyMonsterHealth > 0) {
-				this.playerHealth = Math.max(this.playerHealth - monsterAttackValue, 0);
-				this.addLogMessage("monster", "attack", monsterAttackValue);
-				this.monsterAttacked = true;
-			}
+			this.monsterAttacked = true;
 
 			setTimeout(() => {
-				this.resetAttackedStatus();
-			}, 300);
-			console.log(
-				"After attack: playerHealth",
-				this.playerHealth,
-				"enemyMonsterHealth",
-				this.enemyMonsterHealth
-			);
+				this.playerAttacked = true;
+			}, 1000);
+			
+			setTimeout(() => {
+				if (this.enemyMonsterHealth > 0) {
+					this.attackPlayer();
+					this.playerHealth = Math.max(this.playerHealth - monsterAttackValue, 0);
+					this.addLogMessage("monster", "attack", monsterAttackValue);
+				}
+		
+				setTimeout(() => {
+					this.resetAttackedStatus();
+				}, 300);
+		
+				console.log(
+					"After attack: playerHealth",
+					this.playerHealth,
+					"enemyMonsterHealth",
+					this.enemyMonsterHealth
+				);
+			}, 1000);
 		},
 
 		attackPlayer() {
@@ -1460,14 +1475,19 @@ const app = Vue.createApp({
 			const attackValue = getrandomvalue(12, 20);
 			this.enemyMonsterHealth -= attackValue;
 			this.addLogMessage("player", "specialattack", attackValue);
+			
+			if (this.enemyMonsterHealth > 0) {		
+				setTimeout(() => {
 
-			// Set specialAttackAttacked to true before resetting
-			this.specialAttackAttacked = true;
+					this.attackPlayer();
+					this.specialAttackAttacked = true;
+			
+					setTimeout(() => {
+						this.resetAttackedStatus();
+					}, 300);
+				}, 1000);
+			};
 
-			this.attackPlayer();
-			setTimeout(() => {
-				this.resetAttackedStatus();
-			}, 300);
 		},
 
 		healPlayer() {
@@ -1490,7 +1510,7 @@ const app = Vue.createApp({
 
 		surrender() {
 			this.winner = "monster";
-			this.surrenderAnimation = true;
+			this.playerLoseAnimation = true;
 		},
 
 		resetGame() {
@@ -1551,9 +1571,11 @@ const app = Vue.createApp({
 				}
 			};
 		},
+
 		playerBarStyles() {
-			return this.getBarStyles(this.playerHealth, 100); // Assuming player max health is always 100
+			return this.getBarStyles(this.playerHealth, 100);
 		},
+
 		monsterBarStyles() {
 			return this.getBarStyles(
 				this.enemyMonsterHealth,
