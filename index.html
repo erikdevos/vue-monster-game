@@ -20,7 +20,7 @@
 	<div id="game">
 			
 		<!-- Character select screen -->
-		<section v-if="playerSelect" id="player-select" class="container">
+		<section v-if="playerSelect" id="player-select" class="container player-select">
 			<h2>What's your name?</h2>
 			<div class="name-input-wrapper">
 				<div class="input-wrapper">
@@ -150,7 +150,7 @@
 		</section>
 
 		<!-- Game controls -->
-		<section v-if="gameStarted" id="controls">
+		<section v-if="gameStarted && !gameEnded" id="controls">
 			<button @click="attackMonster">ATTACK</button>
 			<button :disabled="mayUseSpecialAttack" @click="specialAttackMonster">SPECIAL ATTACK</button>
 			<button :disabled="mayUseHeal" @click="healPlayer">HEAL</button>

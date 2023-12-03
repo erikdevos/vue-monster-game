@@ -1309,6 +1309,7 @@ const app = Vue.createApp({
 			currentPlayerMonster: null,
 			enemyMonster: null,
 			gameStarted: null,
+			gameEnded: null,
 			playerHealth: 100,
 			monsterHealth: 100,
 			enemyMonsterHealth: 0,
@@ -1338,6 +1339,7 @@ const app = Vue.createApp({
 				// In case the enemy wins
 				this.winner = "monster";
 				this.playerLoseAnimation = true;
+				this.gameEnded = true;
 				console.log("monster wins");
 			}
 		},
@@ -1351,6 +1353,8 @@ const app = Vue.createApp({
 				this.winner = "player";
 				this.monsterLoseAnimation = true;
 				this.enemyMonsterHealth = 0;
+				this.gameEnded = true;
+				console.log("player wins");
 			}
 		}
 	},
@@ -1503,6 +1507,7 @@ const app = Vue.createApp({
 		},
 
 		resetGame() {
+			this.gameEnded = false;
 			this.gameStarted = false;
 			this.playerSelect = true;
 			this.clearLog();
