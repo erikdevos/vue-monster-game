@@ -40,109 +40,194 @@ const app = Vue.createApp({
 	data() {
 		const enemyMonsters = [
 			{
-				name: "MewTwo",
-				image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/150.png",
+				name: 'MewTwo',
+				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/150.png',
 				health: 120,
 				number: '0151',
 				size: 'm',
                 type: 'psychic'
 			},
 			{
-				name: "Mew",
-				image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/151.png",
+				name: 'Mew',
+				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/151.png',
 				health: 120,
 				number: '0150',
 				size: 's',
                 type: 'psychic'
 			},
 			{
-				name: "Bulbasaur",
-				image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png",
+				name: 'Bulbasaur',
+				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png',
 				health: 80,
 				number: '0001',
 				size: 's',
                 type: 'grass'
 			},
 			{
-				name: "Charmander",
-				image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png",
+				name: 'Charmander',
+				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png',
 				health: 80,
 				number: '0004',
 				size: 's',
                 type: 'fire'
 			},
 			{
-				name: "Charizard",
-				image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/006.png",
+				name: 'Charizard',
+				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/006.png',
 				health: 180,
 				number: '0006',
 				size: 'l',
                 type: 'fire'
 			},
 			{
-				name: "Squirtle",
-				image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png",
+				name: 'Squirtle',
+				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png',
 				health: 80,
 				number: '0007',
 				size: 's',
                 type: 'water'
 			},
 			{
-				name: "Blastoise",
-				image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/009.png",
+				name: 'Gastly',
+				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/092.png',
+				health: 80,
+				number: '0092',
+				size: 'm',
+				type: 'ghost'
+			},
+			{
+				name: 'Blastoise',
+				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/009.png',
 				health: 180,
 				number: '0009',
 				size: 'l',
                 type: 'water'
 			},
 			{
-				name: "Venusaur",
-				image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/003.png",
+				name: 'Venusaur',
+				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/003.png',
 				health: 180,
 				number: '0003',
 				size: 'l',
                 type: 'grass'
 			},
 			{
-				name: "Magikarp",
-				image: "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/129.png",
+				name: 'Pikachu',
+				image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png",
+				number: '0025',
+				size: 's',
+				type: 'electric'
+			},
+			{
+				name: 'Alakazam',
+				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/065.png',
+				health: 180,
+				number: '0065',
+				size: 'm',
+                type: 'psychic'
+			},
+			{
+				name: 'Scyter',
+				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/123.png',
+				number: '0123',
+				size: 'm',
+				type: 'bug'
+			},
+			{
+				name: 'Kabuto',
+				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/140.png',
+				number: '0140',
+				size: 's',
+				type: 'rock'
+			},
+			{
+				name: 'Magikarp',
+				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/129.png',
 				health: 30,
 				number: '0129',
 				size: 's',
                 type: 'water'
 			},
 			{
-				name: "Dragonite",
-				image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/149.png",
+				name: 'Gyarados',
+				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/130.png',
+				health: 120,
+				number: '0130',
+				size: 'm',
+				type: 'dragon'
+			},
+			{
+				name: 'Ditto',
+				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/132.png',
+				health: 100,
+				number: '0132',
+				size: 's',
+				type: 'normal'
+			},
+			{
+				name: 'Dragonite',
+				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/149.png',
 				health: 180,
 				number: '0149',
 				size: 'l',
                 type: 'dragon'
 			},
 			{
-				name: "Moltres",
-				image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/146.png",
+				name: 'Articuno',
+				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/144.png',
+				health: 220,
+				number: '0144',
+				size: 'l',
+				type: 'ice'
+			},
+			{
+				name: 'Zapdos',
+				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/145.png',
+				health: 220,
+				number: '0145',
+				size: 'l',
+				type: 'electric'
+			},
+			{
+				name: 'Moltres',
+				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/146.png',
 				health: 220,
 				number: '0146',
 				size: 'l',
                 type: 'fire'
 			},
 			{
-				name: "Eternatus",
-				image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/890.png",
+				name: 'Togepi',
+				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/175.png',
+				health: 120,
+				number: '0175',
+				size: 's',
+				type: 'fairy'
+			},
+			{
+				name: 'Lugia',
+				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/249.png',
+				health: 220,
+				number: '0249',
+				size: 'l',
+				type: 'psychic'
+			},
+			{
+				name: 'Ho-Oh',
+				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/250.png',
+				health: 220,
+				number: '0250',
+				size: 'xl',
+				type: 'fire'
+			},
+			{
+				name: 'Eternatus',
+				image: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/890.png',
 				health: 320,
 				number: '0890',
 				size: 'xl',
                 type: 'dragon'
 			},
-			{
-				name: "Alakazam",
-				image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/065.png",
-				health: 180,
-				number: '0065',
-				size: 'm',
-                type: 'psychic'
-			}
 		];
 
 		return {

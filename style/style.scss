@@ -122,10 +122,12 @@
 	margin: 1rem 0;
 	margin-top: 0;
 	background: #fde5e5;
+	border: solid 2px #FFFFFF;
 	border-radius: $border-radius-s;
 	overflow: hidden;
 	z-index: 2;
 	position: relative;
+
 
 	.healthbar__value {
 		background-color: #00a876;
@@ -136,14 +138,21 @@
 	
 }
 
-#monster h2,
-#player h2 {
-	display: flex;
-	align-items: center;
-	margin-top: 0;
-	margin-bottom: 1rem;
-	justify-content: center;
-	gap: 1rem;
+#monster,
+#player {
+	background-image: url('/resources/battle-background.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+
+	h2 {
+		display: flex;
+		align-items: center;
+		margin-top: 0;
+		margin-bottom: 1rem;
+		justify-content: center;
+		gap: 1rem;
+		}
 
 	span {
 		display: flex;

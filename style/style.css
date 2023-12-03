@@ -10,6 +10,8 @@ body {
   margin: 0;
   font-size: 1rem;
   line-height: 1.2;
+  background-image: url(/resources/global-background.png);
+  background-repeat: repeat;
 }
 
 header {
@@ -31,6 +33,9 @@ section {
 }
 
 .container {
+  background-color: rgba(255, 255, 255, 0.7);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
   text-align: center;
   padding: 1rem;
   padding-left: 1.5rem;
@@ -120,6 +125,9 @@ button:disabled {
 }
 .monster-type.ground {
   background-color: #db5;
+}
+.monster-type.rock {
+  background-color: #ba6;
 }
 .monster-type.ghost {
   background-color: #66b;
@@ -227,6 +235,7 @@ button:disabled {
   margin: 1rem 0;
   margin-top: 0;
   background: #fde5e5;
+  border: solid 2px #FFFFFF;
   border-radius: 0.3rem;
   overflow: hidden;
   z-index: 2;
@@ -239,6 +248,13 @@ button:disabled {
   transition: width 0.5s ease-in-out;
 }
 
+#monster,
+#player {
+  background-image: url("/resources/battle-background.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
 #monster h2,
 #player h2 {
   display: flex;
@@ -248,16 +264,16 @@ button:disabled {
   justify-content: center;
   gap: 1rem;
 }
-#monster h2 span,
-#player h2 span {
+#monster span,
+#player span {
   display: flex;
   align-items: baseline;
   gap: 1rem;
 }
-#monster h2 .monster-health,
-#monster h2 .player-health,
-#player h2 .monster-health,
-#player h2 .player-health {
+#monster .monster-health,
+#monster .player-health,
+#player .monster-health,
+#player .player-health {
   font-size: 1rem;
   font-weight: normal;
 }
