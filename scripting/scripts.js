@@ -30,6 +30,8 @@ const app = Vue.createApp({
 			playerLoseAnimation: false,
 			playerSelect: true,
 			monsterSelect: null,
+			searchTermPlayer: '',
+			searchTermEnemy: '',
 			imagePathThumb: 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/',
 			imagePathFull: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/'
 		};
@@ -309,6 +311,28 @@ const app = Vue.createApp({
 	},
 
 	computed: {
+		filteredPlayerMonsters() {
+			const regex = new RegExp(this.searchTermPlayer, 'i');
+			return this.sortedEnemyMonsters.filter(playerMonster => {
+				return (
+				regex.test(playerMonster.name) ||
+				regex.test(playerMonster.type) ||
+				regex.test(playerMonster.number.toString())
+				);
+			});
+		},
+			
+		filteredEnemyMonsters() {
+		const regex = new RegExp(this.searchTermEnemy, 'i');
+		return this.sortedEnemyMonsters.filter(enemyMonster => {
+			return (
+			regex.test(enemyMonster.name) ||
+			regex.test(enemyMonster.type) ||
+			regex.test(enemyMonster.number.toString())
+			);
+		});
+		},
+
 		getBarStyles() {
 			return (value, maxHealth) => {
 			const percentage = (value / maxHealth) * 100;
