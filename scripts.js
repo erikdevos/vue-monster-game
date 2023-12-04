@@ -1342,7 +1342,6 @@ const app = Vue.createApp({
 				this.playerLoseAnimation = true;
 				this.gameEnded = true;
 			}
-			console.log("currentPlayerMonsterHealth");
 		},
 
 		enemyMonsterHealth(value) {
@@ -1481,20 +1480,35 @@ const app = Vue.createApp({
 		healPlayer() {
 			this.currentRound++;
 			this.healAnimation = true;
-			const healValue = getrandomvalue(25, 35);
+			const healValue = getrandomvalue(100, 100);
 			console.log("healing");
-
-			if (this.currentPlayerMonsterHealth + healValue > 100) {
-				this.currentPlayerMonster.health;
+			console.log(healValue);
+		
+			if (this.currentPlayerMonsterHealth + healValue > this.currentPlayerMonster.health) {
+				this.currentPlayerMonsterHealth = this.currentPlayerMonster.health;
+				console.log("health after healing (if)");
+				console.log(this.currentPlayerMonsterHealth);
+				console.log("healvalue:");
+				console.log(healValue);
 			} else {
-				this.currentPlayerMonster.name += healValue;
+				this.currentPlayerMonsterHealth += healValue;
+				console.log("health after healing (else)")
+				console.log(this.currentPlayerMonsterHealth);
+				console.log("healvalue:");
+				console.log(healValue);
 			}
-
+		
 			this.addLogMessage("player", "heal", healValue);
-			this.attackPlayer();
-
+		
+			// Delay for the monster's counter-attack
 			setTimeout(() => {
-				this.healAnimation = false;
+				this.attackPlayer();
+		
+				setTimeout(() => {
+					this.resetAttackedStatus();
+					this.healAnimation = false;
+				}, 300);
+		
 			}, 1000);
 		},
 
