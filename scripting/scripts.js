@@ -3,38 +3,6 @@ function getrandomvalue(min, max) {
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function calculateDamage(attackerType, moveType, opponentType) {
-    const typeChart = {
-        Normal: { Normal: 1, Fighting: 2, Flying: 1, Poison: 1, Ground: 1, Rock: 0.5, Bug: 1, Ghost: 0, Steel: 0.5, Fire: 1, Water: 1, Grass: 1, Electric: 1, Psychic: 1, Ice: 1, Dragon: 1, Dark: 1, Fairy: 1 },
-        Fighting: { Normal: 0.5, Fighting: 1, Flying: 0.5, Poison: 0.5, Ground: 1, Rock: 2, Bug: 0.5, Ghost: 0, Steel: 2, Fire: 1, Water: 1, Grass: 1, Electric: 1, Psychic: 0.5, Ice: 2, Dragon: 1, Dark: 2, Fairy: 0.5 },
-        Flying: { Normal: 1, Fighting: 2, Flying: 1, Poison: 1, Ground: 1, Rock: 0.5, Bug: 2, Ghost: 1, Steel: 0.5, Fire: 1, Water: 1, Grass: 0.5, Electric: 2, Psychic: 1, Ice: 2, Dragon: 1, Dark: 1, Fairy: 1 },
-        Poison: { Normal: 1, Fighting: 1, Flying: 1, Poison: 0.5, Ground: 2, Rock: 1, Bug: 1, Ghost: 1, Steel: 0, Fire: 1, Water: 1, Grass: 0.5, Electric: 1, Psychic: 1, Ice: 1, Dragon: 1, Dark: 1, Fairy: 2 },
-        Ground: { Normal: 1, Fighting: 1, Flying: 0, Poison: 2, Ground: 1, Rock: 2, Bug: 0.5, Ghost: 1, Steel: 2, Fire: 2, Water: 1, Grass: 0.5, Electric: 2, Psychic: 1, Ice: 1, Dragon: 1, Dark: 1, Fairy: 1 },
-        Rock: { Normal: 1, Fighting: 0.5, Flying: 2, Poison: 1, Ground: 0.5, Rock: 1, Bug: 2, Ghost: 1, Steel: 0.5, Fire: 2, Water: 1, Grass: 1, Electric: 1, Psychic: 1, Ice: 2, Dragon: 1, Dark: 1, Fairy: 1 },
-        Bug: { Normal: 1, Fighting: 0.5, Flying: 0.5, Poison: 1, Ground: 1, Rock: 1, Bug: 1, Ghost: 0.5, Steel: 0.5, Fire: 0.5, Water: 1, Grass: 2, Electric: 1, Psychic: 2, Ice: 1, Dragon: 1, Dark: 2, Fairy: 0.5 },
-        Ghost: { Normal: 0, Fighting: 0, Flying: 1, Poison: 1, Ground: 1, Rock: 1, Bug: 1, Ghost: 2, Steel: 1, Fire: 1, Water: 1, Grass: 1, Electric: 1, Psychic: 1, Ice: 1, Dragon: 1, Dark: 0.5, Fairy: 1 },
-        Steel: { Normal: 0.5, Fighting: 2, Flying: 0.5, Poison: 0, Ground: 2, Rock: 0.5, Bug: 0.5, Ghost: 1, Steel: 0.5, Fire: 2, Water: 1, Grass: 0.5, Electric: 1, Psychic: 0.5, Ice: 0.5, Dragon: 0.5, Dark: 0.5, Fairy: 0.5 },
-        Fire: { Normal: 1, Fighting: 1, Flying: 1, Poison: 1, Ground: 1, Rock: 0.5, Bug: 2, Ghost: 1, Steel: 0.5, Fire: 0.5, Water: 2, Grass: 0.5, Electric: 1, Psychic: 1, Ice: 2, Dragon: 1, Dark: 1, Fairy: 0.5 },
-        Water: { Normal: 1, Fighting: 1, Flying: 1, Poison: 1, Ground: 1, Rock: 2, Bug: 1, Ghost: 1, Steel: 0.5, Fire: 0.5, Water: 0.5, Grass: 2, Electric: 1, Psychic: 1, Ice: 1, Dragon: 1, Dark: 1, Fairy: 1 },
-        Grass: { Normal: 1, Fighting: 1, Flying: 2, Poison: 2, Ground: 0.5, Rock: 0.5, Bug: 0.5, Ghost: 1, Steel: 2, Fire: 2, Water: 0.5, Grass: 0.5, Electric: 1, Psychic: 1, Ice: 2, Dragon: 1, Dark: 1, Fairy: 1 },
-        Electric: { Normal: 1, Fighting: 1, Flying: 0.5, Poison: 1, Ground: 2, Rock: 1, Bug: 1, Ghost: 1, Steel: 0.5, Fire: 1, Water: 1, Grass: 1, Electric: 0.5, Psychic: 1, Ice: 1, Dragon: 1, Dark: 1, Fairy: 1 },
-        Psychic: { Normal: 1, Fighting: 2, Flying: 1, Poison: 2, Ground: 1, Rock: 1, Bug: 1, Ghost: 1, Steel: 0.5, Fire: 1, Water: 1, Grass: 1, Electric: 1, Psychic: 0.5, Ice: 1, Dragon: 1, Dark: 0, Fairy: 1 },
-        Ice: { Normal: 1, Fighting: 1, Flying: 2, Poison: 1, Ground: 2, Rock: 1, Bug: 1, Ghost: 1, Steel: 0.5, Fire: 0.5, Water: 0.5, Grass: 2, Electric: 1, Psychic: 1, Ice: 0.5, Dragon: 2, Dark: 1, Fairy: 1 },
-        Dragon: { Normal: 1, Fighting: 1, Flying: 1, Poison: 1, Ground: 1, Rock: 1, Bug: 1, Ghost: 1, Steel: 0.5, Fire: 1, Water: 1, Grass: 1, Electric: 1, Psychic: 1, Ice: 2, Dragon: 2, Dark: 1, Fairy: 0 },
-        Dark: { Normal: 1, Fighting: 0.5, Flying: 1, Poison: 1, Ground: 1, Rock: 1, Bug: 1, Ghost: 2, Steel: 1, Fire: 1, Water: 1, Grass: 1, Electric: 1, Psychic: 2, Ice: 1, Dragon: 1, Dark: 0.5, Fairy: 2 },
-        Fairy: { Normal: 1, Fighting: 2, Flying: 1, Poison: 0.5, Ground: 1, Rock: 1, Bug: 1, Ghost: 1, Steel: 2, Fire: 1, Water: 1, Grass: 1, Electric: 1, Psychic: 1, Ice: 1, Dragon: 0, Dark: 0.5, Fairy: 1 },
-    };
-
-    const effectiveness = typeChart[moveType][opponentType];
-    const damageMultiplier = effectiveness === undefined ? 1 : effectiveness;
-
-    // Assuming base damage and other factors, you can adjust this based on your game's mechanics.
-    const baseDamage = 50;
-    const totalDamage = baseDamage * damageMultiplier;
-
-    return totalDamage;
-}
-
 const app = Vue.createApp({
 	data() {
 
@@ -152,13 +120,16 @@ const app = Vue.createApp({
 		},
 
 		attackMonster() {
+			const damageMultiplier = getMultiplier(this.currentPlayerMonster.type, this.currentEnemyMonster.type);				
 			console.log("Before attack: playerHealth", this.currentPlayerMonsterHealth, "enemyMonsterHealth", this.enemyMonsterHealth);
-				
+			console.log(getMultiplier(this.currentPlayerMonster.type, this.currentEnemyMonster.type));
+
 			this.currentRound++;
 			const playerAttackValue = getrandomvalue(12, 20);
 			this.monsterAttackValue = getrandomvalue(18, 25);
-			this.enemyMonsterHealth -= playerAttackValue;
-			this.addLogMessage("player", "attack", playerAttackValue);
+			const totalDamage = playerAttackValue * damageMultiplier;
+			this.enemyMonsterHealth -= totalDamage;
+			this.addLogMessage("player", "attack", totalDamage);
 			this.monsterAttacked = true;
 		
 			setTimeout(() => {
@@ -180,20 +151,35 @@ const app = Vue.createApp({
 				console.log("original health", this.currentPlayerMonster.health); // Add this line
 				console.log("Live health", this.currentPlayerMonsterHealth); // Add this line
 			}, 1000);
+			return;
 		},
 
 		attackPlayer() {
-			this.currentPlayerMonsterHealth = Math.max(this.currentPlayerMonsterHealth - this.monsterAttackValue, 0);
-			this.addLogMessage("monster", "attack", this.monsterAttackValue);
+			// Get the damage multiplier based on monster types (roles reversed)
+			const damageMultiplier = getMultiplier(this.currentEnemyMonster.type, this.currentPlayerMonster.type);
+
+			// Calculate the total damage by multiplying the base damage with the multiplier
+			const totalDamage = this.monsterAttackValue * damageMultiplier;
+
+			// Update the player monster's health
+			this.currentPlayerMonsterHealth = Math.max(this.currentPlayerMonsterHealth - totalDamage, 0);
+
+			// Log the attack message
+			this.addLogMessage("monster", "attack", totalDamage);
 			return;
 		},
 
 		specialAttackMonster() {
 			this.currentRound++;
-			const attackValue = getrandomvalue(15, 25);
-			this.enemyMonsterHealth -= attackValue;
-			this.addLogMessage("player", "specialattack", attackValue);
+			const damageMultiplier = getMultiplier(this.currentPlayerMonster.type, this.currentEnemyMonster.type);				
+			const PlayerSpecialAttackValue = getrandomvalue(15, 25);
+			const totalDamage = PlayerSpecialAttackValue * damageMultiplier;
+			this.enemyMonsterHealth -= totalDamage;
+			
+			console.log(getMultiplier(this.currentPlayerMonster.type, this.currentEnemyMonster.type));
+			this.addLogMessage("player", "specialattack", totalDamage);
 			this.specialAttackAttacked = true;
+
 			setTimeout(() => {
 				this.playerAttacked = true;
 			}, 1000);
