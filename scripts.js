@@ -1340,7 +1340,6 @@ const app = Vue.createApp({
 				this.winner = "monster";
 				this.playerLoseAnimation = true;
 				this.gameEnded = true;
-				console.log("monster wins");
 			}
 		},
 
@@ -1354,7 +1353,6 @@ const app = Vue.createApp({
 				this.monsterLoseAnimation = true;
 				this.enemyMonsterHealth = 0;
 				this.gameEnded = true;
-				console.log("player wins");
 			}
 		}
 	},
@@ -1386,7 +1384,6 @@ const app = Vue.createApp({
 		
 			this.playerSelect = false;
 			this.monsterSelect = true;
-			console.log(this.currentPlayerMonster.name);
 		},
 		
 		
@@ -1400,7 +1397,6 @@ const app = Vue.createApp({
 				this.currentEnemyMonster = enemyMonster;
 			}
 			this.monsterSelect = false;
-			console.log(this.currentEnemyMonster.name);
 			this.startGame();
 		},
 		

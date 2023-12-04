@@ -286,7 +286,7 @@ button:disabled {
 
 #monster,
 #player {
-  background-image: url("resources/battle-background.webp");
+  background-image: url("../resources/battle-background.webp");
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: cover;
