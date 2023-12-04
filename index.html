@@ -39,7 +39,7 @@
 						<strong>Random</strong>
 						<span>&nbsp;</span>
 					</div>
-					<img class="monster-image" src="/resources/icon-random.png" alt="">
+					<img class="monster-image" src="resources/icon-random.png" alt="">
 				</li>
 				<li v-for="playerMonster in sortedEnemyMonsters" @click="selectPlayerMonster(playerMonster)">
 					<div class="monster-name">
@@ -63,7 +63,7 @@
 						<strong>Random</strong>
 						<span>&nbsp;</span>
 					</div>
-					<img class="monster-image" src="/resources/icon-random.png" alt="">
+					<img class="monster-image" src="resources/icon-random.png" alt="">
 				</li>
 				<li v-for="enemyMonster in sortedEnemyMonsters" @click="selectEnemyMonster(enemyMonster)">
 					<div class="monster-name">
@@ -117,7 +117,7 @@
 
 				<div v-if="gameStarted" class="player-images">
 					<!-- Player trainer -->
-					<img src="/resources/trainer-male.webp" class="trainer-image monster-image animate__animated">
+					<img src="resources/trainer-male.webp" class="trainer-image monster-image animate__animated">
 					<!-- Player Monster -->
 					<img 
 					:src="imagePathFull + currentPlayerMonster.image" 
