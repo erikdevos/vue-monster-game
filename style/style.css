@@ -14,6 +14,13 @@ body {
   background-repeat: repeat;
 }
 
+input {
+  padding: 0.3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 1rem;
+}
+
 header {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   padding: 0.5rem;
@@ -80,10 +87,6 @@ button:disabled {
   margin-bottom: 1rem;
 }
 .name-input-wrapper input {
-  padding: 0.3rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  font-size: 1rem;
   text-align: center;
 }
 
@@ -356,4 +359,8 @@ button:disabled {
 }
 #log ul .log--heal {
   color: green;
+}
+
+.filter-bar-wrapper {
+  margin-bottom: 1.5rem;
 }/*# sourceMappingURL=style.css.map */
