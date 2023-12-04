@@ -313,12 +313,24 @@ const app = Vue.createApp({
 	computed: {
 		filteredPlayerMonsters() {
 			const regex = new RegExp(this.searchTermPlayer, 'i');
-			return this.sortedEnemyMonsters.filter(playerMonster => regex.test(playerMonster.name));
+			return this.sortedEnemyMonsters.filter(playerMonster => {
+				return (
+				regex.test(playerMonster.name) ||
+				regex.test(playerMonster.type) ||
+				regex.test(playerMonster.number.toString())
+				);
+			});
 		},
-
+			
 		filteredEnemyMonsters() {
-			const regex = new RegExp(this.searchTermEnemy, 'i');
-			return this.sortedEnemyMonsters.filter(enemyMonster => regex.test(enemyMonster.name));
+		const regex = new RegExp(this.searchTermEnemy, 'i');
+		return this.sortedEnemyMonsters.filter(enemyMonster => {
+			return (
+			regex.test(enemyMonster.name) ||
+			regex.test(enemyMonster.type) ||
+			regex.test(enemyMonster.number.toString())
+			);
+		});
 		},
 
 		getBarStyles() {
