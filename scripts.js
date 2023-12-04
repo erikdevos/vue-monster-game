@@ -1310,9 +1310,10 @@ const app = Vue.createApp({
 			enemyMonster: null,
 			gameStarted: null,
 			gameEnded: null,
-			playerHealth: 100,
 			monsterHealth: 100,
 			enemyMonsterHealth: 0,
+			currentPlayerMonsterHealth: 0,
+			monsterAttackValue: 0,
 			currentRound: 0,
 			winner: null,
 			logMessages: [],
@@ -1331,7 +1332,7 @@ const app = Vue.createApp({
 	},
 
 	watch: {
-		playerHealth(value) {
+		currentPlayerMonsterHealth(value) {
 			// In case of a draw
 			if (value <= 0 && this.enemyMonsterHealth <= 0) {
 				this.winner = "draw";
@@ -1341,11 +1342,12 @@ const app = Vue.createApp({
 				this.playerLoseAnimation = true;
 				this.gameEnded = true;
 			}
+			console.log("currentPlayerMonsterHealth");
 		},
 
 		enemyMonsterHealth(value) {
 			// In case of a draw
-			if (value <= 0 && this.playerHealth <= 0) {
+			if (value <= 0 && this.currentplayerMonsterHealth <= 0) {
 				this.winner = "draw";
 			} else if (value <= 0) {
 				// If the player wins
@@ -1361,9 +1363,6 @@ const app = Vue.createApp({
 		startGame() {
 			this.gameStarted = true;
 			this.clearLog();
-			this.playerHealth = 100;
-			this.monsterHealth = 100;
-			this.enemyMonsterHealth = 0;
 			this.winner = null;
 			this.currentRound = 0;
 			this.playerLoseAnimation = false;
@@ -1374,17 +1373,22 @@ const app = Vue.createApp({
 
 		selectPlayerMonster(playerMonster) {
 			if (playerMonster === "random") {
-				// Select a random monster from the array
-				const randomIndex = Math.floor(Math.random() * this.enemyMonsters.length);
-				this.currentPlayerMonster = this.enemyMonsters[randomIndex];
+			  // Select a random monster from the array
+			  const randomIndex = Math.floor(Math.random() * this.playerMonsters.length);
+			  this.currentPlayerMonster = this.playerMonsters[randomIndex];
 			} else {
-				// Set the selected player monster
-				this.currentPlayerMonster = playerMonster;
+			  // Set the selected player monster
+			  this.currentPlayerMonster = playerMonster;
 			}
-		
+		  
+			// store the original health value
+			this.currentPlayerMonsterHealth = this.currentPlayerMonster.health; 
+		  
 			this.playerSelect = false;
 			this.monsterSelect = true;
-		},
+		  
+			console.log(this.currentPlayerMonsterHealth);
+		  },
 		
 		
 		selectEnemyMonster(enemyMonster) {
@@ -1396,7 +1400,10 @@ const app = Vue.createApp({
 				// Set the selected enemy monster
 				this.currentEnemyMonster = enemyMonster;
 			}
+
+			this.currentEnemyMonsterHealth = this.currentEnemyMonster.health;
 			this.monsterSelect = false;
+			console.log(enemyMonster.health);
 			this.startGame();
 		},
 		
@@ -1410,53 +1417,45 @@ const app = Vue.createApp({
 		},
 
 		attackMonster() {
-			console.log(
-				"Before attack: playerHealth",
-				this.playerHealth,
-				"enemyMonsterHealth",
-				this.enemyMonsterHealth
-			);
+			console.log("Before attack: playerHealth", this.currentPlayerMonsterHealth, "enemyMonsterHealth", this.enemyMonsterHealth);
 		
-			if (this.playerHealth <= 0) {
+			if (this.currentPlayerMonsterHealth <= 0) {
 				// Player's health is already 0 or below, no further attacks allowed
 				return;
 			}
 		
 			this.currentRound++;
-			const playerAttackValue = getrandomvalue(5, 12);
-			const monsterAttackValue = getrandomvalue(8, 15);
-		
+			const playerAttackValue = getrandomvalue(12, 20);
+			this.monsterAttackValue = getrandomvalue(18, 25);
 			this.enemyMonsterHealth -= playerAttackValue;
 			this.addLogMessage("player", "attack", playerAttackValue);
 			this.monsterAttacked = true;
-
+		
 			setTimeout(() => {
 				this.playerAttacked = true;
 			}, 1000);
-			
+		
 			setTimeout(() => {
 				if (this.enemyMonsterHealth > 0) {
 					this.attackPlayer();
-					this.playerHealth = Math.max(this.playerHealth - monsterAttackValue, 0);
-					this.addLogMessage("monster", "attack", monsterAttackValue);
+					console.log("monster attacks back");
 				}
 		
 				setTimeout(() => {
 					this.resetAttackedStatus();
 				}, 300);
 		
-				console.log(
-					"After attack: playerHealth",
-					this.playerHealth,
-					"enemyMonsterHealth",
-					this.enemyMonsterHealth
-				);
+				console.log("After attack: playerHealth", this.currentPlayerMonsterHealth, "enemyMonsterHealth", this.enemyMonsterHealth);
+				console.log("currentPlayerMonsterHealth", this.currentPlayerMonsterHealth); // Add this line
+				console.log("original health", this.currentPlayerMonster.health); // Add this line
+				console.log("Live health", this.currentPlayerMonsterHealth); // Add this line
 			}, 1000);
 		},
 
 		attackPlayer() {
-			const attackValue = getrandomvalue(8, 15);
-			this.playerHealth = Math.max(this.playerHealth - attackValue, 0);
+			this.currentPlayerMonsterHealth = Math.max(this.currentPlayerMonsterHealth - this.monsterAttackValue, 0);
+			this.addLogMessage("monster", "attack", this.monsterAttackValue);
+			return;
 		},
 
 		specialAttackMonster() {
@@ -1482,13 +1481,15 @@ const app = Vue.createApp({
 		healPlayer() {
 			this.currentRound++;
 			this.healAnimation = true;
-
 			const healValue = getrandomvalue(25, 35);
-			if (this.playerHealth + healValue > 100) {
-				this.playerHealth = 100;
+			console.log("healing");
+
+			if (this.currentPlayerMonsterHealth + healValue > 100) {
+				this.currentPlayerMonster.health;
 			} else {
-				this.playerHealth += healValue;
+				this.currentPlayerMonster.name += healValue;
 			}
+
 			this.addLogMessage("player", "heal", healValue);
 			this.attackPlayer();
 
@@ -1547,22 +1548,32 @@ const app = Vue.createApp({
 	computed: {
 		getBarStyles() {
 			return (value, maxHealth) => {
-				const percentage = (value / maxHealth) * 100;
+			const percentage = (value / maxHealth) * 100;
+			const scaledPercentage = Math.min(100, percentage);
 
-				if (value <= maxHealth * 0.3 && value > 0) {
-					return { "background-color": "red", width: percentage + "%" };
-				} else if (value > maxHealth * 0.3 && value <= maxHealth * 0.5) {
-					return { "background-color": "orange", width: percentage + "%" };
-				} else if (value <= 0) {
-					return { width: "0%" };
-				} else {
-					return { width: percentage + "%" };
-				}
+			if (scaledPercentage <= 0) {
+				return { width: "0%" };
+			} else if (scaledPercentage <= 30) {
+				return { "background-color": "red", width: scaledPercentage + "%" };
+			} else if (scaledPercentage <= 50) {
+				return { "background-color": "orange", width: scaledPercentage + "%" };
+			} else {
+				return { width: scaledPercentage + "%" };
+			}
 			};
+
 		},
 
 		playerBarStyles() {
-			return this.getBarStyles(this.playerHealth, 100);
+			console.log("original health:");
+			console.log(this.currentPlayerMonster.health);
+			console.log("Live health:");
+			console.log(this.currentPlayerMonsterHealth);
+
+			return this.getBarStyles(
+				this.currentPlayerMonsterHealth, 
+				this.currentPlayerMonster.health
+			);
 		},
 
 		monsterBarStyles() {
