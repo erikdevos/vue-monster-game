@@ -80,14 +80,6 @@ const monstersList = [
         type: 'water'
     },
     {
-        name: 'Gastly',
-        image: '092.png',
-        health: 80,
-        number: '0092',
-        size: 'm',
-        type: 'ghost'
-    },
-    {
         name: 'Blastoise',
         image: '009.png',
         health: 180,
@@ -1220,14 +1212,6 @@ const monstersList = [
         number: '0149',
         size: 'l',
         type: 'dragon'
-    },
-    {
-        name: 'Articuno',
-        image: '144.png',
-        health: 220,
-        number: '0144',
-        size: 'l',
-        type: 'ice'
     },
     {
         name: 'Togepi',

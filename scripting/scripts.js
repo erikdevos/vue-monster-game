@@ -95,21 +95,23 @@ const app = Vue.createApp({
 		  },
 		
 		
-		selectEnemyMonster(enemyMonster) {
+		  selectEnemyMonster(enemyMonster) {
 			if (enemyMonster === "random") {
-				// Select a random monster from the array
 				const randomIndex = Math.floor(Math.random() * this.monstersList.length);
 				this.currentEnemyMonster = this.monstersList[randomIndex];
 			} else {
-				// Set the selected enemy monster
 				this.currentEnemyMonster = enemyMonster;
 			}
-
+		
+			console.log("Selected Enemy Monster:", this.currentEnemyMonster);
+			console.log("Selected Enemy Monster Health:", this.currentEnemyMonster.health);
+		
 			this.currentEnemyMonsterHealth = this.currentEnemyMonster.health;
 			this.monsterSelect = false;
-			console.log(this.currentEnemyMonsterHealth);
+			console.log("Updated Enemy Monster Health:", this.currentEnemyMonsterHealth);
+		
 			this.startGame();
-		},	
+		},
 
 		resetAttackedStatus() {
 			setTimeout(() => {
