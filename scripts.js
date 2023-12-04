@@ -38,7 +38,7 @@ function calculateDamage(attackerType, moveType, opponentType) {
 
 const app = Vue.createApp({
 	data() {
-		const enemyMonsters = [
+		const monstersList = [
 			{
 				name: 'MewTwo',
 				image: '150.png',
@@ -1304,7 +1304,7 @@ const app = Vue.createApp({
 		];
 
 		return {
-			enemyMonsters,
+			monstersList,
 			currentEnemyMonster: null,
 			currentPlayerMonster: null,
 			enemyMonster: null,
@@ -1373,8 +1373,8 @@ const app = Vue.createApp({
 		selectPlayerMonster(playerMonster) {
 			if (playerMonster === "random") {
 			  // Select a random monster from the array
-			  const randomIndex = Math.floor(Math.random() * this.playerMonsters.length);
-			  this.currentPlayerMonster = this.playerMonsters[randomIndex];
+			  const randomIndex = Math.floor(Math.random() * this.monstersList.length);
+			  this.currentPlayerMonster = this.monstersList[randomIndex];
 			} else {
 			  // Set the selected player monster
 			  this.currentPlayerMonster = playerMonster;
@@ -1393,8 +1393,8 @@ const app = Vue.createApp({
 		selectEnemyMonster(enemyMonster) {
 			if (enemyMonster === "random") {
 				// Select a random monster from the array
-				const randomIndex = Math.floor(Math.random() * this.enemyMonsters.length);
-				this.currentEnemyMonster = this.enemyMonsters[randomIndex];
+				const randomIndex = Math.floor(Math.random() * this.monstersList.length);
+				this.currentEnemyMonster = this.monstersList[randomIndex];
 			} else {
 				// Set the selected enemy monster
 				this.currentEnemyMonster = enemyMonster;
@@ -1402,10 +1402,9 @@ const app = Vue.createApp({
 
 			this.currentEnemyMonsterHealth = this.currentEnemyMonster.health;
 			this.monsterSelect = false;
-			console.log(enemyMonster.health);
+			console.log(this.currentEnemyMonsterHealth);
 			this.startGame();
-		},
-		
+		},	
 
 		resetAttackedStatus() {
 			setTimeout(() => {
@@ -1417,12 +1416,7 @@ const app = Vue.createApp({
 
 		attackMonster() {
 			console.log("Before attack: playerHealth", this.currentPlayerMonsterHealth, "enemyMonsterHealth", this.enemyMonsterHealth);
-		
-			if (this.currentPlayerMonsterHealth <= 0) {
-				// Player's health is already 0 or below, no further attacks allowed
-				return;
-			}
-		
+				
 			this.currentRound++;
 			const playerAttackValue = getrandomvalue(12, 20);
 			this.monsterAttackValue = getrandomvalue(18, 25);
@@ -1459,16 +1453,20 @@ const app = Vue.createApp({
 
 		specialAttackMonster() {
 			this.currentRound++;
-			const attackValue = getrandomvalue(12, 20);
+			const attackValue = getrandomvalue(15, 25);
 			this.enemyMonsterHealth -= attackValue;
 			this.addLogMessage("player", "specialattack", attackValue);
-			
+			this.specialAttackAttacked = true;
+			setTimeout(() => {
+				this.playerAttacked = true;
+			}, 1000);
+
 			if (this.enemyMonsterHealth > 0) {		
 				setTimeout(() => {
 
 					this.attackPlayer();
-					this.specialAttackAttacked = true;
-			
+					console.log("monster attacks back after special attack");
+
 					setTimeout(() => {
 						this.resetAttackedStatus();
 					}, 300);
@@ -1480,7 +1478,7 @@ const app = Vue.createApp({
 		healPlayer() {
 			this.currentRound++;
 			this.healAnimation = true;
-			const healValue = getrandomvalue(100, 100);
+			const healValue = getrandomvalue(25, 35);
 			console.log("healing");
 			console.log(healValue);
 		
@@ -1610,7 +1608,7 @@ const app = Vue.createApp({
 		},
 		
 		sortedEnemyMonsters() {
-		return this.enemyMonsters.slice().sort((a, b) => a.number - b.number);
+		return this.monstersList.slice().sort((a, b) => a.number - b.number);
 		},
 	}
 });
