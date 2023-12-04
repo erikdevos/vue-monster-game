@@ -26,5 +26,19 @@ function getMultiplier(attackerType, opponentType) {
   console.log("Opponent Type:", opponentType);
   console.log("Damage Multiplier:", damageMultiplier);
 
-  return damageMultiplier !== undefined ? damageMultiplier : 1;
+  let effectivenessString;
+
+  if (damageMultiplier === 0) {
+    effectivenessString = "No effect..";
+  } else if (damageMultiplier === 0.5) {
+    effectivenessString = "Not very effective..";
+  } else if (damageMultiplier === 1) {
+    effectivenessString = "Neutral effectiveness";
+  } else if (damageMultiplier === 2) {
+    effectivenessString = "Super effective!";
+  } else {
+    effectivenessString = "Unknown effectiveness"; // You can customize this based on your needs
+  }
+
+  return { damageMultiplier, effectivenessString };
 }

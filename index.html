@@ -168,7 +168,7 @@
 							heals himself for <span>{{ logMessage.actionValue }}</span>
 					</span>
 					<span v-else :class="{ 'log--attack': logMessage['log--attack'] }">
-						attacks and deals <span class="log--attack"><span><strong>{{ logMessage.actionValue }}</strong></span> damage</span>
+						attacks and deals <span class="log--attack"><span><strong>{{ logMessage.actionValue }}</strong></span> damage</span>&nbsp;<span class="effectiveness">({{ logMessage.effectiveness }})</span>
 					</span>
 					<span v-if="logMessage.actionType !== 'heal' && logMessages.indexOf(logMessage) !== logMessages.length - 1">
 					</span>

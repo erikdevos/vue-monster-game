@@ -122,16 +122,19 @@ const app = Vue.createApp({
 		},
 
 		attackMonster() {
-			const damageMultiplier = getMultiplier(this.currentPlayerMonster.type, this.currentEnemyMonster.type);				
-			console.log("Before attack: playerHealth", this.currentPlayerMonsterHealth, "enemyMonsterHealth", this.enemyMonsterHealth);
-			console.log(getMultiplier(this.currentPlayerMonster.type, this.currentEnemyMonster.type));
+			const result = getMultiplier(this.currentPlayerMonster.type, this.currentEnemyMonster.type);
+			const damageMultiplier = result.damageMultiplier;
+			const effectivenessString = result.effectivenessString;
 
+			console.log("Before attack: playerHealth", this.currentPlayerMonsterHealth, "enemyMonsterHealth", this.enemyMonsterHealth);
+			console.log(result);
+		
 			this.currentRound++;
 			const playerAttackValue = getrandomvalue(12, 20);
 			this.monsterAttackValue = getrandomvalue(18, 25);
 			const totalDamage = playerAttackValue * damageMultiplier;
 			this.enemyMonsterHealth -= totalDamage;
-			this.addLogMessage("player", "attack", totalDamage);
+			this.addLogMessage("player", "attack", totalDamage, effectivenessString);
 			this.monsterAttacked = true;
 		
 			setTimeout(() => {
@@ -149,56 +152,78 @@ const app = Vue.createApp({
 				}, 300);
 		
 				console.log("After attack: playerHealth", this.currentPlayerMonsterHealth, "enemyMonsterHealth", this.enemyMonsterHealth);
-				console.log("currentPlayerMonsterHealth", this.currentPlayerMonsterHealth); // Add this line
-				console.log("original health", this.currentPlayerMonster.health); // Add this line
-				console.log("Live health", this.currentPlayerMonsterHealth); // Add this line
+				console.log("currentPlayerMonsterHealth", this.currentPlayerMonsterHealth);
+				console.log("original health", this.currentPlayerMonster.health);
+				console.log("Live health", this.currentPlayerMonsterHealth);
 			}, 1000);
 			return;
 		},
 
 		attackPlayer() {
-			// Get the damage multiplier based on monster types (roles reversed)
-			const damageMultiplier = getMultiplier(this.currentEnemyMonster.type, this.currentPlayerMonster.type);
+			const result = getMultiplier(this.currentEnemyMonster.type, this.currentPlayerMonster.type);
+			const damageMultiplier = result.damageMultiplier;
+			const effectivenessString = result.effectivenessString;
 
+			// Generate a random monster attack value within the specified range
+			this.monsterAttackValue = getrandomvalue(18, 25);
+		
 			// Calculate the total damage by multiplying the base damage with the multiplier
 			const totalDamage = this.monsterAttackValue * damageMultiplier;
-
+		
+			// Log for debugging
+			console.log("Player Attack - Initial Health:", this.currentPlayerMonsterHealth);
+			console.log("Player Attack - Damage Multiplier:", damageMultiplier);
+			console.log("Player Attack - Monster Attack Value:", this.monsterAttackValue);
+			console.log("Player Attack - Total Damage:", totalDamage);
+		
 			// Update the player monster's health
 			this.currentPlayerMonsterHealth = Math.max(this.currentPlayerMonsterHealth - totalDamage, 0);
-
+		
 			// Log the attack message
-			this.addLogMessage("monster", "attack", totalDamage);
+			this.addLogMessage("monster", "attack", totalDamage, effectivenessString);
+		
+			// Log for debugging
+			console.log("Player Attack - Resulting Health:", this.currentPlayerMonsterHealth);
+		
 			return;
-		},
+		},			
 
 		specialAttackMonster() {
 			this.currentRound++;
-			const damageMultiplier = getMultiplier(this.currentPlayerMonster.type, this.currentEnemyMonster.type);				
-			const PlayerSpecialAttackValue = getrandomvalue(15, 25);
-			const totalDamage = PlayerSpecialAttackValue * damageMultiplier;
-			this.enemyMonsterHealth -= totalDamage;
 			
-			console.log(getMultiplier(this.currentPlayerMonster.type, this.currentEnemyMonster.type));
-			this.addLogMessage("player", "specialattack", totalDamage);
-			this.specialAttackAttacked = true;
+			// Generate a random value for the special attack
+			const playerSpecialAttackValue = getrandomvalue(15, 25);
 
+			// Get the damage multiplier based on monster types (roles reversed)
+			const result = getMultiplier(this.currentPlayerMonster.type, this.currentEnemyMonster.type);
+			const damageMultiplier = result.damageMultiplier;
+			const effectivenessString = result.effectivenessString;
+
+			// Calculate the total damage by multiplying the special attack value with the multiplier
+			const totalDamage = playerSpecialAttackValue * damageMultiplier;
+		
+			// Update the enemy monster's health
+			this.enemyMonsterHealth = Math.max(this.enemyMonsterHealth - totalDamage, 0);
+		
+			// Log the special attack message
+			this.addLogMessage("player", "specialattack", totalDamage, effectivenessString);
+			this.specialAttackAttacked = true;
+		
 			setTimeout(() => {
 				this.playerAttacked = true;
 			}, 1000);
-
-			if (this.enemyMonsterHealth > 0) {		
+		
+			if (this.enemyMonsterHealth > 0) {
 				setTimeout(() => {
-
 					this.attackPlayer();
 					console.log("monster attacks back after special attack");
-
+		
 					setTimeout(() => {
 						this.resetAttackedStatus();
 					}, 300);
 				}, 1000);
-			};
-
-		},
+			}
+		},				
 
 		healPlayer() {
 			this.currentRound++;
@@ -247,7 +272,7 @@ const app = Vue.createApp({
 			this.clearLog();
 		},
 
-		addLogMessage(who, what, value) {
+		addLogMessage(who, what, value, effectivenessString) {
 			const attackerName =
 				who === "player"
 					? this.playerName + "'s " + this.currentPlayerMonster.name
@@ -258,7 +283,8 @@ const app = Vue.createApp({
 				actionBy: who,
 				actionType: what,
 				actionValue: value,
-				attackerName: attackerName
+				attackerName: attackerName,
+				effectiveness: effectivenessString, 
 			};
 
 			if (who === "player") {
