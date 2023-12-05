@@ -25,6 +25,12 @@ input {
 	padding-left: 1rem;
 	padding-right: 1rem;
 	font-size: 1rem;
+	outline: none;
+	border: solid 2px $color-lightgray;
+	border-radius: $border-radius-s;
+	&:focus {
+		border-color: $color-primary;
+	}
 }
 
 header {
