@@ -31,7 +31,7 @@
 // Monster list
 .monster-select {
 	> h2 {
-		font-size: 2rem;
+		font-size: 1.5rem;
 		margin-top: 1rem;
 		margin-bottom: 1rem;
 	}
@@ -181,9 +181,10 @@
 		align-items: center;
 		margin-top: 0;
 		margin-bottom: 1rem;
+		font-size: 1.5rem;
 		justify-content: center;
 		gap: 1rem;
-		}
+	}
 
 	span {
 		display: flex;

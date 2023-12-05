@@ -1091,7 +1091,7 @@ const monstersList = [
         image: '134.png',
         health: 220,
         number: '0134',
-        size: 'l',
+        size: 'm',
         type: 'water'
     },
     {
@@ -1099,7 +1099,7 @@ const monstersList = [
         image: '135.png',
         health: 180,
         number: '0135',
-        size: 'l',
+        size: 'm',
         type: 'electric'
     },
     {
@@ -1107,7 +1107,7 @@ const monstersList = [
         image: '136.png',
         health: 180,
         number: '0136',
-        size: 'l',
+        size: 'm',
         type: 'fire'
     },
     {

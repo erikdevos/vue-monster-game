@@ -10,7 +10,7 @@ body {
   margin: 0;
   font-size: 1rem;
   line-height: 1.2;
-  background-image: url(/resources/global-background.png);
+  background-image: url("../resources/global-background.png");
   background-repeat: repeat;
 }
 
@@ -147,7 +147,7 @@ button:disabled {
 }
 
 .monster-select > h2 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
@@ -300,6 +300,7 @@ button:disabled {
   align-items: center;
   margin-top: 0;
   margin-bottom: 1rem;
+  font-size: 1.5rem;
   justify-content: center;
   gap: 1rem;
 }
