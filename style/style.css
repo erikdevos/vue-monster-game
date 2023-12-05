@@ -14,6 +14,12 @@ body {
   background-repeat: repeat;
 }
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding-left: 0;
+}
+
 input {
   padding: 0.3rem;
   padding-left: 1rem;
@@ -77,6 +83,55 @@ button:disabled {
   box-shadow: none;
   color: #3f3f3f;
   cursor: not-allowed;
+}
+
+.v-enter-active {
+  transition: opacity 0.7s ease;
+}
+
+.v-leave-active {
+  transition: 0;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+
+.stage-select > h2 {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.stage-select ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-height: 25rem;
+  overflow-x: auto;
+  gap: 1.5rem;
+}
+.stage-select ul li {
+  cursor: pointer;
+}
+.stage-select ul li:hover img {
+  transform: scale(1.2);
+}
+.stage-select ul li h3 {
+  font-size: 1.1rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+.stage-select ul li .stage-image-wrapper {
+  overflow: hidden;
+  aspect-ratio: 1.5/1;
+  border-radius: 1rem;
+}
+.stage-select ul li img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: transform 0.5s ease;
 }
 
 .player-select {
@@ -152,12 +207,8 @@ button:disabled {
   margin-bottom: 1rem;
 }
 .monster-select ul {
-  margin-top: 0;
-  margin-bottom: 0;
-  margin-left: 0;
   padding-left: 0;
   padding-right: 1rem;
-  list-style: none;
   max-height: 25rem;
   overflow-x: auto;
   display: grid;
@@ -251,7 +302,7 @@ button:disabled {
 .healthbar {
   width: 100%;
   height: 1.7rem;
-  margin: 1rem 0;
+  margin: 0;
   background: #fde5e5;
   border: solid 2px #FFFFFF;
   border-radius: 0.3rem;
@@ -268,7 +319,8 @@ button:disabled {
 
 .battle-stage-section {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
+  row-gap: 1rem;
   max-width: 60rem;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
@@ -289,7 +341,7 @@ button:disabled {
 
 #monster,
 #player {
-  background-image: url("../resources/battle-background.webp");
+  background-color: lightgray;
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: cover;

@@ -33,7 +33,32 @@ const app = Vue.createApp({
 			searchTermPlayer: '',
 			searchTermEnemy: '',
 			imagePathThumb: 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/',
-			imagePathFull: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/'
+			imagePathFull: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/',
+			stageSelect: false,
+			stagesPath: '/resources/stages/',
+			stages: [ 
+				{
+					name: 'Field',
+					image: 'battle-background.webp',
+					type: 'bug'
+				},
+				{
+					name: 'Volcano',
+					image: 'background-fire.webp',
+					type: 'fire'
+				},
+				{
+					name: 'Forest',
+					image: 'background-grass.webp',
+					type: 'fire'
+				},
+				{
+					name: 'Ocean',
+					image: 'background-water.webp',
+					type: 'water'
+				}
+				
+			]
 		};
 		
 	},
@@ -74,7 +99,14 @@ const app = Vue.createApp({
 			this.playerLoseAnimation = false;
 			this.monsterLoseAnimation = false;
 			this.monsterSelect = false;
+			this.stageSelect = false;
 			this.enemyMonsterHealth = this.currentEnemyMonster.health;
+		},
+
+		selectStage(stage) {
+			this.selectedStage = stage;
+			console.log(stage.name);
+			this.startGame();
 		},
 
 		selectPlayerMonster(playerMonster) {
@@ -112,7 +144,9 @@ const app = Vue.createApp({
 			this.monsterSelect = false;
 			console.log("Updated Enemy Monster Health:", this.currentEnemyMonsterHealth);
 		
-			this.startGame();
+			// Go to stage select screen
+			this.stageSelect = true;
+			console.log(this.stageSelect);
 		},
 
 		resetAttackedStatus() {

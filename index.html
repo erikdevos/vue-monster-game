@@ -16,10 +16,10 @@
 	  <h1>Pok&eacute;mon</h1>
 	</header>
 	
-   
 	<div id="game">
-			
+
 		<!-- Character select screen -->
+		<Transition>
 		<section v-if="playerSelect" id="player-select" class="container player-select">
 			<h2>What's your name?</h2>
 			<div class="name-input-wrapper">
@@ -29,8 +29,10 @@
 			</div>
 
 		</section>
+		</Transition>
 
 		<!-- Player monster select screen -->
+		<Transition>
 		<section v-if="playerSelect" id="player-monster-select" class="container monster-select">
 			<h2>Select your partner</h2>
 			<div class="filter-bar-wrapper">
@@ -56,8 +58,10 @@
 				</li>
 			</ul>
 		</section>
+		</Transition>
 
 		<!-- Enemy Monster select screen -->
+		<Transition>
 		<section v-if="monsterSelect" id="monster-list" class="container monster-select">
 			<h2>Select an enemy</h2>
 			<div class="filter-bar-wrapper">
@@ -84,9 +88,29 @@
 			</ul>
 			
 		</section>
+		</Transition>
+
+		<!-- Stage select screen -->
+		<Transition>
+		<section v-if="stageSelect" id="stage-select" class="container stage-select">
+			<h2>Select your stage</h2>
+			<ul>
+				<li v-for="stage in stages" @click="selectStage(stage)">
+					<h3>{{stage.name}}</h3>
+					<div class="stage-image-wrapper">
+						<img :src="stagesPath + stage.image"  class="stage-image" alt="">
+					</div>
+				</li>
+			</ul>
+		</section>
+		</Transition>
+
+		
+		<!-- Battle Stage -->
+		<Transition>
 		<section v-if="gameStarted" id="battleStage" class="container battle-stage-section">
 			<!-- Enemy monster -->
-			<div id="monster" class="battle-stage-wrapper">
+			<div id="monster" class="battle-stage-wrapper" :style="{ backgroundImage: 'url(' + stagesPath + selectedStage.image + ')' }">
 				<h2>
 					<span class="monster-type" :class="currentEnemyMonster.type"></span>
 					<span class="monster-name">{{currentEnemyMonster.name}}</span>
@@ -113,7 +137,7 @@
 			</div>
 				
 			<!-- Player character-->
-			<div v-if="gameStarted" id="player" class="battle-stage-wrapper">
+			<div v-if="gameStarted" id="player" class="battle-stage-wrapper" :style="{ backgroundImage: 'url(' + stagesPath + selectedStage.image + ')' }">
 				<h2>
 					<span>{{playerName}} &amp;
 					<span class="monster-type" :class="currentPlayerMonster.type"></span>	
@@ -143,6 +167,7 @@
 				</div>
 			</div>
 		</section>
+		</Transition>
 
 		<!-- Game menu -->
 		<section class="container" v-if="winner && gameStarted">
