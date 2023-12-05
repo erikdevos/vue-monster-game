@@ -4,6 +4,8 @@ Monster game made in Vue JS.
 
 Original concept based on an assignment from the Udemy Course "Vue - The Complete Guide" by Maximilian Schwarzmüller.
 
+Try the latest version here: https://erikdevos.github.io/vue-monster-game/
+
 ## Features added outside of base game mechanics
 
 ### Visual:
