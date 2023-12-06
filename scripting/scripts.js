@@ -35,7 +35,7 @@ const app = Vue.createApp({
 			imagePathThumb: 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/',
 			imagePathFull: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/',
 			stageSelect: false,
-			stagesPath: '/resources/stages/',
+			stagesPath: 'resources/stages/',
 			stages: [ 
 				{
 					name: 'Field',
