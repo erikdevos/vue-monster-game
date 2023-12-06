@@ -13,7 +13,7 @@ const app = Vue.createApp({
 			currentEnemyMonster: null,
 			currentPlayerMonster: null,
 			enemyMonster: null,
-			gameStarted: null,
+			fightStarted: null,
 			gameEnded: null,
 			monsterHealth: 100,
 			enemyMonsterHealth: 0,
@@ -91,8 +91,9 @@ const app = Vue.createApp({
 	},
 
 	methods: {
-		startGame() {
-			this.gameStarted = true;
+		startFight() {
+			// Start battle and reset all other values
+			this.fightStarted = true;
 			this.clearLog();
 			this.winner = null;
 			this.currentRound = 0;
@@ -105,8 +106,7 @@ const app = Vue.createApp({
 
 		selectStage(stage) {
 			this.selectedStage = stage;
-			console.log(stage.name);
-			this.startGame();
+			this.startFight();
 		},
 
 		selectPlayerMonster(playerMonster) {
@@ -120,12 +120,9 @@ const app = Vue.createApp({
 			}
 		  
 			// store the original health value
-			this.currentPlayerMonsterHealth = this.currentPlayerMonster.health; 
-		  
+			this.currentPlayerMonsterHealth = this.currentPlayerMonster.health;  
 			this.playerSelect = false;
 			this.monsterSelect = true;
-		  
-			console.log(this.currentPlayerMonsterHealth);
 		  },
 		
 		
@@ -137,16 +134,11 @@ const app = Vue.createApp({
 				this.currentEnemyMonster = enemyMonster;
 			}
 		
-			console.log("Selected Enemy Monster:", this.currentEnemyMonster);
-			console.log("Selected Enemy Monster Health:", this.currentEnemyMonster.health);
-		
 			this.currentEnemyMonsterHealth = this.currentEnemyMonster.health;
 			this.monsterSelect = false;
-			console.log("Updated Enemy Monster Health:", this.currentEnemyMonsterHealth);
 		
 			// Go to stage select screen
 			this.stageSelect = true;
-			console.log(this.stageSelect);
 		},
 
 		resetAttackedStatus() {
@@ -161,9 +153,6 @@ const app = Vue.createApp({
 			const result = getMultiplier(this.currentPlayerMonster.type, this.currentEnemyMonster.type);
 			const damageMultiplier = result.damageMultiplier;
 			const effectivenessString = result.effectivenessString;
-
-			console.log("Before attack: playerHealth", this.currentPlayerMonsterHealth, "enemyMonsterHealth", this.enemyMonsterHealth);
-			console.log(result);
 		
 			this.currentRound++;
 			const playerAttackValue = getrandomvalue(12, 20);
@@ -180,17 +169,12 @@ const app = Vue.createApp({
 			setTimeout(() => {
 				if (this.enemyMonsterHealth > 0) {
 					this.attackPlayer();
-					console.log("monster attacks back");
 				}
 		
 				setTimeout(() => {
 					this.resetAttackedStatus();
 				}, 300);
 		
-				console.log("After attack: playerHealth", this.currentPlayerMonsterHealth, "enemyMonsterHealth", this.enemyMonsterHealth);
-				console.log("currentPlayerMonsterHealth", this.currentPlayerMonsterHealth);
-				console.log("original health", this.currentPlayerMonster.health);
-				console.log("Live health", this.currentPlayerMonsterHealth);
 			}, 1000);
 			return;
 		},
@@ -206,20 +190,11 @@ const app = Vue.createApp({
 			// Calculate the total damage by multiplying the base damage with the multiplier
 			const totalDamage = this.monsterAttackValue * damageMultiplier;
 		
-			// Log for debugging
-			console.log("Player Attack - Initial Health:", this.currentPlayerMonsterHealth);
-			console.log("Player Attack - Damage Multiplier:", damageMultiplier);
-			console.log("Player Attack - Monster Attack Value:", this.monsterAttackValue);
-			console.log("Player Attack - Total Damage:", totalDamage);
-		
 			// Update the player monster's health
 			this.currentPlayerMonsterHealth = Math.max(this.currentPlayerMonsterHealth - totalDamage, 0);
 		
 			// Log the attack message
 			this.addLogMessage("monster", "attack", totalDamage, effectivenessString);
-		
-			// Log for debugging
-			console.log("Player Attack - Resulting Health:", this.currentPlayerMonsterHealth);
 		
 			return;
 		},			
@@ -252,7 +227,6 @@ const app = Vue.createApp({
 			if (this.enemyMonsterHealth > 0) {
 				setTimeout(() => {
 					this.attackPlayer();
-					console.log("monster attacks back after special attack");
 		
 					setTimeout(() => {
 						this.resetAttackedStatus();
@@ -265,21 +239,11 @@ const app = Vue.createApp({
 			this.currentRound++;
 			this.healAnimation = true;
 			const healValue = getrandomvalue(25, 35);
-			console.log("healing");
-			console.log(healValue);
 		
 			if (this.currentPlayerMonsterHealth + healValue > this.currentPlayerMonster.health) {
 				this.currentPlayerMonsterHealth = this.currentPlayerMonster.health;
-				console.log("health after healing (if)");
-				console.log(this.currentPlayerMonsterHealth);
-				console.log("healvalue:");
-				console.log(healValue);
 			} else {
 				this.currentPlayerMonsterHealth += healValue;
-				console.log("health after healing (else)")
-				console.log(this.currentPlayerMonsterHealth);
-				console.log("healvalue:");
-				console.log(healValue);
 			}
 		
 			this.addLogMessage("player", "heal", healValue);
@@ -303,7 +267,7 @@ const app = Vue.createApp({
 
 		resetGame() {
 			this.gameEnded = false;
-			this.gameStarted = false;
+			this.fightStarted = false;
 			this.playerSelect = true;
 			this.clearLog();
 		},
@@ -336,6 +300,10 @@ const app = Vue.createApp({
 			}
 
 			this.logMessages.unshift(logMessage);
+		},
+
+		isAttackInProgress() {
+			return this.playerAttacked || this.monsterAttacked;
 		},
 
 		clearLog() {
@@ -386,11 +354,6 @@ const app = Vue.createApp({
 		},
 
 		playerBarStyles() {
-			console.log("original health:");
-			console.log(this.currentPlayerMonster.health);
-			console.log("Live health:");
-			console.log(this.currentPlayerMonsterHealth);
-
 			return this.getBarStyles(
 				this.currentPlayerMonsterHealth, 
 				this.currentPlayerMonster.health
@@ -404,12 +367,16 @@ const app = Vue.createApp({
 			);
 		},
 
-		mayUseSpecialAttack() {
-			return this.currentRound % 3 !== 0;
+		mayUseAttack() {
+			return this.isAttackInProgress() || this.playerAttacked || this.monsterAttacked;
 		},
-
+		
+		mayUseSpecialAttack() {
+			return this.isAttackInProgress() || this.currentRound % 3 !== 0;
+		},
+		
 		mayUseHeal() {
-			return this.currentRound % 2 !== 0;
+			return this.isAttackInProgress() || this.currentRound % 2 !== 0;
 		},
 
 		isLogEmpty() {
@@ -417,7 +384,7 @@ const app = Vue.createApp({
 		},
 		
 		sortedEnemyMonsters() {
-		return this.monstersList.slice().sort((a, b) => a.number - b.number);
+			return this.monstersList.slice().sort((a, b) => a.number - b.number);
 		},
 	}
 });

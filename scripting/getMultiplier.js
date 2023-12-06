@@ -22,10 +22,6 @@ function getMultiplier(attackerType, opponentType) {
 
   const damageMultiplier = typeChart[attackerType]?.[opponentType];
 
-  console.log("Attacker Type:", attackerType);
-  console.log("Opponent Type:", opponentType);
-  console.log("Damage Multiplier:", damageMultiplier);
-
   let effectivenessString;
 
   if (damageMultiplier === 0) {

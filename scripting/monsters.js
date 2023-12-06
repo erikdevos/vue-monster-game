@@ -1,21 +1,5 @@
 const monstersList = [
     {
-        name: 'MewTwo',
-        image: '150.png',
-        health: 120,
-        number: '0151',
-        size: 'm',
-        type: 'psychic'
-    },
-    {
-        name: 'Mew',
-        image: '151.png',
-        health: 120,
-        number: '0150',
-        size: 's',
-        type: 'psychic'
-    },
-    {
         name: 'Bulbasaur',
         image: '001.png',
         health: 80,
@@ -1212,6 +1196,22 @@ const monstersList = [
         number: '0149',
         size: 'l',
         type: 'dragon'
+    },
+    {
+        name: 'MewTwo',
+        image: '150.png',
+        health: 120,
+        number: '0151',
+        size: 'm',
+        type: 'psychic'
+    },
+    {
+        name: 'Mew',
+        image: '151.png',
+        health: 120,
+        number: '0150',
+        size: 's',
+        type: 'psychic'
     },
     {
         name: 'Togepi',

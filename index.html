@@ -108,7 +108,7 @@
 		
 		<!-- Battle Stage -->
 		<Transition>
-		<section v-if="gameStarted" id="battleStage" class="container battle-stage-section">
+		<section v-if="fightStarted" id="battleStage" class="container battle-stage-section">
 			<!-- Enemy monster -->
 			<div id="monster" class="battle-stage-wrapper" :style="{ backgroundImage: 'url(' + stagesPath + selectedStage.image + ')' }">
 				<h2>
@@ -137,7 +137,7 @@
 			</div>
 				
 			<!-- Player character-->
-			<div v-if="gameStarted" id="player" class="battle-stage-wrapper" :style="{ backgroundImage: 'url(' + stagesPath + selectedStage.image + ')' }">
+			<div v-if="fightStarted" id="player" class="battle-stage-wrapper" :style="{ backgroundImage: 'url(' + stagesPath + selectedStage.image + ')' }">
 				<h2>
 					<span>{{playerName}} &amp;
 					<span class="monster-type" :class="currentPlayerMonster.type"></span>	
@@ -145,7 +145,7 @@
 					<span class="player-health">{{currentPlayerMonsterHealth}} hp</span>				
 				</h2>
 
-				<div v-if="gameStarted" class="player-images">
+				<div v-if="fightStarted" class="player-images">
 					<!-- Player trainer -->
 					<img src="resources/trainer-male.webp" class="trainer-image monster-image animate__animated">
 					<!-- Player Monster -->
@@ -162,7 +162,7 @@
 					>
 				</div>
 
-				<div v-if="gameStarted" class="healthbar">
+				<div v-if="fightStarted" class="healthbar">
 					<div class="healthbar__value" :style="playerBarStyles"></div>
 				</div>
 			</div>
@@ -170,7 +170,7 @@
 		</Transition>
 
 		<!-- Game menu -->
-		<section class="container" v-if="winner && gameStarted">
+		<section class="container" v-if="winner && fightStarted">
 
 			<h2 v-if="winner === 'monster'">You lost!</h2>
 			<h2 v-else-if="winner === 'player'">You won!</h2>
@@ -180,12 +180,12 @@
 		</section>
 
 		<!-- Game controls -->
-		<section v-if="gameStarted && !gameEnded" id="controls">
-			<button @click="attackMonster">ATTACK</button>
+		<section v-if="fightStarted && !gameEnded" id="controls">
+			<button :disabled="mayUseAttack" @click="attackMonster">ATTACK</button>
 			<button :disabled="mayUseSpecialAttack" @click="specialAttackMonster">SPECIAL ATTACK</button>
 			<button :disabled="mayUseHeal" @click="healPlayer">HEAL</button>
 			<button @click="surrender">RUN</button>
-		</section>
+		  </section>		  
 			
 		<!-- Battle Log -->
 		<section v-if="!isLogEmpty" id="log" class="container">
