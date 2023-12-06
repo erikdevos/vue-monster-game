@@ -102,6 +102,23 @@ const app = Vue.createApp({
 			this.monsterSelect = false;
 			this.stageSelect = false;
 			this.enemyMonsterHealth = this.currentEnemyMonster.health;
+		
+			// Ensure that this.playerMonster is defined before accessing its properties
+			if (this.currentPlayerMonster.number === '0132') {
+				this.selectDittoMonster();
+			}
+		},
+
+		selectDittoMonster() {
+			console.log("Ditto selected");
+		
+			// Find the Ditto monster in your monstersList based on its name
+			const dittoMonster = this.monstersList.find(monster => monster.name === "Ditto");
+			
+			// Set the current player monster to Ditto and update its health
+			this.currentPlayerMonster = { ...dittoMonster, health: this.currentEnemyMonsterHealth };
+			this.currentPlayerMonster.health = this.currentEnemyMonsterHealth;
+			this.currentPlayerMonsterHealth = this.currentPlayerMonster.health;
 		},
 
 		selectStage(stage) {
@@ -111,19 +128,22 @@ const app = Vue.createApp({
 
 		selectPlayerMonster(playerMonster) {
 			if (playerMonster === "random") {
-			  // Select a random monster from the array
-			  const randomIndex = Math.floor(Math.random() * this.monstersList.length);
-			  this.currentPlayerMonster = this.monstersList[randomIndex];
+				// Select a random monster from the array
+				const randomIndex = Math.floor(Math.random() * this.monstersList.length);
+				this.currentPlayerMonster = this.monstersList[randomIndex];
+				console.log("Random playermonster");
+			} else if (playerMonster === "Ditto") {
+				this.selectDittoMonster();
 			} else {
-			  // Set the selected player monster
-			  this.currentPlayerMonster = playerMonster;
+				// Set the selected player monster
+				this.currentPlayerMonster = playerMonster;
 			}
-		  
+		
 			// store the original health value
-			this.currentPlayerMonsterHealth = this.currentPlayerMonster.health;  
+			this.currentPlayerMonsterHealth = this.currentPlayerMonster.health;
 			this.playerSelect = false;
 			this.monsterSelect = true;
-		  },
+		},
 		
 		
 		  selectEnemyMonster(enemyMonster) {
@@ -135,9 +155,8 @@ const app = Vue.createApp({
 			}
 		
 			this.currentEnemyMonsterHealth = this.currentEnemyMonster.health;
+
 			this.monsterSelect = false;
-		
-			// Go to stage select screen
 			this.stageSelect = true;
 		},
 
@@ -155,6 +174,7 @@ const app = Vue.createApp({
 			const effectivenessString = result.effectivenessString;
 		
 			this.currentRound++;
+
 			const playerAttackValue = getrandomvalue(12, 20);
 			this.monsterAttackValue = getrandomvalue(18, 25);
 			const totalDamage = playerAttackValue * damageMultiplier;
