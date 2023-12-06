@@ -32,5 +32,5 @@ Try the latest version here: https://erikdevos.github.io/vue-monster-game/
 - Monster types (fire/water/grass etc)
 - Monster type damage multiplier (0.5x - 2x)
 - Damage multiplier effectiveness in logging ('Super Effective!')
-
+- Stage selection screen & display in battle.
   
