@@ -71,6 +71,7 @@ const app = Vue.createApp({
 			// In case of a draw
 			if (value <= 0 && this.enemyMonsterHealth <= 0) {
 				this.winner = "draw";
+				this.gameEnded = true;
 			} else if (value <= 0) {
 				// In case the enemy wins
 				this.winner = "monster";
@@ -148,8 +149,7 @@ const app = Vue.createApp({
 			this.monsterSelect = true;
 		},
 		
-		
-		  selectEnemyMonster(enemyMonster) {
+		selectEnemyMonster(enemyMonster) {
 			if (enemyMonster === "random") {
 				const randomIndex = Math.floor(Math.random() * this.monstersList.length);
 				this.currentEnemyMonster = this.monstersList[randomIndex];
@@ -302,6 +302,7 @@ const app = Vue.createApp({
 		surrender() {
 			this.winner = "monster";
 			this.playerLoseAnimation = true;
+			this.gameEnded = true;
 		},
 
 		resetGame() {

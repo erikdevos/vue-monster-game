@@ -65,6 +65,9 @@
 }
 
 @mixin monster-sizes {
+    width: 8rem;
+    height: 8rem;
+    
     &.size-s {
         width: 8rem;
         height: 8rem;
