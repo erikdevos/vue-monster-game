@@ -152,7 +152,7 @@
 					<img src="resources/trainer-male.webp" class="trainer-image monster-image animate__animated">
 
 					<!-- Player Monster -->
-					<div class="flipcontainer" :class="[flipPlayerMonsterImage()]">
+					<div class="flipcontainer" :class="[flipPlayerMonsterImage()], [dittoChange()]">
 						<img 
 						:src="imagePathFull + currentPlayerMonster.image" 
 						class="monster-image animate__animated"  

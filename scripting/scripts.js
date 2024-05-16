@@ -113,9 +113,7 @@ const app = Vue.createApp({
 			}
 		},
 
-		selectDittoMonster() {
-			console.log("Ditto selected");
-		
+		selectDittoMonster() {		
 			// Find the Ditto monster in monster list based on its name
 			const dittoMonster = this.monstersList.find(monster => monster.name === "Ditto");
 			
@@ -123,6 +121,17 @@ const app = Vue.createApp({
 			this.currentPlayerMonster = { ...dittoMonster, health: this.currentEnemyMonsterHealth };
 			this.currentPlayerMonster.health = this.currentEnemyMonsterHealth;
 			this.currentPlayerMonsterHealth = this.currentPlayerMonster.health;
+			
+			// Adding a delay of 2 seconds before executing the next line
+			setTimeout(() => {
+				// Inside this arrow function, `this` refers to the Vue instance
+				this.currentPlayerMonster.image = this.currentEnemyMonster.image;
+				this.dittoChange()
+			}, 2000); // 2000 milliseconds = 2 second
+		},
+
+		dittoChange() {
+			return "animate__delay-2s animate__animated animate__rubberBand";
 		},
 
 		selectStage(stage) {

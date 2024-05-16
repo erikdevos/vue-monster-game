@@ -108,6 +108,7 @@ const app = Vue.createApp({
 			// Ensure that this.playerMonster is defined before accessing its properties
 			if (this.currentPlayerMonster.number === '0132') {
 				this.selectDittoMonster();
+				console.log("ditto selected");
 			}
 		},
 
