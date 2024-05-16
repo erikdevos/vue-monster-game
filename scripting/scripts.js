@@ -32,7 +32,7 @@ const app = Vue.createApp({
 			monsterSelect: null,
 			searchTermPlayer: '',
 			searchTermEnemy: '',
-			imagePathThumb: 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/',
+			imagePathThumb: 'resources/monster-images/',
 			imagePathFull: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/',
 			direction: 'right',
 			playerMonsterImageRotate: '',

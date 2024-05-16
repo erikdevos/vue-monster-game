@@ -44,11 +44,41 @@ header {
 header h1 {
   margin: 0;
 }
+@media only screen and (max-width: 480px) {
+  header h1 {
+    font-size: 1.3rem;
+  }
+}
 
 section {
   width: 90%;
   max-width: 45rem;
   margin: auto;
+}
+@media only screen and (max-width: 768px) {
+  section {
+    width: calc(100% - 2rem);
+    max-width: none;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+@media only screen and (max-width: 480px) {
+  section {
+    width: calc(100% - 1.4rem);
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+  }
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+@media only screen and (max-width: 480px) {
+  h2 {
+    font-size: 1.2rem;
+    margin-top: 0;
+  }
 }
 
 .container {
@@ -64,6 +94,18 @@ section {
   border-radius: 1rem;
   overflow: hidden;
 }
+@media only screen and (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .container {
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+  }
+}
 
 button {
   font: inherit;
@@ -76,6 +118,12 @@ button {
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   transition: background-color 0.3s ease-in-out;
+}
+@media only screen and (max-width: 480px) {
+  button {
+    padding: 0.8rem 1rem;
+    font-size: 0.75rem;
+  }
 }
 button:focus {
   outline: none;
@@ -105,7 +153,6 @@ button:disabled {
 }
 
 .stage-select > h2 {
-  font-size: 1.5rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
@@ -115,6 +162,18 @@ button:disabled {
   max-height: 25rem;
   overflow-x: auto;
   gap: 1.5rem;
+}
+@media only screen and (max-width: 768px) {
+  .stage-select ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .stage-select ul {
+    gap: 1rem;
+    max-height: 35rem;
+  }
 }
 .stage-select ul li {
   cursor: pointer;
@@ -164,6 +223,12 @@ button:disabled {
   border-radius: 100%;
   background-color: #FFFFFF;
   display: inline-block;
+}
+@media only screen and (max-width: 768px) {
+  .monster-type {
+    width: 1rem;
+    height: 1rem;
+  }
 }
 .monster-type.normal {
   background-color: #aa9;
@@ -215,8 +280,6 @@ button:disabled {
 }
 
 .monster-select > h2 {
-  font-size: 1.5rem;
-  margin-top: 1rem;
   margin-bottom: 1rem;
 }
 .monster-select ul {
@@ -229,6 +292,11 @@ button:disabled {
   gap: 1rem;
   row-gap: 1.5rem;
 }
+@media only screen and (max-width: 768px) {
+  .monster-select ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 .monster-select ul li {
   cursor: pointer;
   padding: 0.7rem;
@@ -236,6 +304,11 @@ button:disabled {
   border-radius: 1rem;
   position: relative;
   border: solid 3px transparent;
+}
+@media only screen and (max-width: 768px) {
+  .monster-select ul li {
+    padding: 0.5rem;
+  }
 }
 .monster-select ul li:hover {
   border: solid 3px #c11e1e;
@@ -252,6 +325,11 @@ button:disabled {
   margin-bottom: 0.5rem;
   display: flex;
   flex-direction: column;
+}
+@media only screen and (max-width: 480px) {
+  .monster-select ul li .monster-name {
+    font-size: 1rem;
+  }
 }
 .monster-select ul li .monster-number {
   font-weight: normal;
@@ -284,7 +362,12 @@ button:disabled {
   gap: 1rem;
   z-index: 1;
   position: relative;
-  overflow: hidden;
+}
+@media only screen and (max-width: 480px) {
+  .player-images,
+  .enemy-images {
+    gap: 0.5rem;
+  }
 }
 .player-images .monster-image,
 .enemy-images .monster-image {
@@ -300,20 +383,76 @@ button:disabled {
   width: 8rem;
   height: 8rem;
 }
+@media only screen and (max-width: 768px) {
+  .player-images .monster-image.size-s,
+  .enemy-images .monster-image.size-s {
+    width: 5rem;
+    height: 5rem;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .player-images .monster-image.size-s,
+  .enemy-images .monster-image.size-s {
+    width: 4rem;
+    height: 4rem;
+  }
+}
 .player-images .monster-image.size-m,
 .enemy-images .monster-image.size-m {
   width: 12rem;
   height: 12rem;
+}
+@media only screen and (max-width: 768px) {
+  .player-images .monster-image.size-m,
+  .enemy-images .monster-image.size-m {
+    width: 8rem;
+    height: 8rem;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .player-images .monster-image.size-m,
+  .enemy-images .monster-image.size-m {
+    width: 6rem;
+    height: 6rem;
+  }
 }
 .player-images .monster-image.size-l,
 .enemy-images .monster-image.size-l {
   width: 15rem;
   height: 15rem;
 }
+@media only screen and (max-width: 768px) {
+  .player-images .monster-image.size-l,
+  .enemy-images .monster-image.size-l {
+    width: 10rem;
+    height: 10rem;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .player-images .monster-image.size-l,
+  .enemy-images .monster-image.size-l {
+    width: 8rem;
+    height: 8rem;
+  }
+}
 .player-images .monster-image.size-xl,
 .enemy-images .monster-image.size-xl {
   width: 18rem;
   height: 18rem;
+}
+@media only screen and (max-width: 768px) {
+  .player-images .monster-image.size-xl,
+  .enemy-images .monster-image.size-xl {
+    width: 13rem;
+    height: 13rem;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .player-images .monster-image.size-xl,
+  .enemy-images .monster-image.size-xl {
+    width: 10rem;
+    height: 10rem;
+  }
 }
 .player-images .trainer-image,
 .enemy-images .trainer-image {
@@ -322,6 +461,12 @@ button:disabled {
   -o-object-fit: contain;
      object-fit: contain;
   margin-top: auto;
+}
+@media only screen and (max-width: 768px) {
+  .player-images .trainer-image,
+  .enemy-images .trainer-image {
+    width: 4rem;
+  }
 }
 
 .healthbar {
@@ -334,6 +479,16 @@ button:disabled {
   overflow: hidden;
   z-index: 2;
   position: relative;
+}
+@media only screen and (max-width: 768px) {
+  .healthbar {
+    height: 1.3rem;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .healthbar {
+    height: 1rem;
+  }
 }
 .healthbar .healthbar__value {
   background-color: #00a876;
@@ -350,10 +505,21 @@ button:disabled {
   padding: 1.5rem;
   margin-bottom: 1.5rem;
 }
+@media only screen and (max-width: 480px) {
+  .battle-stage-section {
+    flex-direction: column;
+    padding: 1rem;
+  }
+}
 .battle-stage-section .battle-stage-wrapper {
   flex: 1;
   padding: 1.5rem;
   border-radius: 1rem;
+}
+@media only screen and (max-width: 768px) {
+  .battle-stage-section .battle-stage-wrapper {
+    padding: 1rem;
+  }
 }
 
 .battle-stage-wrapper {
@@ -381,6 +547,13 @@ button:disabled {
   justify-content: center;
   gap: 1rem;
 }
+@media only screen and (max-width: 480px) {
+  #monster h2,
+  #player h2 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+}
 #monster span,
 #player span {
   display: flex;
@@ -396,6 +569,26 @@ button:disabled {
   font-size: 1rem;
   font-weight: normal;
 }
+@media only screen and (max-width: 768px) {
+  #monster .monster-health,
+  #monster .player-health,
+  #player .monster-health,
+  #player .player-health {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  #monster {
+    margin-right: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  #player {
+    margin-left: 1.5rem;
+  }
+}
 
 #controls {
   max-width: 30rem;
@@ -408,8 +601,19 @@ button:disabled {
   justify-items: center;
   margin-bottom: 1.5rem;
 }
+@media only screen and (max-width: 480px) {
+  #controls {
+    width: 100%;
+    max-width: none;
+    gap: 0.7rem;
+    row-gap: 0.7rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 #controls button {
   width: 100%;
+  font-weight: bold;
 }
 
 #log h2 {
@@ -422,6 +626,11 @@ button:disabled {
   padding: 0;
   max-height: 5rem;
   overflow-x: auto;
+}
+@media only screen and (max-width: 480px) {
+  #log ul {
+    font-size: 0.9rem;
+  }
 }
 #log ul li {
   margin: 0.5rem 0;
@@ -442,7 +651,18 @@ button:disabled {
 .filter-bar-wrapper {
   margin-bottom: 1.5rem;
 }
+@media only screen and (max-width: 768px) {
+  .filter-bar-wrapper input {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    width: 100%;
+  }
+}
 
+.flipcontainer {
+  display: flex;
+  margin-top: auto;
+}
 .flipcontainer.flipright {
   transform: scaleX(-1);
 }

@@ -5,7 +5,6 @@
 
 .stage-select {
 	> h2 {
-		font-size: 1.5rem;
 		margin-top: 1rem;
 		margin-bottom: 1rem;
 	}
@@ -16,6 +15,17 @@
 		max-height: 25rem;
 		overflow-x: auto;
 		gap: 1.5rem;
+
+		@media only screen and (max-width: 768px) {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 1rem;
+		}
+
+		@media only screen and (max-width: 480px) {
+			gap: 1rem;
+			max-height: 35rem;
+		}
+
 		li {
 			cursor: pointer;
 
@@ -78,6 +88,11 @@
 	background-color: #FFFFFF;
 	display: inline-block;
 
+	@media only screen and (max-width: 768px) {
+		width: 1rem;
+		height: 1rem;
+	}
+
 	// Import all monster type colors
 	@include monster-types;
 }
@@ -85,8 +100,6 @@
 // Monster list
 .monster-select {
 	> h2 {
-		font-size: 1.5rem;
-		margin-top: 1rem;
 		margin-bottom: 1rem;
 	}
 
@@ -99,6 +112,11 @@
 		grid-template-columns: repeat(4, 1fr);
 		gap: 1rem;
 		row-gap: 1.5rem;
+
+		@media only screen and (max-width: 768px) {
+			grid-template-columns: repeat(2, 1fr);
+
+		}
 		
 		li {	
 			cursor: pointer;
@@ -107,6 +125,9 @@
 			border-radius: $border-radius-m;
 			position: relative;
 			border: solid 3px transparent;
+			@media only screen and (max-width: 768px) {
+				padding: 0.5rem;
+			}
 
 			&:hover {
 				border: solid 3px $color-primary;
@@ -125,6 +146,9 @@
 				margin-bottom: 0.5rem;
 				display: flex;
 				flex-direction: column;
+				@media only screen and (max-width: 480px) {
+					font-size: 1rem;
+				}
 			}
 
 			.monster-number {
@@ -163,7 +187,9 @@
 	gap: 1rem;
 	z-index: 1;
 	position: relative;
-	overflow: hidden;
+	@media only screen and (max-width: 480px) {
+		gap: 0.5rem;
+	}
 
 	.monster-image {
 		width: 7rem;
@@ -179,6 +205,9 @@
 		height: auto;
 		object-fit: contain;
 		margin-top: auto;
+        @media only screen and (max-width: 768px) {
+			width: 4rem;
+		}
 	}
 }
 
@@ -193,6 +222,14 @@
 	overflow: hidden;
 	z-index: 2;
 	position: relative;
+
+	@media only screen and (max-width: 768px) {
+		height: 1.3rem;
+	}
+
+	@media only screen and (max-width: 480px) {
+		height: 1rem;
+	}
 
 	.healthbar__value {
 		background-color: #00a876;
@@ -210,11 +247,18 @@
 	max-width: 60rem;
 	padding: 1.5rem;
 	margin-bottom: 1.5rem;
+	@media only screen and (max-width: 480px) {
+		flex-direction: column;
+		padding: 1rem;
+	}
 
 	.battle-stage-wrapper {
 		flex: 1;
 		padding: 1.5rem;
 		border-radius: $border-radius-m;
+        @media only screen and (max-width: 768px) {
+			padding: 1rem;
+		}
 	}
 
 }
@@ -242,6 +286,10 @@
 		font-size: 1.5rem;
 		justify-content: center;
 		gap: 1rem;
+        @media only screen and (max-width: 480px) {
+			font-size: 1rem;
+			margin-bottom: 0.5rem;
+		}
 	}
 
 	span {
@@ -256,7 +304,22 @@
 	.player-health {
 		font-size: 1rem;
 		font-weight: normal;
+        @media only screen and (max-width: 768px) {
+			display: none;
+		}
 	}
+}
+
+#monster {
+	@media only screen and (max-width: 480px) {
+		margin-right: 1.5rem;
+	}	
+}
+
+#player {
+	@media only screen and (max-width: 480px) {
+		margin-left: 1.5rem;
+	}	
 }
 
 // Game controls
@@ -270,8 +333,18 @@
 	justify-content: center;
 	justify-items: center;
 	margin-bottom: 1.5rem;
+	@media only screen and (max-width: 480px) {
+		width: 100%;
+		max-width: none;;
+		gap: 0.7rem;
+		row-gap: 0.7rem;
+		margin-left: auto;
+    	margin-right: auto;
+	}
+
 	button {
 		width: 100%;
+		font-weight: bold;
 	}
 }
 
@@ -287,6 +360,9 @@
 		padding: 0;
 		max-height: 5rem;
 		overflow-x: auto;
+		@media only screen and (max-width: 480px) {
+			font-size: 0.9rem;
+		}
 
 		li {
 			margin: 0.5rem 0;
@@ -312,12 +388,23 @@
 
 .filter-bar-wrapper {
 	margin-bottom: 1.5rem;
+	input {
+		@media only screen and (max-width: 768px) {
+			padding-top: 0.5rem;
+			padding-bottom: 0.5rem;
+			width: 100%;
+		}
+	}
 }
 
 .flipcontainer {
+	display: flex;
+	margin-top: auto;
+	
 	&.flipright {
 		transform: scaleX(-1);
 	}
+	
 	&.flipleft {
 		transform: scaleX(-1);
 	}

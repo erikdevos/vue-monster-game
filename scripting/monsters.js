@@ -200,7 +200,8 @@ const monstersList = [
         health: 120,
         number: '0022',
         size: 'l',
-        type: 'flying'
+        type: 'flying',
+        direction: 'left'
     },
     {
         name: 'Ekans',
@@ -232,7 +233,8 @@ const monstersList = [
         health: 120,
         number: '0026',
         size: 'm',
-        type: 'electric'
+        type: 'electric',
+        direction: 'left'
     },
     {
         name: 'Sandshrew',
@@ -824,7 +826,8 @@ const monstersList = [
         health: 80,
         number: '0100',
         size: 's',
-        type: 'electric'
+        type: 'electric',
+        direction: 'right'
     },
     {
         name: 'Electrode',
@@ -976,7 +979,8 @@ const monstersList = [
         health: 160,
         number: '0119',
         size: 'l',
-        type: 'water'
+        type: 'water',
+        direction: 'left'
     },
     {
         name: 'Staryu',
