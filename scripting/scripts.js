@@ -34,6 +34,8 @@ const app = Vue.createApp({
 			searchTermEnemy: '',
 			imagePathThumb: 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail/',
 			imagePathFull: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/',
+			direction: 'right',
+			playerMonsterImageRotate: '',
 			stageSelect: false,
 			stagesPath: 'resources/stages/',
 			stages: [ 
@@ -112,7 +114,7 @@ const app = Vue.createApp({
 		selectDittoMonster() {
 			console.log("Ditto selected");
 		
-			// Find the Ditto monster in your monstersList based on its name
+			// Find the Ditto monster in monster list based on its name
 			const dittoMonster = this.monstersList.find(monster => monster.name === "Ditto");
 			
 			// Set the current player monster to Ditto and update its health
@@ -166,6 +168,22 @@ const app = Vue.createApp({
 				this.monsterAttacked = false;
 				this.specialAttackAttacked = false;
 			}, 1000);
+		},
+
+		flipEnemyMonsterImage() {
+			if (this.currentEnemyMonster.direction == 'left') {
+				return "flipright";
+			}
+			// Do nothing, keep current rotation
+			return "keepleft";
+		},
+
+		flipPlayerMonsterImage() {
+			if (this.currentPlayerMonster.direction == 'right') {
+				return "flipleft";
+			}
+			// Do nothing, keep current rotation
+			return "keepright";
 		},
 
 		attackMonster() {
@@ -290,6 +308,8 @@ const app = Vue.createApp({
 			this.fightStarted = false;
 			this.playerSelect = true;
 			this.clearLog();
+			this.searchTermPlayer = '';
+			this.searchTermEnemy = '';
 		},
 
 		addLogMessage(who, what, value, effectivenessString) {

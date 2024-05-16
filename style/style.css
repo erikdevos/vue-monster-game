@@ -275,7 +275,8 @@ button:disabled {
   filter: drop-shadow(3px 2px 2px rgba(0, 0, 0, 0.6));
 }
 
-.player-images {
+.player-images,
+.enemy-images {
   display: flex;
   justify-content: center;
   margin-top: auto;
@@ -285,7 +286,8 @@ button:disabled {
   position: relative;
   overflow: hidden;
 }
-.player-images .monster-image {
+.player-images .monster-image,
+.enemy-images .monster-image {
   width: 7rem;
   height: 7rem;
   -o-object-fit: contain;
@@ -293,23 +295,28 @@ button:disabled {
   margin-top: auto;
   filter: drop-shadow(3px 2px 2px rgba(0, 0, 0, 0.8));
 }
-.player-images .monster-image.size-s {
+.player-images .monster-image.size-s,
+.enemy-images .monster-image.size-s {
   width: 8rem;
   height: 8rem;
 }
-.player-images .monster-image.size-m {
+.player-images .monster-image.size-m,
+.enemy-images .monster-image.size-m {
   width: 12rem;
   height: 12rem;
 }
-.player-images .monster-image.size-l {
+.player-images .monster-image.size-l,
+.enemy-images .monster-image.size-l {
   width: 15rem;
   height: 15rem;
 }
-.player-images .monster-image.size-xl {
+.player-images .monster-image.size-xl,
+.enemy-images .monster-image.size-xl {
   width: 18rem;
   height: 18rem;
 }
-.player-images .trainer-image {
+.player-images .trainer-image,
+.enemy-images .trainer-image {
   width: 5rem;
   height: auto;
   -o-object-fit: contain;
@@ -434,4 +441,11 @@ button:disabled {
 
 .filter-bar-wrapper {
   margin-bottom: 1.5rem;
+}
+
+.flipcontainer.flipright {
+  transform: scaleX(-1);
+}
+.flipcontainer.flipleft {
+  transform: scaleX(-1);
 }/*# sourceMappingURL=style.css.map */

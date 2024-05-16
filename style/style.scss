@@ -154,7 +154,8 @@
 }
 
 // Player image during game
-.player-images {
+.player-images,
+.enemy-images {
 	display: flex;
 	justify-content: center;
 	margin-top: auto;
@@ -311,4 +312,13 @@
 
 .filter-bar-wrapper {
 	margin-bottom: 1.5rem;
+}
+
+.flipcontainer {
+	&.flipright {
+		transform: scaleX(-1);
+	}
+	&.flipleft {
+		transform: scaleX(-1);
+	}
 }
