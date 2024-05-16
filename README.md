@@ -17,6 +17,8 @@ Try the latest version here: https://erikdevos.github.io/vue-monster-game/
 - Display monster type as color in several places
 - Delay between attack & counter-attack / animations
 - Changing monster size based on stats (s-m-l-xl)
+- Flipping monster images to face each other in battle based on player vs enemy role and original orientation.
+  
 
 ### Functionality:
 - HP (health) display
