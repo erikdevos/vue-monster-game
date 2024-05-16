@@ -128,6 +128,8 @@
 			border-radius: $border-radius-m;
 			position: relative;
 			border: solid 3px transparent;
+			background-color: #F0F0F0;
+
 			@media only screen and (max-width: 768px) {
 				padding: 0.5rem;
 			}

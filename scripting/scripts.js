@@ -37,6 +37,8 @@ const app = Vue.createApp({
 			//imagePathFull: 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/',
 			direction: 'right',
 			playerMonsterImageRotate: '',
+			dittoSelected: false,
+			dittoChangeClass: '',
 			stageSelect: false,
 			stagesPath: 'resources/stages/',
 			stages: [ 
@@ -113,7 +115,7 @@ const app = Vue.createApp({
 			}
 		},
 
-		selectDittoMonster() {		
+		selectDittoMonster() {	
 			// Find the Ditto monster in monster list based on its name
 			const dittoMonster = this.monstersList.find(monster => monster.name === "Ditto");
 			
@@ -121,17 +123,22 @@ const app = Vue.createApp({
 			this.currentPlayerMonster = { ...dittoMonster, health: this.currentEnemyMonsterHealth };
 			this.currentPlayerMonster.health = this.currentEnemyMonsterHealth;
 			this.currentPlayerMonsterHealth = this.currentPlayerMonster.health;
-			
-			// Adding a delay of 2 seconds before executing the next line
+			this.dittoSelected = true;
+
+			// Adding a delay of 2 seconds before changing to new values
 			setTimeout(() => {
-				// Inside this arrow function, `this` refers to the Vue instance
 				this.currentPlayerMonster.image = this.currentEnemyMonster.image;
-				this.dittoChange()
-			}, 2000); // 2000 milliseconds = 2 second
+				this.currentPlayerMonster.size = this.currentEnemyMonster.size;
+
+				this.dittoChangeAnimate();
+			}, 2000); // 2 seconds
 		},
 
-		dittoChange() {
-			return "animate__delay-2s animate__animated animate__rubberBand";
+		dittoChangeAnimate() {
+			if (this.dittoSelected == true && this.fightStarted == true) {
+
+				return "animate__delay-2s animate__slow animate__animated animate__rubberBand";
+			}
 		},
 
 		selectStage(stage) {
@@ -144,8 +151,8 @@ const app = Vue.createApp({
 				// Select a random monster from the array
 				const randomIndex = Math.floor(Math.random() * this.monstersList.length);
 				this.currentPlayerMonster = this.monstersList[randomIndex];
-				console.log("Random playermonster");
 			} else if (playerMonster === "Ditto") {
+				// Set Ditto monster
 				this.selectDittoMonster();
 			} else {
 				// Set the selected player monster
@@ -321,6 +328,7 @@ const app = Vue.createApp({
 			this.clearLog();
 			this.searchTermPlayer = '';
 			this.searchTermEnemy = '';
+			this.dittoSelected = false;
 		},
 
 		addLogMessage(who, what, value, effectivenessString) {
@@ -376,14 +384,14 @@ const app = Vue.createApp({
 		},
 			
 		filteredEnemyMonsters() {
-		const regex = new RegExp(this.searchTermEnemy, 'i');
-		return this.sortedEnemyMonsters.filter(enemyMonster => {
-			return (
-			regex.test(enemyMonster.name) ||
-			regex.test(enemyMonster.type) ||
-			regex.test(enemyMonster.number.toString())
-			);
-		});
+			const regex = new RegExp(this.searchTermEnemy, 'i');
+			return this.sortedEnemyMonsters.filter(enemyMonster => {
+				return (
+				regex.test(enemyMonster.name) ||
+				regex.test(enemyMonster.type) ||
+				regex.test(enemyMonster.number.toString())
+				);
+			});
 		},
 
 		getBarStyles() {
@@ -401,7 +409,6 @@ const app = Vue.createApp({
 				return { width: scaledPercentage + "%" };
 			}
 			};
-
 		},
 
 		playerBarStyles() {
