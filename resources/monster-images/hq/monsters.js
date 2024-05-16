@@ -738,8 +738,7 @@ const monstersList = [
         health: 160,
         number: '0089',
         size: 'l',
-        type: 'poison',
-        direction: 'right'
+        type: 'poison'
     },
     {
         name: 'Shellder',

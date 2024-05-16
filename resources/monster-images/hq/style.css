@@ -1,0 +1,671 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.2;
+  background-image: url("../resources/global-background.png");
+  background-repeat: repeat;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+input {
+  padding: 0.3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 1rem;
+  outline: none;
+  border: solid 2px #dfdfdf;
+  border-radius: 0.3rem;
+}
+input:focus {
+  border-color: #c11e1e;
+}
+
+header {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  padding: 0.5rem;
+  background-color: #c11e1e;
+  color: white;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+header h1 {
+  margin: 0;
+}
+@media only screen and (max-width: 480px) {
+  header h1 {
+    font-size: 1.3rem;
+  }
+}
+
+section {
+  width: 90%;
+  max-width: 45rem;
+  margin: auto;
+}
+@media only screen and (max-width: 768px) {
+  section {
+    width: calc(100% - 2rem);
+    max-width: none;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+@media only screen and (max-width: 480px) {
+  section {
+    width: calc(100% - 1.4rem);
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+  }
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+@media only screen and (max-width: 480px) {
+  h2 {
+    font-size: 1.2rem;
+    margin-top: 0;
+  }
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.7);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  text-align: center;
+  padding: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  margin: 1rem auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+@media only screen and (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .container {
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+  }
+}
+
+button {
+  font: inherit;
+  background-color: #c11e1e;
+  color: white;
+  padding: 0.8rem 2.5rem;
+  border: none;
+  border-radius: 0.3rem;
+  width: auto;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  transition: background-color 0.3s ease-in-out;
+}
+@media only screen and (max-width: 480px) {
+  button {
+    padding: 0.8rem 1rem;
+    font-size: 0.75rem;
+  }
+}
+button:focus {
+  outline: none;
+}
+button:hover, button:active {
+  background-color: #951717;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+button:disabled {
+  background-color: #ccc;
+  box-shadow: none;
+  color: #3f3f3f;
+  cursor: not-allowed;
+}
+
+.v-enter-active {
+  transition: opacity 0.7s ease;
+}
+
+.v-leave-active {
+  transition: 0;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+}
+
+.stage-select > h2 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.stage-select ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-height: 25rem;
+  overflow-x: auto;
+  gap: 1.5rem;
+}
+@media only screen and (max-width: 768px) {
+  .stage-select ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .stage-select ul {
+    gap: 1rem;
+    max-height: 35rem;
+  }
+}
+.stage-select ul li {
+  cursor: pointer;
+}
+.stage-select ul li:hover h3 {
+  color: #c11e1e;
+}
+.stage-select ul li:hover .stage-image-wrapper {
+  border-color: #c11e1e;
+}
+.stage-select ul li:hover img {
+  transform: scale(1.2);
+}
+.stage-select ul li h3 {
+  font-size: 1.1rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+.stage-select ul li .stage-image-wrapper {
+  overflow: hidden;
+  aspect-ratio: 1.5/1;
+  border: solid 2px #dfdfdf;
+  border-radius: 1rem;
+}
+.stage-select ul li img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.player-select {
+  margin-bottom: 1.5rem;
+}
+
+.name-input-wrapper .input-wrapper {
+  margin-bottom: 1rem;
+}
+.name-input-wrapper input {
+  text-align: center;
+}
+
+.monster-type {
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 100%;
+  background-color: #FFFFFF;
+  display: inline-block;
+}
+@media only screen and (max-width: 768px) {
+  .monster-type {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+.monster-type.normal {
+  background-color: #aa9;
+}
+.monster-type.fire {
+  background-color: #f42;
+}
+.monster-type.electric {
+  background-color: #fc3;
+}
+.monster-type.grass {
+  background-color: #7c5;
+}
+.monster-type.bug {
+  background-color: #ab2;
+}
+.monster-type.psychic {
+  background-color: #f59;
+}
+.monster-type.fighting {
+  background-color: #b54;
+}
+.monster-type.water {
+  background-color: #39f;
+}
+.monster-type.fairy {
+  background-color: #e9e;
+}
+.monster-type.ice {
+  background-color: #6cf;
+}
+.monster-type.dragon {
+  background-color: #76e;
+}
+.monster-type.ground {
+  background-color: #db5;
+}
+.monster-type.rock {
+  background-color: #ba6;
+}
+.monster-type.ghost {
+  background-color: #66b;
+}
+.monster-type.poison {
+  background-color: #a59;
+}
+.monster-type.flying {
+  background-color: #89f;
+}
+
+.monster-select > h2 {
+  margin-bottom: 1rem;
+}
+.monster-select ul {
+  padding-left: 0;
+  padding-right: 1rem;
+  max-height: 25rem;
+  overflow-x: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  row-gap: 1.5rem;
+}
+@media only screen and (max-width: 768px) {
+  .monster-select ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.monster-select ul li {
+  cursor: pointer;
+  padding: 0.7rem;
+  padding-bottom: 0.25rem;
+  border-radius: 1rem;
+  position: relative;
+  border: solid 3px transparent;
+}
+@media only screen and (max-width: 768px) {
+  .monster-select ul li {
+    padding: 0.5rem;
+  }
+}
+.monster-select ul li:hover {
+  border: solid 3px #c11e1e;
+  overflow: hidden;
+}
+.monster-select ul li:hover .monster-name {
+  color: #c11e1e;
+}
+.monster-select ul li:hover img {
+  transform: scale(1.2);
+}
+.monster-select ul li .monster-name {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+@media only screen and (max-width: 480px) {
+  .monster-select ul li .monster-name {
+    font-size: 1rem;
+  }
+}
+.monster-select ul li .monster-number {
+  font-weight: normal;
+  font-style: italic;
+  font-size: 0.8rem;
+}
+.monster-select ul li .monster-type {
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  z-index: 3;
+}
+.monster-select ul li img {
+  max-width: 7rem;
+  max-height: 7rem;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  transition: transform 0.5s ease;
+  filter: drop-shadow(3px 2px 2px rgba(0, 0, 0, 0.6));
+}
+
+.player-images,
+.enemy-images {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+  margin-bottom: 1rem;
+  gap: 1rem;
+  z-index: 1;
+  position: relative;
+}
+@media only screen and (max-width: 480px) {
+  .player-images,
+  .enemy-images {
+    gap: 0.5rem;
+  }
+}
+.player-images .monster-image,
+.enemy-images .monster-image {
+  width: 7rem;
+  height: 7rem;
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin-top: auto;
+  filter: drop-shadow(3px 2px 2px rgba(0, 0, 0, 0.8));
+}
+.player-images .monster-image.size-s,
+.enemy-images .monster-image.size-s {
+  width: 8rem;
+  height: 8rem;
+}
+@media only screen and (max-width: 768px) {
+  .player-images .monster-image.size-s,
+  .enemy-images .monster-image.size-s {
+    width: 5rem;
+    height: 5rem;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .player-images .monster-image.size-s,
+  .enemy-images .monster-image.size-s {
+    width: 4rem;
+    height: 4rem;
+  }
+}
+.player-images .monster-image.size-m,
+.enemy-images .monster-image.size-m {
+  width: 12rem;
+  height: 12rem;
+}
+@media only screen and (max-width: 768px) {
+  .player-images .monster-image.size-m,
+  .enemy-images .monster-image.size-m {
+    width: 8rem;
+    height: 8rem;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .player-images .monster-image.size-m,
+  .enemy-images .monster-image.size-m {
+    width: 6rem;
+    height: 6rem;
+  }
+}
+.player-images .monster-image.size-l,
+.enemy-images .monster-image.size-l {
+  width: 15rem;
+  height: 15rem;
+}
+@media only screen and (max-width: 768px) {
+  .player-images .monster-image.size-l,
+  .enemy-images .monster-image.size-l {
+    width: 10rem;
+    height: 10rem;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .player-images .monster-image.size-l,
+  .enemy-images .monster-image.size-l {
+    width: 8rem;
+    height: 8rem;
+  }
+}
+.player-images .monster-image.size-xl,
+.enemy-images .monster-image.size-xl {
+  width: 18rem;
+  height: 18rem;
+}
+@media only screen and (max-width: 768px) {
+  .player-images .monster-image.size-xl,
+  .enemy-images .monster-image.size-xl {
+    width: 13rem;
+    height: 13rem;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .player-images .monster-image.size-xl,
+  .enemy-images .monster-image.size-xl {
+    width: 10rem;
+    height: 10rem;
+  }
+}
+.player-images .trainer-image,
+.enemy-images .trainer-image {
+  width: 5rem;
+  height: auto;
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin-top: auto;
+}
+@media only screen and (max-width: 768px) {
+  .player-images .trainer-image,
+  .enemy-images .trainer-image {
+    width: 4rem;
+  }
+}
+
+.healthbar {
+  width: 100%;
+  height: 1.7rem;
+  margin: 0;
+  background: #fde5e5;
+  border: solid 2px #FFFFFF;
+  border-radius: 0.3rem;
+  overflow: hidden;
+  z-index: 2;
+  position: relative;
+}
+@media only screen and (max-width: 768px) {
+  .healthbar {
+    height: 1.3rem;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .healthbar {
+    height: 1rem;
+  }
+}
+.healthbar .healthbar__value {
+  background-color: #00a876;
+  width: 100%;
+  height: 100%;
+  transition: width 0.5s ease-in-out;
+}
+
+.battle-stage-section {
+  display: flex;
+  gap: 1rem;
+  row-gap: 1rem;
+  max-width: 60rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+@media only screen and (max-width: 480px) {
+  .battle-stage-section {
+    flex-direction: column;
+    padding: 1rem;
+  }
+}
+.battle-stage-section .battle-stage-wrapper {
+  flex: 1;
+  padding: 1.5rem;
+  border-radius: 1rem;
+}
+@media only screen and (max-width: 768px) {
+  .battle-stage-section .battle-stage-wrapper {
+    padding: 1rem;
+  }
+}
+
+.battle-stage-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.battle-stage-wrapper .monster-type {
+  border: solid 2px #FFFFFF;
+}
+
+#monster,
+#player {
+  background-color: lightgray;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: cover;
+}
+#monster h2,
+#player h2 {
+  display: flex;
+  align-items: center;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  justify-content: center;
+  gap: 1rem;
+}
+@media only screen and (max-width: 480px) {
+  #monster h2,
+  #player h2 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+}
+#monster span,
+#player span {
+  display: flex;
+  align-items: baseline;
+  white-space: nowrap;
+  gap: 1rem;
+  text-shadow: 1px 1px white;
+}
+#monster .monster-health,
+#monster .player-health,
+#player .monster-health,
+#player .player-health {
+  font-size: 1rem;
+  font-weight: normal;
+}
+@media only screen and (max-width: 768px) {
+  #monster .monster-health,
+  #monster .player-health,
+  #player .monster-health,
+  #player .player-health {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  #monster {
+    margin-right: 1.5rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  #player {
+    margin-left: 1.5rem;
+  }
+}
+
+#controls {
+  max-width: 30rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  row-gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  margin-bottom: 1.5rem;
+}
+@media only screen and (max-width: 480px) {
+  #controls {
+    width: 100%;
+    max-width: none;
+    gap: 0.7rem;
+    row-gap: 0.7rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+#controls button {
+  width: 100%;
+  font-weight: bold;
+}
+
+#log h2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+#log ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 5rem;
+  overflow-x: auto;
+}
+@media only screen and (max-width: 480px) {
+  #log ul {
+    font-size: 0.9rem;
+  }
+}
+#log ul li {
+  margin: 0.5rem 0;
+}
+#log ul .log--player {
+  color: #7700ff;
+}
+#log ul .log--monster {
+  color: #da8d00;
+}
+#log ul .log--damage {
+  color: red;
+}
+#log ul .log--heal {
+  color: green;
+}
+
+.filter-bar-wrapper {
+  margin-bottom: 1.5rem;
+}
+@media only screen and (max-width: 768px) {
+  .filter-bar-wrapper input {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    width: 100%;
+  }
+}
+
+.flipcontainer {
+  display: flex;
+  margin-top: auto;
+}
+.flipcontainer.flipright {
+  transform: scaleX(-1);
+}
+.flipcontainer.flipleft {
+  transform: scaleX(-1);
+}/*# sourceMappingURL=style.css.map */
