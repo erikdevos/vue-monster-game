@@ -20,7 +20,7 @@
 
 		<!-- Character select screen -->
 		<Transition>
-		<section v-if="playerSelect" id="player-select" class="container player-select">
+		<section v-if="playerTrainerSelect" id="player-select" class="container player-select">
 			<h2>What's your name?</h2>
 			<div class="name-input-wrapper">
 				<div class="input-wrapper">
@@ -31,9 +31,22 @@
 		</section>
 		</Transition>
 
+		<Transition>
+		<section v-if="playerTrainerSelect" id="trainer-select" class="container trainer-select">
+			<h2>Select your trainer</h2>
+			<div class="trainer-select-wrapper">
+				<ul class="trainer-list">
+					<li v-for="trainer in trainers" :id="'trainer_' + trainer.id" @click="selectPlayerTrainer(trainer)">
+						<img :src="'resources/trainers/' + trainer.image" :alt="'Trainer ' + trainer.alias" :title="'Trainer ' + trainer.alias">
+					</li>
+				</ul>
+			</div>
+		</section>
+		</Transition>
+
 		<!-- Player monster select screen -->
 		<Transition>
-		<section v-if="playerSelect" id="player-monster-select" class="container monster-select">
+		<section v-if="playerMonsterSelect" id="player-monster-select" class="container monster-select">
 			<h2>Select your partner</h2>
 			<div class="filter-bar-wrapper">
 				<input type="text" v-model="searchTermPlayer" placeholder="Search">
@@ -62,7 +75,7 @@
 
 		<!-- Enemy Monster select screen -->
 		<Transition>
-		<section v-if="monsterSelect" id="monster-list" class="container monster-select">
+		<section v-if="enemyMonsterSelect" id="monster-list" class="container monster-select">
 			<h2>Select an enemy</h2>
 			<div class="filter-bar-wrapper">
 				<input type="text" v-model="searchTermEnemy" placeholder="Search">
@@ -149,7 +162,7 @@
 
 				<div v-if="fightStarted" class="player-images">
 					<!-- Player trainer -->
-					<img src="resources/trainer-male.webp" class="trainer-image monster-image animate__animated">
+					<img :src="'resources/trainers/' + this.selectedTrainer.image" class="trainer-image monster-image animate__animated">
 
 					<!-- Player Monster -->
 					<div class="flipcontainer" :class="[flipPlayerMonsterImage(), dittoChangeAnimate()]">

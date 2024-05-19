@@ -426,7 +426,8 @@ const monstersList = [
         health: 60,
         number: '0050',
         size: 's',
-        type: 'ground'
+        type: 'ground',
+        direction: 'left'
     },
     {
         name: 'Dugtrio',

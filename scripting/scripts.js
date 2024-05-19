@@ -23,13 +23,15 @@ const app = Vue.createApp({
 			winner: null,
 			logMessages: [],
 			playerName: 'Ash',
+			playerTrainer: '',
 			playerAttacked: false,
 			monsterAttacked: false,
 			specialAttackAttacked: false,
 			healAnimation: false,
 			playerLoseAnimation: false,
-			playerSelect: true,
-			monsterSelect: null,
+			playerTrainerSelect: true,
+			playerMonsterSelect: false,
+			enemyMonsterSelect: null,
 			searchTermPlayer: '',
 			searchTermEnemy: '',
 			imagePathThumb: 'resources/monster-images/thumbs/',
@@ -39,6 +41,28 @@ const app = Vue.createApp({
 			playerMonsterImageRotate: '',
 			dittoSelected: false,
 			dittoChangeClass: '',
+			trainers: [
+				{
+					id: 1,
+					alias: 'Ash',
+					image: 'trainer-male.webp'
+				},
+				{
+					id: 2,
+					alias: 'Misty',
+					image: 'trainer-misty.webp'
+				},
+				// {
+				// 	id: 3,
+				// 	alias: 'Alice',
+				// 	image: 'trainer-female.webp'
+				// },
+				{
+					id: 4,
+					alias: 'Gary',
+					image: 'trainer-gary.webp'
+				}
+			],
 			stageSelect: false,
 			stagesPath: 'resources/stages/',
 			stages: [ 
@@ -61,8 +85,7 @@ const app = Vue.createApp({
 					name: 'Ocean',
 					image: 'background-water.webp',
 					type: 'water'
-				}
-				
+				}	
 			]
 		};
 		
@@ -105,7 +128,8 @@ const app = Vue.createApp({
 			this.currentRound = 0;
 			this.playerLoseAnimation = false;
 			this.monsterLoseAnimation = false;
-			this.monsterSelect = false;
+			this.enemyMonsterSelect = false;
+			this.playerMonsterSelect = false;
 			this.stageSelect = false;
 			this.enemyMonsterHealth = this.currentEnemyMonster.health;
 		
@@ -161,8 +185,17 @@ const app = Vue.createApp({
 		
 			// store the original health value
 			this.currentPlayerMonsterHealth = this.currentPlayerMonster.health;
-			this.playerSelect = false;
-			this.monsterSelect = true;
+			this.playerMonsterSelect = false;
+			this.enemyMonsterSelect = true;
+		},
+
+		selectPlayerTrainer(selectedTrainer) {	
+			this.selectedTrainer = selectedTrainer;
+			console.log("selected trainer");
+			console.log(selectedTrainer);
+			console.log(selectedTrainer.image)
+			this.playerTrainerSelect = false;
+			this.playerMonsterSelect = true;
 		},
 		
 		selectEnemyMonster(enemyMonster) {
@@ -175,7 +208,7 @@ const app = Vue.createApp({
 		
 			this.currentEnemyMonsterHealth = this.currentEnemyMonster.health;
 
-			this.monsterSelect = false;
+			this.enemyMonsterSelect = false;
 			this.stageSelect = true;
 		},
 
@@ -324,7 +357,7 @@ const app = Vue.createApp({
 		resetGame() {
 			this.gameEnded = false;
 			this.fightStarted = false;
-			this.playerSelect = true;
+			this.playerTrainerSelect = true; // Set starting screen
 			this.clearLog();
 			this.searchTermPlayer = '';
 			this.searchTermEnemy = '';
