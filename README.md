@@ -17,7 +17,8 @@ Try the latest version here: https://erikdevos.github.io/vue-monster-game/
 - Display monster type as color in several places
 - Delay between attack & counter-attack / animations
 - Changing monster size based on stats (s-m-l-xl)
-- Flipping monster images to face each other in battle based on player vs enemy role and original orientation.
+- Flipping monster images to face each other in battle based on player vs enemy role and original orientation
+- Showing a selectable player Trainer character
   
 
 ### Functionality:
@@ -35,4 +36,5 @@ Try the latest version here: https://erikdevos.github.io/vue-monster-game/
 - Monster type damage multiplier (0.5x - 2x)
 - Damage multiplier effectiveness in logging ('Super Effective!')
 - Stage selection screen & display in battle.
+- Select player Trainer character screen
   
