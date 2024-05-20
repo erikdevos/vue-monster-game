@@ -57,6 +57,13 @@ header h1 {
     font-size: 1.3rem;
   }
 }
+header .back-button {
+  position: absolute;
+  right: 1rem;
+  top: 0.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
 
 section {
   width: 90%;
@@ -81,6 +88,7 @@ section {
 
 h2 {
   font-size: 1.5rem;
+  margin-top: 0;
 }
 @media only screen and (max-width: 480px) {
   h2 {
@@ -94,18 +102,19 @@ h2 {
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
   text-align: center;
-  padding: 1rem;
+  padding: 1.5rem;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   margin: 1rem auto;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   border-radius: 1rem;
   overflow: hidden;
 }
 @media only screen and (max-width: 768px) {
   .container {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: 1rem;
   }
 }
 @media only screen and (max-width: 480px) {
@@ -152,8 +161,13 @@ button.white {
   font-weight: bold;
 }
 
+.stepback {
+  align-self: center;
+  margin-bottom: 1rem;
+}
+
 .v-enter-active {
-  transition: opacity 0.7s ease;
+  transition: opacity 1s ease;
 }
 
 .v-leave-active {
@@ -172,7 +186,7 @@ button.white {
 }
 
 .title-screen {
-  background: #C11E1E;
+  background-color: #C11E1E;
   background-image: url(../resources/start-screen.jpg);
   background-size: cover;
   background-position: center center;
@@ -276,12 +290,10 @@ button.white {
 }
 
 .player-select {
+  margin-top: 0;
   margin-bottom: 1.5rem;
 }
 
-.name-input-wrapper .input-wrapper {
-  margin-bottom: 1rem;
-}
 .name-input-wrapper input {
   text-align: center;
 }
@@ -344,8 +356,8 @@ button.white {
      object-fit: contain;
   width: 100%;
   height: 100%;
-  max-width: 5rem;
-  max-height: 10rem;
+  max-width: 4rem;
+  max-height: 9rem;
   transition: transform 0.4s ease;
   filter: drop-shadow(3px 2px 2px rgba(0, 0, 0, 0.4));
 }
@@ -769,6 +781,7 @@ button.white {
   align-items: center;
   justify-content: center;
   justify-items: center;
+  margin-top: 0;
   margin-bottom: 1.5rem;
 }
 @media only screen and (max-width: 480px) {

@@ -118,7 +118,16 @@ const app = Vue.createApp({
 					image: 'background-stadium.webp',
 					type: 'fighting'
 				}
-			]
+			],
+			currentStepIndex: 0,
+			steps: [
+				'titleScreen',
+				'trainerSelect',
+				'playerMonsterSelect',
+				'enemyMonsterList',
+				'stageSelect',
+				'battleStage'
+			],
 		};
 		
 	},
@@ -155,6 +164,7 @@ const app = Vue.createApp({
 		startGame() {
 			this.titleScreen = false;
 			this.playerTrainerSelect = true;
+			this.setActiveScreen(1);
 		},
 
 		startFight() {
@@ -169,7 +179,8 @@ const app = Vue.createApp({
 			this.playerMonsterSelect = false;
 			this.stageSelect = false;
 			this.enemyMonsterHealth = this.currentEnemyMonster.health;
-		
+			this.currentStepIndex = 5;
+
 			// Ensure that this.playerMonster is defined before accessing its properties
 			if (this.currentPlayerMonster.number === '0132') {
 				this.selectDittoMonster();
@@ -202,9 +213,11 @@ const app = Vue.createApp({
 			}
 		},
 
-		selectStage(stage) {
-			this.selectedStage = stage;
-			this.startFight();
+		selectPlayerTrainer(selectedTrainer) {	
+			this.selectedTrainer = selectedTrainer;
+			this.playerTrainerSelect = false;
+			this.playerMonsterSelect = true;
+			this.currentStepIndex = 2;
 		},
 
 		selectPlayerMonster(playerMonster) {
@@ -224,12 +237,8 @@ const app = Vue.createApp({
 			this.currentPlayerMonsterHealth = this.currentPlayerMonster.health;
 			this.playerMonsterSelect = false;
 			this.enemyMonsterSelect = true;
-		},
+			this.currentStepIndex = 3;
 
-		selectPlayerTrainer(selectedTrainer) {	
-			this.selectedTrainer = selectedTrainer;
-			this.playerTrainerSelect = false;
-			this.playerMonsterSelect = true;
 		},
 		
 		selectEnemyMonster(enemyMonster) {
@@ -244,6 +253,14 @@ const app = Vue.createApp({
 
 			this.enemyMonsterSelect = false;
 			this.stageSelect = true;
+			this.currentStepIndex = 4;
+
+		},
+
+		selectStage(stage) {
+			this.selectedStage = stage;
+			this.currentStepIndex = 5;
+			this.startFight();
 		},
 
 		resetAttackedStatus() {
@@ -404,6 +421,7 @@ const app = Vue.createApp({
 			this.searchTermEnemy = '';
 			this.dittoSelected = false;
 			this.titleScreen = true; // Set starting screen
+			this.currentStepIndex = 0; // Back to step 0
 		},
 
 		addLogMessage(who, what, value, effectivenessString) {
@@ -444,8 +462,32 @@ const app = Vue.createApp({
 			this.logMessages = [];
 		},
 
+		setActiveScreen(index) {
+			if (typeof index !== 'number' || index < 0 || index >= this.steps.length) {
+			  console.error('Invalid step index:', index);
+			  return;
+			}
+			this.steps.forEach((step, i) => {
+			  this[step] = i === index;
+			});
+			this.currentStepIndex = index;
+		},
+
+		stepBack() {
+			console.log("step back");
+			if (this.currentStepIndex > 0) {
+				const previousStepIndex = this.currentStepIndex - 1;
+				// Hide all screens except the one at the previous step index
+				this.steps.forEach((step, index) => {
+					this[step] = index === previousStepIndex;
+				});
+				this.currentStepIndex = previousStepIndex;
+			}
+		}
+		
 	},
 
+	// Computed properties
 	computed: {
 		filteredPlayerMonsters() {
 			const regex = new RegExp(this.searchTermPlayer, 'i');
@@ -519,6 +561,11 @@ const app = Vue.createApp({
 		sortedEnemyMonsters() {
 			return this.monstersList.slice().sort((a, b) => a.number - b.number);
 		},
+
+		logCurrentStepIndex() {
+			console.log("Current Step Index:", this.currentStepIndex);
+			return this.currentStepIndex; // Returning the value is optional
+		}
 	}
 });
 
