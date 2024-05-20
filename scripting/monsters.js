@@ -481,7 +481,8 @@ const monstersList = [
         health: 80,
         number: '0056',
         size: 's',
-        type: 'fighting'
+        type: 'fighting',
+        direction: 'left'
     },
     {
         name: 'Primeape',
@@ -545,7 +546,8 @@ const monstersList = [
         health: 120,
         number: '0064',
         size: 'm',
-        type: 'psychic'
+        type: 'psychic',
+        direction: 'right'
     },
     {
         name: 'Alakazam',

@@ -3,7 +3,7 @@
   <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Pokemon game</title>
+	<title>Pocket Monsters Vue</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 	<link rel="stylesheet" href="style/style.css">
 	<link rel="shortcut icon" href="#">
@@ -20,7 +20,7 @@
 		
 		<!-- Title screen -->
 		<Transition>
-		<section v-if="titleScreen" id="title-screen" class="title-screen">
+		<section v-if="currentStepIndex === 0" id="title-screen" class="title-screen">
 			<h1>Pocket Monsters</h1>
 			<button class="button white" id="startButton" @click="startGame()">Press to start</button>
 		</section>
@@ -28,7 +28,7 @@
 
 		<!-- Character select screen -->
 		<Transition>
-		<section v-if="playerTrainerSelect" id="player-select" class="container player-select">
+		<section v-if="currentStepIndex === 1" id="player-select" class="container player-select">
 			<h2>What's your name?</h2>
 			<div class="name-input-wrapper">
 				<div class="input-wrapper">
@@ -40,7 +40,7 @@
 		</Transition>
 
 		<Transition>
-		<section v-if="playerTrainerSelect" id="trainer-select" class="container trainer-select">
+		<section v-if="currentStepIndex === 1" id="trainer-select" class="container trainer-select">
 			<h2>Select your avatar</h2>
 			<div class="trainer-select-wrapper">
 				<ul class="trainer-list">
@@ -54,7 +54,7 @@
 
 		<!-- Player monster select screen -->
 		<Transition>
-		<section v-if="playerMonsterSelect" id="player-monster-select" class="container monster-select">
+		<section v-if="currentStepIndex === 2" id="player-monster-select" class="container monster-select">
 			<h2>Select your partner</h2>
 			<div class="filter-bar-wrapper">
 				<input type="text" v-model="searchTermPlayer" placeholder="Search">
@@ -83,7 +83,7 @@
 
 		<!-- Enemy Monster select screen -->
 		<Transition>
-		<section v-if="enemyMonsterSelect" id="enemy-monster-list" class="container monster-select">
+		<section v-if="currentStepIndex === 3" id="enemy-monster-list" class="container monster-select">
 			<h2>Select an enemy</h2>
 			<div class="filter-bar-wrapper">
 				<input type="text" v-model="searchTermEnemy" placeholder="Search">
@@ -113,7 +113,7 @@
 
 		<!-- Stage select screen -->
 		<Transition>
-		<section v-if="stageSelect" id="stage-select" class="container stage-select">
+		<section v-if="currentStepIndex === 4" id="stage-select" class="container stage-select">
 			<h2>Select your stage</h2>
 			<ul>
 				<li v-for="stage in stages" @click="selectStage(stage)">
@@ -129,7 +129,7 @@
 		
 		<!-- Battle Stage -->
 		<Transition>
-		<section v-if="fightStarted" id="battleStage" class="container battle-stage-section">
+		<section v-if="currentStepIndex === 5" id="battleStage" class="container battle-stage-section">
 			<!-- Enemy monster -->
 			<div id="monster" class="battle-stage-wrapper" :style="{ backgroundImage: 'url(' + stagesPath + selectedStage.image + ')' }">
 				<h2>
@@ -233,7 +233,7 @@
 			</ul>
 		</section>
 
-		<button class="button stepback" @click="stepBack" v-if="!(currentStepIndex === 0)">Back</button>
+		<button class="button stepback" @click="stepBack" v-if="!(currentStepIndex === 0) && !(currentStepIndex === 5)">Back</button>
 
 	</div>
 	<script src="scripting/getMultiplier.js" type="text/javascript"></script>
