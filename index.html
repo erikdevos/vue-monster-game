@@ -83,7 +83,7 @@
 
 		<!-- Enemy Monster select screen -->
 		<Transition>
-		<section v-if="enemyMonsterSelect" id="monster-list" class="container monster-select">
+		<section v-if="enemyMonsterSelect" id="enemy-monster-list" class="container monster-select">
 			<h2>Select an enemy</h2>
 			<div class="filter-bar-wrapper">
 				<input type="text" v-model="searchTermEnemy" placeholder="Search">
@@ -232,6 +232,8 @@
 				</li>
 			</ul>
 		</section>
+
+		<button class="button stepback" @click="stepBack" v-if="!(currentStepIndex === 0)">Back</button>
 
 	</div>
 	<script src="scripting/getMultiplier.js" type="text/javascript"></script>

@@ -57,6 +57,13 @@ header h1 {
     font-size: 1.3rem;
   }
 }
+header .back-button {
+  position: absolute;
+  right: 1rem;
+  top: 0.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
 
 section {
   width: 90%;
@@ -152,8 +159,12 @@ button.white {
   font-weight: bold;
 }
 
+.stepback {
+  align-self: center;
+}
+
 .v-enter-active {
-  transition: opacity 0.7s ease;
+  transition: opacity 1s ease;
 }
 
 .v-leave-active {
@@ -172,7 +183,7 @@ button.white {
 }
 
 .title-screen {
-  background: #C11E1E;
+  background-color: #C11E1E;
   background-image: url(../resources/start-screen.jpg);
   background-size: cover;
   background-position: center center;

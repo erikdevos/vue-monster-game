@@ -118,7 +118,16 @@ const app = Vue.createApp({
 					image: 'background-stadium.webp',
 					type: 'fighting'
 				}
-			]
+			],
+			currentStepIndex: 0,
+			steps: [
+				'titleScreen',
+				'trainerSelect',
+				'playerMonsterSelect',
+				'enemyMonsterList',
+				'stageSelect',
+				'battleStage'
+			],
 		};
 		
 	},
@@ -155,6 +164,7 @@ const app = Vue.createApp({
 		startGame() {
 			this.titleScreen = false;
 			this.playerTrainerSelect = true;
+			this.setActiveScreen(1);
 		},
 
 		startFight() {
@@ -169,7 +179,8 @@ const app = Vue.createApp({
 			this.playerMonsterSelect = false;
 			this.stageSelect = false;
 			this.enemyMonsterHealth = this.currentEnemyMonster.health;
-		
+			this.currentStepIndex = 3;
+
 			// Ensure that this.playerMonster is defined before accessing its properties
 			if (this.currentPlayerMonster.number === '0132') {
 				this.selectDittoMonster();
@@ -230,6 +241,7 @@ const app = Vue.createApp({
 			this.selectedTrainer = selectedTrainer;
 			this.playerTrainerSelect = false;
 			this.playerMonsterSelect = true;
+			this.currentStepIndex = 1;
 		},
 		
 		selectEnemyMonster(enemyMonster) {
@@ -244,6 +256,8 @@ const app = Vue.createApp({
 
 			this.enemyMonsterSelect = false;
 			this.stageSelect = true;
+			this.currentStepIndex = 2;
+
 		},
 
 		resetAttackedStatus() {
@@ -444,6 +458,23 @@ const app = Vue.createApp({
 			this.logMessages = [];
 		},
 
+		setActiveScreen(index) {
+			if (typeof index !== 'number' || index < 0 || index >= this.steps.length) {
+			  console.error('Invalid step index:', index);
+			  return;
+			}
+			this.steps.forEach((step, i) => {
+			  this[step] = i === index;
+			});
+			this.currentStepIndex = index;
+		},
+
+		stepBack() {
+			console.log("step back");
+			if (this.currentStepIndex > 0) {
+				this.setActiveScreen(this.currentStepIndex - 1);
+			}
+		}
 	},
 
 	computed: {
@@ -518,7 +549,7 @@ const app = Vue.createApp({
 		
 		sortedEnemyMonsters() {
 			return this.monstersList.slice().sort((a, b) => a.number - b.number);
-		},
+		}
 	}
 });
 
