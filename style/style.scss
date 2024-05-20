@@ -2,6 +2,61 @@
 @import 'mixins';
 @import 'general';
 
+#game {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+.title-screen {
+	background: $color-primary;
+	background-image: url(../resources/start-screen.jpg);
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	color: $color-white;
+	display: flex;
+	flex-direction: column;
+  	justify-content: center;
+	text-align: center;
+	height: 100%;
+	min-height: 80vh;
+	width: 100%;
+	max-width: 80vw;
+	padding: 3rem;
+	border-radius: $border-radius-m;
+	border: 10px solid $color-primary;
+
+	@media only screen and (max-width: 768px) {
+		max-width: 90vw;
+		padding: 2rem;
+	}
+
+	h1 {
+		font-family: impact, sans-serif;
+		font-size: 4rem;
+		font-weight: 800;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		-webkit-text-stroke: 3px $color-primary; 
+		@media only screen and (max-width: 768px) {
+			font-size: 3rem;
+		}
+	}
+
+	.button {
+		align-self: center;
+		margin-top: auto;
+		border: solid 3px $color-primary;
+		text-transform: uppercase;
+
+		&:hover {
+			border: solid 3px $color-white;
+			background: $color-primary;
+			color: $color-white;
+		}
+	}
+}
 
 .stage-select {
 	> h2 {
@@ -387,7 +442,7 @@
 			display: none;
 		}
 	}
-	
+
 }
 
 #monster {

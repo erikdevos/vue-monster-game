@@ -5,10 +5,10 @@ function getrandomvalue(min, max) {
 
 const app = Vue.createApp({
 	data() {
-
 		const monstersList = window.monstersList;
 
 		return {
+			titleScreen: true,
 			monstersList,
 			currentEnemyMonster: null,
 			currentPlayerMonster: null,
@@ -29,7 +29,7 @@ const app = Vue.createApp({
 			specialAttackAttacked: false,
 			healAnimation: false,
 			playerLoseAnimation: false,
-			playerTrainerSelect: true,
+			playerTrainerSelect: false,
 			playerMonsterSelect: false,
 			enemyMonsterSelect: null,
 			searchTermPlayer: '',
@@ -112,7 +112,12 @@ const app = Vue.createApp({
 					name: 'Ocean',
 					image: 'background-water.webp',
 					type: 'water'
-				}	
+				},
+				{
+					name: 'Stadium',
+					image: 'background-stadium.webp',
+					type: 'fighting'
+				}
 			]
 		};
 		
@@ -147,6 +152,11 @@ const app = Vue.createApp({
 	},
 
 	methods: {
+		startGame() {
+			this.titleScreen = false;
+			this.playerTrainerSelect = true;
+		},
+
 		startFight() {
 			// Start battle and reset all other values
 			this.fightStarted = true;
@@ -389,11 +399,11 @@ const app = Vue.createApp({
 		resetGame() {
 			this.gameEnded = false;
 			this.fightStarted = false;
-			this.playerTrainerSelect = true; // Set starting screen
 			this.clearLog();
 			this.searchTermPlayer = '';
 			this.searchTermEnemy = '';
 			this.dittoSelected = false;
+			this.titleScreen = true; // Set starting screen
 		},
 
 		addLogMessage(who, what, value, effectivenessString) {

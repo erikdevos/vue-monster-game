@@ -26,28 +26,31 @@ input {
   padding-right: 1rem;
   font-size: 1rem;
   outline: none;
-  border: solid 2px #dfdfdf;
+  border: solid 2px #DFDFDF;
   border-radius: 0.3rem;
 }
 input:focus {
-  border-color: #c11e1e;
+  border-color: #C11E1E;
 }
 
 header {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   padding: 0.5rem;
-  background-color: #c11e1e;
+  background-color: #C11E1E;
   color: white;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 @media only screen and (max-width: 480px) {
   header {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
   }
 }
 header h1 {
   margin: 0;
+  font-family: impact;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 @media only screen and (max-width: 480px) {
   header h1 {
@@ -114,7 +117,7 @@ h2 {
 
 button {
   font: inherit;
-  background-color: #c11e1e;
+  background-color: #C11E1E;
   color: white;
   padding: 0.8rem 2.5rem;
   border: none;
@@ -143,6 +146,11 @@ button:disabled {
   color: #3f3f3f;
   cursor: not-allowed;
 }
+button.white {
+  background-color: #FFFFFF;
+  color: #C11E1E;
+  font-weight: bold;
+}
 
 .v-enter-active {
   transition: opacity 0.7s ease;
@@ -155,6 +163,62 @@ button:disabled {
 .v-enter-from,
 .v-leave-to {
   opacity: 0;
+}
+
+#game {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.title-screen {
+  background: #C11E1E;
+  background-image: url(../resources/start-screen.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  min-height: 80vh;
+  width: 100%;
+  max-width: 80vw;
+  padding: 3rem;
+  border-radius: 1rem;
+  border: 10px solid #C11E1E;
+}
+@media only screen and (max-width: 768px) {
+  .title-screen {
+    max-width: 90vw;
+    padding: 2rem;
+  }
+}
+.title-screen h1 {
+  font-family: impact, sans-serif;
+  font-size: 4rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  -webkit-text-stroke: 3px #C11E1E;
+}
+@media only screen and (max-width: 768px) {
+  .title-screen h1 {
+    font-size: 3rem;
+  }
+}
+.title-screen .button {
+  align-self: center;
+  margin-top: auto;
+  border: solid 3px #C11E1E;
+  text-transform: uppercase;
+}
+.title-screen .button:hover {
+  border: solid 3px #FFFFFF;
+  background: #C11E1E;
+  color: #FFFFFF;
 }
 
 .stage-select > h2 {
@@ -184,10 +248,10 @@ button:disabled {
   cursor: pointer;
 }
 .stage-select ul li:hover h3 {
-  color: #c11e1e;
+  color: #C11E1E;
 }
 .stage-select ul li:hover .stage-image-wrapper {
-  border-color: #c11e1e;
+  border-color: #C11E1E;
 }
 .stage-select ul li:hover img {
   transform: scale(1.2);
@@ -200,7 +264,7 @@ button:disabled {
 .stage-select ul li .stage-image-wrapper {
   overflow: hidden;
   aspect-ratio: 1.5/1;
-  border: solid 2px #dfdfdf;
+  border: solid 2px #DFDFDF;
   border-radius: 1rem;
 }
 .stage-select ul li img {
@@ -260,11 +324,11 @@ button:disabled {
   justify-content: center;
 }
 .trainer-select-wrapper ul li:hover {
-  border: solid 3px #c11e1e;
+  border: solid 3px #C11E1E;
   overflow: hidden;
 }
 .trainer-select-wrapper ul li:hover .monster-name {
-  color: #c11e1e;
+  color: #C11E1E;
 }
 .trainer-select-wrapper ul li:hover img {
   transform: scale(1.1);
@@ -382,11 +446,11 @@ button:disabled {
   }
 }
 .monster-select ul li:hover {
-  border: solid 3px #c11e1e;
+  border: solid 3px #C11E1E;
   overflow: hidden;
 }
 .monster-select ul li:hover .monster-name {
-  color: #c11e1e;
+  color: #C11E1E;
 }
 .monster-select ul li:hover img {
   transform: scale(1.1);

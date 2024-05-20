@@ -12,11 +12,19 @@
   <body>
 	<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-	<header>
-	  <h1>Pok&eacute;mon</h1>
-	</header>
-	
+
 	<div id="game">
+		<header v-if="!titleScreen">
+			<h1>Pocket Monsters</h1>
+		</header>
+		
+		<!-- Title screen -->
+		<Transition>
+		<section v-if="titleScreen" id="title-screen" class="title-screen">
+			<h1>Pocket Monsters</h1>
+			<button class="button white" id="startButton" @click="startGame()">Press to start</button>
+		</section>
+		</Transition>
 
 		<!-- Character select screen -->
 		<Transition>

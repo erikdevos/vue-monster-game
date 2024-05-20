@@ -1040,7 +1040,8 @@ const monstersList = [
         health: 180,
         number: '0125',
         size: 'l',
-        type: 'electric'
+        type: 'electric',
+        direction: 'left'
     },
     {
         name: 'Magmar',
