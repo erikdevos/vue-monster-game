@@ -229,7 +229,7 @@ button:disabled {
 
 .trainer-select-wrapper ul {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   justify-content: center;
   gap: 1rem;
   max-height: 25rem;
@@ -237,9 +237,12 @@ button:disabled {
 }
 @media only screen and (max-width: 768px) {
   .trainer-select-wrapper ul {
-    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media only screen and (max-width: 480px) {
+  .trainer-select-wrapper ul {
     grid-template-columns: repeat(2, 1fr);
-    row-gap: 1rem;
   }
 }
 .trainer-select-wrapper ul li {
@@ -555,7 +558,7 @@ button:disabled {
 
 .healthbar {
   width: 100%;
-  height: 1.7rem;
+  height: 1.5rem;
   margin: 0;
   background: #fde5e5;
   border: solid 2px #FFFFFF;
@@ -599,7 +602,7 @@ button:disabled {
 .battle-stage-section .battle-stage-wrapper {
   flex: 1;
   padding: 1.5rem;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
 }
 @media only screen and (max-width: 768px) {
   .battle-stage-section .battle-stage-wrapper {
@@ -664,7 +667,7 @@ button:disabled {
 #player .monster-health,
 #player .player-health {
   font-size: 1rem;
-  font-weight: normal;
+  font-weight: 600;
 }
 @media only screen and (max-width: 768px) {
   #monster .monster-health,
@@ -675,12 +678,18 @@ button:disabled {
   }
 }
 
+#monster {
+  margin-bottom: 1rem;
+}
 @media only screen and (max-width: 480px) {
   #monster {
     margin-right: 1.5rem;
   }
 }
 
+#player {
+  margin-top: 1rem;
+}
 @media only screen and (max-width: 480px) {
   #player {
     margin-left: 1.5rem;

@@ -87,16 +87,18 @@
 .trainer-select-wrapper {
 	ul {
 		display: grid;
-		grid-template-columns: repeat(4, 1fr);
+		grid-template-columns: repeat(5, 1fr);
 		justify-content: center;
 		gap: 1rem;
 		max-height: 25rem;
 		overflow-x: auto;
 
 		@media only screen and (max-width: 768px) {
-			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		@media only screen and (max-width: 480px) {
 			grid-template-columns: repeat(2, 1fr);
-			row-gap: 1rem;
 		}
 
 		li {
@@ -283,7 +285,7 @@
 // Healthbar
 .healthbar {
 	width: 100%;
-	height: 1.7rem;
+	height: 1.5rem;
 	margin: 0;
 	background: #fde5e5;
 	border: solid 2px #FFFFFF;
@@ -325,7 +327,7 @@
 	.battle-stage-wrapper {
 		flex: 1;
 		padding: 1.5rem;
-		border-radius: $border-radius-m;
+		border-radius: calc($border-radius-m / 2);
         @media only screen and (max-width: 768px) {
 			padding: 1rem;
 		}
@@ -380,20 +382,24 @@
 	.monster-health,
 	.player-health {
 		font-size: 1rem;
-		font-weight: normal;
+		font-weight: 600;
         @media only screen and (max-width: 768px) {
 			display: none;
 		}
 	}
+	
 }
 
 #monster {
+	margin-bottom: 1rem;
+
 	@media only screen and (max-width: 480px) {
 		margin-right: 1.5rem;
 	}	
 }
 
 #player {
+	margin-top: 1rem;
 	@media only screen and (max-width: 480px) {
 		margin-left: 1.5rem;
 	}	

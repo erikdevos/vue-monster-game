@@ -227,7 +227,8 @@ const monstersList = [
         health: 70,
         number: '0025',
         size: 's',
-        type: 'electric'
+        type: 'electric',
+        direction: 'left'
     },
     {
         name: 'Raichu',
