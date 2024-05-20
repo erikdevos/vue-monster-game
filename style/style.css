@@ -228,9 +228,12 @@ button:disabled {
 }
 
 .trainer-select-wrapper ul {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   justify-content: center;
   gap: 1rem;
+  max-height: 25rem;
+  overflow-x: auto;
 }
 @media only screen and (max-width: 768px) {
   .trainer-select-wrapper ul {
@@ -250,12 +253,8 @@ button:disabled {
   position: relative;
   border: solid 3px transparent;
   background-color: #f4f4f4;
-}
-@media only screen and (max-width: 768px) {
-  .trainer-select-wrapper ul li {
-    display: grid;
-    justify-content: center;
-  }
+  display: grid;
+  justify-content: center;
 }
 .trainer-select-wrapper ul li:hover {
   border: solid 3px #c11e1e;
@@ -761,9 +760,11 @@ button:disabled {
   display: flex;
   margin-top: auto;
 }
-.flipcontainer.flipright {
+
+.flipright {
   transform: scaleX(-1);
 }
-.flipcontainer.flipleft {
+
+.flipleft {
   transform: scaleX(-1);
 }/*# sourceMappingURL=style.css.map */

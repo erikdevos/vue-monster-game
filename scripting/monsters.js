@@ -32,7 +32,8 @@ const monstersList = [
         health: 80,
         number: '0004',
         size: 's',
-        type: 'fire'
+        type: 'fire',
+        direction: 'left'
     },
     {
         name: 'Charmeleon',
@@ -76,7 +77,8 @@ const monstersList = [
         health: 180,
         number: '0009',
         size: 'l',
-        type: 'water'
+        type: 'water',
+        direction: 'left'
     },
     {
         name: 'Caterpie',
@@ -386,7 +388,8 @@ const monstersList = [
         health: 180,
         number: '0045',
         size: 'l',
-        type: 'grass'
+        type: 'grass',
+        direction: 'left'
     },
     {
         name: 'Paras',
@@ -949,7 +952,8 @@ const monstersList = [
         health: 210,
         number: '0115',
         size: 'xl',
-        type: 'normal'
+        type: 'normal',
+        direction: 'left'
     },
     {
         name: 'Horsea',

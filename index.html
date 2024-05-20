@@ -162,7 +162,7 @@
 
 				<div v-if="fightStarted" class="player-images">
 					<!-- Player trainer -->
-					<img :src="'resources/trainers/' + this.selectedTrainer.image" class="trainer-image monster-image animate__animated">
+					<img :src="'resources/trainers/' + this.selectedTrainer.image" class="trainer-image monster-image animate__animated" :class="[flipPlayerTrainerImage()]">
 
 					<!-- Player Monster -->
 					<div class="flipcontainer" :class="[flipPlayerMonsterImage(), dittoChangeAnimate()]">

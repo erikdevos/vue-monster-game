@@ -44,13 +44,15 @@ const app = Vue.createApp({
 			trainers: [
 				{
 					id: 1,
-					alias: 'Ash',
-					image: 'trainer-male.webp'
+					alias: 'Red',
+					image: 'trainer-male.webp',
+					direction: 'left'
 				},
 				{
 					id: 2,
 					alias: 'Misty',
-					image: 'trainer-misty.webp'
+					image: 'trainer-misty.webp',
+					direction: 'left'
 				},
 				// {
 				// 	id: 3,
@@ -60,7 +62,32 @@ const app = Vue.createApp({
 				{
 					id: 4,
 					alias: 'Gary',
-					image: 'trainer-gary.webp'
+					image: 'trainer-gary.webp',
+					direction: 'left'
+				},
+				{
+					id: 5,
+					alias: 'Black/White',
+					image: 'trainer-black-white.webp',
+					direction: 'right'
+				},
+				{
+					id: 6,
+					alias: 'Hilbert',
+					image: 'trainer-hilbert.webp',
+					direction: 'left'
+				},
+				{
+					id: 7,
+					alias: 'Rosa',
+					image: 'trainer-rosa.webp',
+					direction: 'right'
+				},
+				{
+					id: 8,
+					alias: 'Gladion',
+					image: 'trainer-gladion.webp',
+					direction: 'left'
 				}
 			],
 			stageSelect: false,
@@ -191,9 +218,6 @@ const app = Vue.createApp({
 
 		selectPlayerTrainer(selectedTrainer) {	
 			this.selectedTrainer = selectedTrainer;
-			console.log("selected trainer");
-			console.log(selectedTrainer);
-			console.log(selectedTrainer.image)
 			this.playerTrainerSelect = false;
 			this.playerMonsterSelect = true;
 		},
@@ -223,6 +247,14 @@ const app = Vue.createApp({
 		flipEnemyMonsterImage() {
 			if (this.currentEnemyMonster.direction == 'left') {
 				return "flipright";
+			}
+			// Do nothing, keep current rotation
+			return "keepleft";
+		},
+
+		flipPlayerTrainerImage() {
+			if (this.selectedTrainer.direction == 'right') {
+				return "flipleft";
 			}
 			// Do nothing, keep current rotation
 			return "keepleft";

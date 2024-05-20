@@ -86,9 +86,12 @@
 
 .trainer-select-wrapper {
 	ul {
-		display: flex;
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
 		justify-content: center;
 		gap: 1rem;
+		max-height: 25rem;
+		overflow-x: auto;
 
 		@media only screen and (max-width: 768px) {
 			display: grid;
@@ -107,10 +110,8 @@
 			position: relative;
 			border: solid 3px transparent;
 			background-color: #f4f4f4;
-			@media only screen and (max-width: 768px) {
-				display: grid;
-				justify-content: center;
-			}
+			display: grid;
+			justify-content: center;
 
 			&:hover {
 				border: solid 3px $color-primary;
@@ -477,12 +478,12 @@
 .flipcontainer {
 	display: flex;
 	margin-top: auto;
-	
-	&.flipright {
-		transform: scaleX(-1);
-	}
-	
-	&.flipleft {
-		transform: scaleX(-1);
-	}
+}
+
+.flipright {
+	transform: scaleX(-1);
+}
+
+.flipleft {
+	transform: scaleX(-1);
 }
