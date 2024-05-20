@@ -300,7 +300,8 @@ const monstersList = [
         health: 180,
         number: '0034',
         size: 'l',
-        type: 'poison'
+        type: 'poison',
+        direction: 'left'
     },
     {
         name: 'Clefairy',
@@ -340,7 +341,8 @@ const monstersList = [
         health: 120,
         number: '0039',
         size: 'm',
-        type: 'normal'
+        type: 'normal',
+        direction: 'right'
     },
     {
         name: 'Wigglytuff',
@@ -702,7 +704,8 @@ const monstersList = [
         health: 80,
         number: '0084',
         size: 's',
-        type: 'normal'
+        type: 'normal',
+        direction: 'left'
     },
     {
         name: 'Dodrio',
@@ -767,7 +770,8 @@ const monstersList = [
         health: 60,
         number: '0092',
         size: 's',
-        type: 'ghost'
+        type: 'ghost',
+        direction: 'left'
     },
     {
         name: 'Haunter',
@@ -872,7 +876,8 @@ const monstersList = [
         health: 160,
         number: '0105',
         size: 'l',
-        type: 'ground'
+        type: 'ground',
+        direction: 'left'
     },
     {
         name: 'Hitmonlee',

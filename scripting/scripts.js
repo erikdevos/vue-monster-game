@@ -22,7 +22,7 @@ const app = Vue.createApp({
 			currentRound: 0,
 			winner: null,
 			logMessages: [],
-			playerName: 'Ash',
+			playerName: 'Trainer',
 			playerTrainer: '',
 			playerAttacked: false,
 			monsterAttacked: false,
