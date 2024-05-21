@@ -188,7 +188,7 @@ button.white {
 
 .title-screen {
   background-color: #C11E1E;
-  background-image: url(../resources/start-screen.jpg);
+  background-image: url(../resources/start-screen-lg.jpg);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -210,6 +210,11 @@ button.white {
   .title-screen {
     max-width: 90vw;
     padding: 2rem;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .title-screen {
+    background-image: url(../resources/start-screen-sm.webp);
   }
 }
 .title-screen h1 {
@@ -618,6 +623,11 @@ button.white {
     width: 11rem;
     height: 11rem;
   }
+}
+.player-images .monster-image img,
+.enemy-images .monster-image img {
+  width: 100%;
+  height: 100%;
 }
 .player-images .trainer-image,
 .enemy-images .trainer-image {

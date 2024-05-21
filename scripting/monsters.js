@@ -454,7 +454,8 @@ const monstersList = [
         health: 80,
         number: '0052',
         size: 's',
-        type: 'normal'
+        type: 'normal',
+        direction: 'left'
     },
     {
         name: 'Persian',
@@ -967,7 +968,8 @@ const monstersList = [
         health: 130,
         number: '0114',
         size: 'm',
-        type: 'grass'
+        type: 'grass',
+        direction: 'right'
     },
     {
         name: 'Kangaskhan',

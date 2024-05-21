@@ -45,7 +45,7 @@
 			<div class="trainer-select-wrapper">
 				<ul class="trainer-list">
 					<li v-for="trainer in trainers" :id="'trainer_' + trainer.id" @click="selectPlayerTrainer(trainer)">
-						<img :src="'resources/trainers/' + trainer.image" :alt="'Trainer ' + trainer.alias" :title="'Trainer ' + trainer.alias">
+						<img :src="'resources/trainers/' + trainer.image" :alt="'Trainer ' + trainer.alias" :title="'Trainer ' + trainer.alias" lazy>
 					</li>
 				</ul>
 			</div>
@@ -65,7 +65,7 @@
 						<strong>Random</strong>
 						<span>&nbsp;</span>
 					</div>
-					<img class="monster-image" src="resources/icon-random.png" alt="">
+					<img class="monster-image random-icon" src="resources/icon-random.png" alt="Random">
 				</li>
 				<li v-for="playerMonster in filteredPlayerMonsters" @click="selectPlayerMonster(playerMonster)">
 					<div class="monster-name">
@@ -75,7 +75,7 @@
 						</span>
 					</div>
 					<div class="monster-type" :class="playerMonster.type"></div>
-					<img class="monster-image" :src="imagePathThumb + playerMonster.image" :alt="playerMonster.name">
+					<img class="monster-image" :src="imagePathThumb + playerMonster.image" :alt="playerMonster.name" lazy>
 				</li>
 			</ul>
 		</section>
@@ -94,7 +94,7 @@
 						<strong>Random</strong>
 						<span>&nbsp;</span>
 					</div>
-					<img class="monster-image" src="resources/icon-random.png" alt="">
+					<img class="monster-image random-icon" src="resources/icon-random.png" alt="Random">
 				</li>
 				<li v-for="enemyMonster in filteredEnemyMonsters" @click="selectEnemyMonster(enemyMonster)">
 					<div class="monster-name">
@@ -104,7 +104,7 @@
 						</span>
 					</div>
 					<div class="monster-type" :class="enemyMonster.type"></div>
-					<img class="monster-image" :src="imagePathThumb + enemyMonster.image" :alt="enemyMonster.name">
+					<img class="monster-image" :src="imagePathThumb + enemyMonster.image" :alt="enemyMonster.name" lazy>
 				</li>
 			</ul>
 			
@@ -119,7 +119,7 @@
 				<li v-for="stage in stages" @click="selectStage(stage)">
 					<h3>{{stage.name}}</h3>
 					<div class="stage-image-wrapper">
-						<img :src="stagesPath + stage.image"  class="stage-image" alt="">
+						<img :src="stagesPath + stage.image"  class="stage-image" alt="" lazy>
 					</div>
 				</li>
 			</ul>
@@ -140,17 +140,17 @@
 				
 				<div class="enemy-images">
 					<div class="flipcontainer" :class="[flipEnemyMonsterImage()]">
-						<img
-						:src="imagePathFull + currentEnemyMonster.image"
-						class="monster-image animate__animated"
-						:class="[
-							{ 'animate__flash': monsterAttacked },
-							{ 'animate__wobble': specialAttackAttacked },
-							{ 'animate__fadeOutDown': monsterLoseAnimation },
-							'size-' + (currentEnemyMonster ? currentEnemyMonster.size : '')
-						]"
-						@transitionend="resetAttackedStatus"
-						>
+						<picture class="monster-image animate__animated"
+							:class="[
+								{ 'animate__flash': monsterAttacked },
+								{ 'animate__wobble': specialAttackAttacked },
+								{ 'animate__fadeOutDown': monsterLoseAnimation },
+								'size-' + (currentEnemyMonster ? currentEnemyMonster.size : '')
+							]"
+							@transitionend="resetAttackedStatus">
+							<source media="(min-width:480px)" :srcset="imagePathFull + currentEnemyMonster.image">
+							<img :src="imagePathThumb + currentEnemyMonster.image">
+						</picture>
 					</div>
 				</div>
 				
@@ -174,17 +174,15 @@
 
 					<!-- Player Monster -->
 					<div class="flipcontainer" :class="[flipPlayerMonsterImage(), dittoChangeAnimate()]">
-						<img 
-						:src="imagePathFull + currentPlayerMonster.image" 
-						class="monster-image animate__animated"  
-						:class="[
+						<picture class="monster-image animate__animated" :class="[
 							{ 'animate__flash': playerAttacked },
 							{ 'animate__pulse': healAnimation },
 							{ 'animate__fadeOutDown': playerLoseAnimation },
 							'size-' + (currentPlayerMonster ? currentPlayerMonster.size : '')
-						]" 
-						@transitionend="resetAttackedStatus"
-						>
+							]" @transitionend="resetAttackedStatus">
+							<source media="(min-width: 480px)" :srcset="imagePathFull + currentPlayerMonster.image">
+							<img :src="imagePathThumb + currentPlayerMonster.image">
+						</picture>
 					</div>
 				</div>
 
