@@ -194,7 +194,8 @@ const monstersList = [
         health: 60,
         number: '0021',
         size: 's',
-        type: 'flying'
+        type: 'flying',
+        direction: 'left'
     },
     {
         name: 'Fearow',
@@ -211,7 +212,8 @@ const monstersList = [
         health: 70,
         number: '0023',
         size: 'm',
-        type: 'poison'
+        type: 'poison',
+        direction: 'left'
     },
     {
         name: 'Arbok',
@@ -219,7 +221,8 @@ const monstersList = [
         health: 120,
         number: '0024',
         size: 'l',
-        type: 'poison'
+        type: 'poison',
+        direction: 'left'
     },
     {
         name: 'Pikachu',
@@ -245,7 +248,8 @@ const monstersList = [
         health: 60,
         number: '0027',
         size: 's',
-        type: 'ground'
+        type: 'ground',
+        direction: 'left',
     },
     {
         name: 'Sandslash',
@@ -253,7 +257,8 @@ const monstersList = [
         health: 120,
         number: '0028',
         size: 'm',
-        type: 'ground'
+        type: 'ground',
+        direction: 'right'
     },
     {
         name: 'Nidoran♀',
@@ -261,7 +266,8 @@ const monstersList = [
         health: 70,
         number: '0029',
         size: 's',
-        type: 'poison'
+        type: 'poison',
+        direction: 'left'
     },
     {
         name: 'Nidorina',
@@ -269,7 +275,8 @@ const monstersList = [
         health: 100,
         number: '0030',
         size: 'm',
-        type: 'poison'
+        type: 'poison',
+        direction: 'left'
     },
     {
         name: 'Nidoqueen',
@@ -277,7 +284,8 @@ const monstersList = [
         health: 180,
         number: '0031',
         size: 'l',
-        type: 'poison'
+        type: 'poison',
+        direction: 'left'
     },
     {
         name: 'Nidoran♂',
@@ -285,7 +293,8 @@ const monstersList = [
         health: 70,
         number: '0032',
         size: 's',
-        type: 'poison'
+        type: 'poison',
+        direction: 'left'
     },
     {
         name: 'Nidorino',
@@ -293,7 +302,8 @@ const monstersList = [
         health: 100,
         number: '0033',
         size: 'm',
-        type: 'poison'
+        type: 'poison',
+        direction: 'left'
     },
     {
         name: 'Nidoking',
@@ -302,7 +312,7 @@ const monstersList = [
         number: '0034',
         size: 'l',
         type: 'poison',
-        direction: 'left'
+        direction: 'left',
     },
     {
         name: 'Clefairy',
@@ -318,7 +328,8 @@ const monstersList = [
         health: 180,
         number: '0036',
         size: 'l',
-        type: 'fairy'
+        type: 'fairy',
+        direction: 'left'
     },
     {
         name: 'Vulpix',
@@ -326,7 +337,8 @@ const monstersList = [
         health: 80,
         number: '0037',
         size: 's',
-        type: 'fire'
+        type: 'fire',
+        direction: 'left'
     },
     {
         name: 'Ninetales',
@@ -457,7 +469,8 @@ const monstersList = [
         health: 140,
         number: '0053',
         size: 'm',
-        type: 'normal'
+        type: 'normal',
+        direction: 'left'
     },
     {
         name: 'Psyduck',
@@ -465,7 +478,8 @@ const monstersList = [
         health: 80,
         number: '0054',
         size: 's',
-        type: 'water'
+        type: 'water',
+        direction: 'left'
     },
     {
         name: 'Golduck',
@@ -611,7 +625,8 @@ const monstersList = [
         health: 90,
         number: '0072',
         size: 's',
-        type: 'water'
+        type: 'water',
+        direction: 'left'
     },
     {
         name: 'Tentacruel',
@@ -651,7 +666,8 @@ const monstersList = [
         health: 90,
         number: '0077',
         size: 's',
-        type: 'fire'
+        type: 'fire',
+        direction: 'left'
     },
     {
         name: 'Rapidash',
@@ -847,7 +863,8 @@ const monstersList = [
         health: 140,
         number: '0101',
         size: 'm',
-        type: 'electric'
+        type: 'electric',
+        direction: 'left'
     },
     {
         name: 'Exeggcute',
@@ -871,7 +888,8 @@ const monstersList = [
         health: 100,
         number: '0104',
         size: 's',
-        type: 'ground'
+        type: 'ground',
+        direction: 'left'
     },
     {
         name: 'Marowak',
@@ -936,7 +954,8 @@ const monstersList = [
         health: 180,
         number: '0112',
         size: 'l',
-        type: 'ground'
+        type: 'ground',
+        direction: 'left'
     },
     {
         name: 'Chansey',
@@ -1099,7 +1118,8 @@ const monstersList = [
         health: 80,
         number: '0132',
         size: 's',
-        type: 'normal'
+        type: 'normal',
+        direction: 'left'
     },
     {
         name: 'Eevee',
@@ -1107,7 +1127,8 @@ const monstersList = [
         health: 120,
         number: '0133',
         size: 'm',
-        type: 'normal'
+        type: 'normal',
+        direction: 'left'
     },
     {
         name: 'Vaporeon',
@@ -1115,7 +1136,8 @@ const monstersList = [
         health: 220,
         number: '0134',
         size: 'm',
-        type: 'water'
+        type: 'water',
+        direction: 'right'
     },
     {
         name: 'Jolteon',
@@ -1123,7 +1145,8 @@ const monstersList = [
         health: 180,
         number: '0135',
         size: 'm',
-        type: 'electric'
+        type: 'electric',
+        direction: 'left'
     },
     {
         name: 'Flareon',
@@ -1131,7 +1154,8 @@ const monstersList = [
         health: 180,
         number: '0136',
         size: 'm',
-        type: 'fire'
+        type: 'fire',
+        direction: 'left'
     },
     {
         name: 'Porygon',
@@ -1139,7 +1163,8 @@ const monstersList = [
         health: 120,
         number: '0137',
         size: 'm',
-        type: 'normal'
+        type: 'normal',
+        direction: 'left'
     },
     {
         name: 'Omanyte',
@@ -1147,7 +1172,8 @@ const monstersList = [
         health: 160,
         number: '0138',
         size: 's',
-        type: 'rock'
+        type: 'rock',
+        direction: 'right'
     },
     {
         name: 'Omastar',
@@ -1155,14 +1181,16 @@ const monstersList = [
         health: 200,
         number: '0139',
         size: 'm',
-        type: 'rock'
+        type: 'rock',
+        direction: 'left'
     },
     {
         name: 'Kabuto',
         image: '140.png',
         number: '0140',
         size: 's',
-        type: 'rock'
+        type: 'rock',
+        direction: 'left'
     },
     {
         name: 'Kabutops',
@@ -1170,7 +1198,8 @@ const monstersList = [
         health: 200,
         number: '0141',
         size: 'm',
-        type: 'rock'
+        type: 'rock',
+        direction: 'left'
     },
     {
         name: 'Aerodactyl',
@@ -1178,7 +1207,8 @@ const monstersList = [
         health: 200,
         number: '0142',
         size: 'l',
-        type: 'rock'
+        type: 'rock',
+        direction: 'left'
     },
     {
         name: 'Snorlax',
@@ -1186,7 +1216,8 @@ const monstersList = [
         health: 320,
         number: '0143',
         size: 'xl',
-        type: 'normal'
+        type: 'normal',
+        direction: 'left'
     },
     {
         name: 'Articuno',
@@ -1194,7 +1225,8 @@ const monstersList = [
         health: 280,
         number: '0144',
         size: 'l',
-        type: 'ice'
+        type: 'ice',
+        direction: 'left'
     },
     {
         name: 'Zapdos',

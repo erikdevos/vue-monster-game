@@ -21,8 +21,8 @@
 		<!-- Title screen -->
 		<Transition>
 		<section v-if="currentStepIndex === 0" id="title-screen" class="title-screen">
-			<h1>Pocket Monsters</h1>
-			<button class="button white" id="startButton" @click="startGame()">Press to start</button>
+			<h1 class="animate__animated animate__bounceInDown animate__slow">Pocket Monsters</h1>
+			<button class="button white animate__animated animate__pulse animate__infinite animate__slow" id="startButton" @click="startGame()">Press to start</button>
 		</section>
 		</Transition>
 
