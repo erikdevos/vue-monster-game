@@ -182,7 +182,8 @@ button.white {
 #game {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 90vh;
+  height: auto;
 }
 
 .title-screen {
@@ -309,7 +310,7 @@ button.white {
   grid-template-columns: repeat(5, 1fr);
   justify-content: center;
   gap: 1rem;
-  max-height: 25rem;
+  max-height: 28rem;
   overflow-x: auto;
 }
 @media only screen and (max-width: 768px) {
@@ -358,7 +359,7 @@ button.white {
   width: 100%;
   height: 100%;
   max-width: 4rem;
-  max-height: 9rem;
+  max-height: 8rem;
   transition: transform 0.4s ease;
   filter: drop-shadow(3px 2px 2px rgba(0, 0, 0, 0.4));
 }
@@ -431,7 +432,7 @@ button.white {
 .monster-select ul {
   padding-left: 0;
   padding-right: 1rem;
-  max-height: 25rem;
+  max-height: 28rem;
   overflow-x: auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -513,7 +514,7 @@ button.white {
 @media only screen and (max-width: 480px) {
   .monster-select ul li img {
     max-width: 9rem;
-    max-height: 9rem;
+    max-height: 7rem;
   }
 }
 
@@ -550,15 +551,15 @@ button.white {
 @media only screen and (max-width: 768px) {
   .player-images .monster-image.size-s,
   .enemy-images .monster-image.size-s {
-    width: 5rem;
-    height: 5rem;
+    width: 7rem;
+    height: 7rem;
   }
 }
 @media only screen and (max-width: 480px) {
   .player-images .monster-image.size-s,
   .enemy-images .monster-image.size-s {
-    width: 4rem;
-    height: 4rem;
+    width: 6rem;
+    height: 6rem;
   }
 }
 .player-images .monster-image.size-m,
@@ -569,15 +570,15 @@ button.white {
 @media only screen and (max-width: 768px) {
   .player-images .monster-image.size-m,
   .enemy-images .monster-image.size-m {
-    width: 8rem;
-    height: 8rem;
+    width: 9rem;
+    height: 9rem;
   }
 }
 @media only screen and (max-width: 480px) {
   .player-images .monster-image.size-m,
   .enemy-images .monster-image.size-m {
-    width: 6rem;
-    height: 6rem;
+    width: 8rem;
+    height: 8rem;
   }
 }
 .player-images .monster-image.size-l,
@@ -588,15 +589,15 @@ button.white {
 @media only screen and (max-width: 768px) {
   .player-images .monster-image.size-l,
   .enemy-images .monster-image.size-l {
-    width: 10rem;
-    height: 10rem;
+    width: 12rem;
+    height: 12rem;
   }
 }
 @media only screen and (max-width: 480px) {
   .player-images .monster-image.size-l,
   .enemy-images .monster-image.size-l {
-    width: 8rem;
-    height: 8rem;
+    width: 10rem;
+    height: 10rem;
   }
 }
 .player-images .monster-image.size-xl,
@@ -607,29 +608,40 @@ button.white {
 @media only screen and (max-width: 768px) {
   .player-images .monster-image.size-xl,
   .enemy-images .monster-image.size-xl {
-    width: 13rem;
-    height: 13rem;
+    width: 12rem;
+    height: 12rem;
   }
 }
 @media only screen and (max-width: 480px) {
   .player-images .monster-image.size-xl,
   .enemy-images .monster-image.size-xl {
-    width: 10rem;
-    height: 10rem;
+    width: 11rem;
+    height: 11rem;
   }
 }
 .player-images .trainer-image,
 .enemy-images .trainer-image {
   width: 5rem;
-  height: auto;
+  height: 100%;
+  max-height: 14rem;
   -o-object-fit: contain;
      object-fit: contain;
+  -o-object-position: bottom;
+     object-position: bottom;
   margin-top: auto;
 }
 @media only screen and (max-width: 768px) {
   .player-images .trainer-image,
   .enemy-images .trainer-image {
     width: 4rem;
+    max-height: 10rem;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .player-images .trainer-image,
+  .enemy-images .trainer-image {
+    width: 4rem;
+    max-height: 9rem;
   }
 }
 
@@ -689,6 +701,7 @@ button.white {
 @media only screen and (max-width: 480px) {
   .battle-stage-section .battle-stage-wrapper {
     padding: 0.7rem;
+    min-height: 17rem;
   }
 }
 
@@ -760,7 +773,7 @@ button.white {
 }
 @media only screen and (max-width: 480px) {
   #monster {
-    margin-right: 1.5rem;
+    margin-right: 1rem;
     margin-bottom: 0;
   }
 }
@@ -770,7 +783,7 @@ button.white {
 }
 @media only screen and (max-width: 480px) {
   #player {
-    margin-left: 1.5rem;
+    margin-left: 1rem;
     margin-top: 0;
   }
 }

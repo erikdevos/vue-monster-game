@@ -135,15 +135,6 @@ const monstersList = [
         direction: 'left'
     },
     {
-        name: 'Beedrill',
-        image: '015.png',
-        health: 120,
-        number: '0015',
-        size: 'l',
-        type: 'bug',
-        direction: 'left'
-    },
-    {
         name: 'Pidgey',
         image: '016.png',
         health: 60,
@@ -363,7 +354,8 @@ const monstersList = [
         health: 180,
         number: '0040',
         size: 'l',
-        type: 'normal'
+        type: 'normal',
+        direction: 'right'
     },
     {
         name: 'Zubat',
@@ -371,7 +363,8 @@ const monstersList = [
         health: 60,
         number: '0041',
         size: 's',
-        type: 'poison'
+        type: 'poison',
+        direction: 'left'
     },
     {
         name: 'Golbat',
@@ -487,7 +480,8 @@ const monstersList = [
         health: 140,
         number: '0055',
         size: 'm',
-        type: 'water'
+        type: 'water',
+        direction: 'left'
     },
     {
         name: 'Mankey',
@@ -649,8 +643,9 @@ const monstersList = [
         image: '075.png',
         health: 140,
         number: '0075',
-        size: 'm',
-        type: 'rock'
+        size: 'l',
+        type: 'rock',
+        direction: 'left'
     },
     {
         name: 'Golem',
@@ -683,7 +678,8 @@ const monstersList = [
         health: 120,
         number: '0079',
         size: 'm',
-        type: 'water'
+        type: 'water',
+        direction: 'left'
     },
     {
         name: 'Slowbro',
@@ -1078,7 +1074,8 @@ const monstersList = [
         health: 160,
         number: '0127',
         size: 'l',
-        type: 'bug'
+        type: 'bug',
+        direction: 'left'
     },
     {
         name: 'Tauros',
