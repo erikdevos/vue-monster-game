@@ -72,21 +72,8 @@
         width: 8rem;
         height: 8rem;
         @media only screen and (max-width: 768px) {
-            width: 5rem;
-            height: 5rem;
-        }
-        @media only screen and (max-width: 480px) {
-            width: 4rem;
-            height: 4rem;
-        }
-    }
-
-    &.size-m {
-        width: 12rem;
-        height: 12rem;
-        @media only screen and (max-width: 768px) {
-            width: 8rem;
-            height: 8rem;
+            width: 7rem;
+            height: 7rem;
         }
         @media only screen and (max-width: 480px) {
             width: 6rem;
@@ -94,12 +81,12 @@
         }
     }
 
-    &.size-l {
-        width: 15rem;
-        height: 15rem;
+    &.size-m {
+        width: 12rem;
+        height: 12rem;
         @media only screen and (max-width: 768px) {
-            width: 10rem;
-            height: 10rem;
+            width: 9rem;
+            height: 9rem;
         }
         @media only screen and (max-width: 480px) {
             width: 8rem;
@@ -107,16 +94,29 @@
         }
     }
 
-    &.size-xl {
-        width: 18rem;
-        height: 18rem;
+    &.size-l {
+        width: 15rem;
+        height: 15rem;
         @media only screen and (max-width: 768px) {
-            width: 13rem;
-            height: 13rem;
+            width: 12rem;
+            height: 12rem;
         }
         @media only screen and (max-width: 480px) {
             width: 10rem;
             height: 10rem;
+        }
+    }
+
+    &.size-xl {
+        width: 18rem;
+        height: 18rem;
+        @media only screen and (max-width: 768px) {
+            width: 12rem;
+            height: 12rem;
+        }
+        @media only screen and (max-width: 480px) {
+            width: 11rem;
+            height: 11rem;
         }
     }
 }
