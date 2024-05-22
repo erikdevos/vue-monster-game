@@ -25,8 +25,8 @@
 	max-width: 80vw;
 	padding: 3rem;
 	border-radius: $border-radius-m;
-	border: 10px solid $color-primary;
 	overflow: hidden;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 
 	@media only screen and (max-width: 768px) {
 		max-width: 90vw;
@@ -35,11 +35,10 @@
 
 	h1 {
 		font-family: impact, sans-serif;
-		font-size: 4rem;
-		font-weight: 800;
+		font-size: 6rem;
+		font-weight: 500;
 		text-transform: uppercase;
 		letter-spacing: 1px;
-		-webkit-text-stroke: 3px $color-primary; 
 		@media only screen and (max-width: 768px) {
 			font-size: 3rem;
 		}
@@ -48,7 +47,7 @@
 	.button {
 		align-self: center;
 		margin-top: auto;
-		border: solid 3px $color-primary;
+		border: solid 3px transparent;
 		text-transform: uppercase;
 
 		&:hover {
