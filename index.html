@@ -142,8 +142,8 @@
 					<div class="flipcontainer" :class="[flipEnemyMonsterImage()]">
 						<picture class="monster-image animate__animated"
 							:class="[
+								{ 'animate__attack__right' : attackPlayerAnimation },
 								{ 'animate__flash': monsterAttacked },
-								{ 'animate__wobble': specialAttackAttacked },
 								{ 'animate__fadeOutDown': monsterLoseAnimation },
 								'size-' + (currentEnemyMonster ? currentEnemyMonster.size : '')
 							]"
@@ -175,6 +175,7 @@
 					<!-- Player Monster -->
 					<div class="flipcontainer" :class="[flipPlayerMonsterImage(), dittoChangeAnimate()]">
 						<picture class="monster-image animate__animated" :class="[
+							{ 'animate__attack__left' : playerAttacking },
 							{ 'animate__flash': playerAttacked },
 							{ 'animate__pulse': healAnimation },
 							{ 'animate__fadeOutDown': playerLoseAnimation },

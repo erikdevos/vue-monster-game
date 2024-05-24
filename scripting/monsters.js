@@ -1,4 +1,13 @@
 const monstersList = [
+    // {
+    //     name: 'DEBUG',
+    //     image: '001.png',
+    //     health: 1000000,
+    //     number: '0000',
+    //     size: 'M',
+    //     type: 'normal',
+    //     direction: 'left'
+    // },
     {
         name: 'Bulbasaur',
         image: '001.png',
@@ -778,7 +787,8 @@ const monstersList = [
         health: 160,
         number: '0091',
         size: 'l',
-        type: 'water'
+        type: 'water',
+        direction: 'left'
     },
     {
         name: 'Gastly',
@@ -919,7 +929,8 @@ const monstersList = [
         health: 180,
         number: '0108',
         size: 'l',
-        type: 'normal'
+        type: 'normal',
+        direction: 'left'
     },
     {
         name: 'Koffing',

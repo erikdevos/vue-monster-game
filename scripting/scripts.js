@@ -24,7 +24,9 @@ const app = Vue.createApp({
 			logMessages: [],
 			playerName: 'Trainer',
 			playerTrainer: '',
+			playerAttacking: false,
 			playerAttacked: false,
+			attackPlayerAnimation: false,
 			monsterAttacked: false,
 			specialAttackAttacked: false,
 			healAnimation: false,
@@ -268,6 +270,7 @@ const app = Vue.createApp({
 				this.playerAttacked = false;
 				this.monsterAttacked = false;
 				this.specialAttackAttacked = false;
+				this.attackPlayerAnimation = false;
 			}, 1000);
 		},
 
@@ -308,18 +311,25 @@ const app = Vue.createApp({
 			this.enemyMonsterHealth -= totalDamage;
 			this.addLogMessage("player", "attack", totalDamage, effectivenessString);
 			this.monsterAttacked = true;
+			this.specialAttackAttacked = true;
+			this.playerAttacking = true;
 		
 			setTimeout(() => {
 				this.playerAttacked = true;
+				this.monsterAttacked = false;
 			}, 1000);
 		
 			setTimeout(() => {
 				if (this.enemyMonsterHealth > 0) {
 					this.attackPlayer();
+					this.attackPlayerAnimation = true;
 				}
 		
 				setTimeout(() => {
 					this.resetAttackedStatus();
+					this.playerAttacking = false;
+					this.attackPlayerAnimation = false;
+
 				}, 300);
 		
 			}, 1000);
@@ -342,7 +352,7 @@ const app = Vue.createApp({
 		
 			// Log the attack message
 			this.addLogMessage("monster", "attack", totalDamage, effectivenessString);
-		
+
 			return;
 		},			
 
@@ -366,17 +376,23 @@ const app = Vue.createApp({
 			// Log the special attack message
 			this.addLogMessage("player", "specialattack", totalDamage, effectivenessString);
 			this.specialAttackAttacked = true;
-		
+			this.monsterAttacked = true;
+			this.playerAttacking = true;
+			
 			setTimeout(() => {
+				this.playerAttacking = false;
+				this.playerAttacking = false;
+				this.monsterAttacked = false;
 				this.playerAttacked = true;
+				this.attackPlayerAnimation = true;
 			}, 1000);
 		
 			if (this.enemyMonsterHealth > 0) {
 				setTimeout(() => {
 					this.attackPlayer();
-		
 					setTimeout(() => {
 						this.resetAttackedStatus();
+						this.attackPlayerAnimation = false;
 					}, 300);
 				}, 1000);
 			}
@@ -474,7 +490,6 @@ const app = Vue.createApp({
 		},
 
 		stepBack() {
-			console.log("step back");
 			if (this.currentStepIndex > 0) {
 				const previousStepIndex = this.currentStepIndex - 1;
 				// Hide all screens except the one at the previous step index
