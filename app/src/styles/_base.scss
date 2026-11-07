@@ -1,0 +1,174 @@
+@use 'mixins' as *;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.2;
+  background-image: var(--asset-global-background);
+  background-repeat: repeat;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+input[type='text'],
+input[type='search'] {
+  padding: 0.3rem 1rem;
+  font: inherit;
+  outline: none;
+  border: solid 2px var(--color-lightgray);
+  border-radius: var(--border-radius-s);
+
+  &:focus {
+    border-color: var(--color-primary);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+}
+
+h1,
+h2 {
+  font-size: 1.5rem;
+  margin-top: 0;
+
+  @include phone-down {
+    font-size: 1.2rem;
+  }
+}
+
+// Every screen is one of these; it replaces the legacy global `section` rules.
+.screen {
+  width: 90%;
+  max-width: 55rem;
+  margin: auto;
+
+  @include tablet-down {
+    width: calc(100% - 2rem);
+    max-width: none;
+  }
+
+  @include phone-down {
+    width: calc(100% - 1.4rem);
+  }
+}
+
+.container {
+  background-color: rgb(255 255 255 / 70%);
+  backdrop-filter: blur(5px);
+  text-align: center;
+  padding: 1.5rem;
+  margin: 1rem auto 1.5rem;
+  margin-top: 0;
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius-m);
+  overflow: hidden;
+
+  @include tablet-down {
+    padding: 1rem;
+  }
+
+  @include phone-down {
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+  }
+}
+
+.button {
+  font: inherit;
+  background-color: var(--color-primary);
+  color: white;
+  padding: 0.8rem 2.5rem;
+  border: none;
+  border-radius: var(--border-radius-s);
+  width: auto;
+  cursor: pointer;
+  box-shadow: var(--box-shadow);
+  transition: background-color 0.3s ease-in-out;
+
+  @include phone-down {
+    padding: 0.8rem 1rem;
+    font-size: 0.75rem;
+  }
+
+  &:hover,
+  &:active {
+    background-color: color-mix(in srgb, var(--color-primary), black 10%);
+  }
+
+  // Same look as a real :disabled button, but the button stays focusable (aria-disabled).
+  &[aria-disabled='true'],
+  &[aria-disabled='true']:hover,
+  &[aria-disabled='true']:active {
+    background-color: #ccc;
+    box-shadow: none;
+    color: #3f3f3f;
+    cursor: not-allowed;
+  }
+
+  &:focus-visible {
+    outline: 3px solid #1a73e8;
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    background-color: #ccc;
+    box-shadow: none;
+    color: #3f3f3f;
+    cursor: not-allowed;
+  }
+
+  &--white {
+    background-color: var(--color-white);
+    color: var(--color-primary);
+    font-weight: bold;
+  }
+}
+
+// Screen transition between routes (legacy: fade in).
+.screen-fade-enter-active {
+  transition: opacity 0.4s ease;
+}
+
+.screen-fade-leave-active {
+  transition: opacity 0.15s ease;
+}
+
+.screen-fade-enter-from,
+.screen-fade-leave-to {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .screen-fade-enter-active,
+  .screen-fade-leave-active {
+    transition: none;
+  }
+}
+
+// Hidden for the eye, present for assistive technology. Last and !important on purpose, so it
+// also wins over component styles such as .container.
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}

@@ -1,0 +1,47 @@
+@use 'sass:map';
+
+// Source of truth: the legacy style/_variables.scss and the monster-types mixin
+// in style/_mixins.scss. Values are exposed as CSS custom properties.
+
+$type-colors: (
+  'normal': #aa9,
+  'fire': #f42,
+  'electric': #fc3,
+  'grass': #7c5,
+  'bug': #ab2,
+  'psychic': #f59,
+  'fighting': #b54,
+  'water': #39f,
+  'fairy': #e9e,
+  // The legacy game had no monsters of these two types and so no colors; these follow the style
+  // of the others (added so every one of the 18 types has a token).
+  'dark': #754,
+  'steel': #aab,
+  'ice': #6cf,
+  'dragon': #76e,
+  'ground': #db5,
+  'rock': #ba6,
+  'ghost': #66b,
+  'poison': #a59,
+  'flying': #89f,
+);
+
+:root {
+  // Colors
+  --color-primary: #c11e1e;
+  --color-lightgray: #dfdfdf;
+  --color-white: #fff;
+
+  // Shape
+  --border-radius-m: 1rem;
+  --border-radius-sm: 0.5rem;
+  --border-radius-s: 0.3rem;
+
+  // Elevation
+  --box-shadow: 0 2px 8px rgb(0 0 0 / 26%);
+
+  // Monster types
+  @each $name, $color in $type-colors {
+    --type-#{$name}: #{map.get($type-colors, $name)};
+  }
+}

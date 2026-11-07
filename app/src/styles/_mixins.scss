@@ -1,0 +1,102 @@
+// Breakpoints used by the legacy styles.
+$bp-tablet: 768px;
+$bp-phone: 480px;
+
+@mixin tablet-down {
+  @media only screen and (max-width: $bp-tablet) {
+    @content;
+  }
+}
+
+@mixin phone-down {
+  @media only screen and (max-width: $bp-phone) {
+    @content;
+  }
+}
+
+// Sprite sizes (from the legacy monster-sizes mixin).
+@mixin monster-sizes {
+  width: 8rem;
+  height: 8rem;
+
+  &.size-s {
+    width: 8rem;
+    height: 8rem;
+
+    @include tablet-down {
+      width: 7rem;
+      height: 7rem;
+    }
+
+    @include phone-down {
+      width: 6rem;
+      height: 6rem;
+    }
+  }
+
+  &.size-m {
+    width: 12rem;
+    height: 12rem;
+
+    @include tablet-down {
+      width: 9rem;
+      height: 9rem;
+    }
+
+    @include phone-down {
+      width: 8rem;
+      height: 8rem;
+    }
+  }
+
+  &.size-l {
+    width: 15rem;
+    height: 15rem;
+
+    @include tablet-down {
+      width: 12rem;
+      height: 12rem;
+    }
+
+    @include phone-down {
+      width: 10rem;
+      height: 10rem;
+    }
+  }
+
+  &.size-xl {
+    width: 18rem;
+    height: 18rem;
+
+    @include tablet-down {
+      width: 12rem;
+      height: 12rem;
+    }
+
+    @include phone-down {
+      width: 11rem;
+      height: 11rem;
+    }
+  }
+}
+
+// Selectable card (trainer, monster, stage): a real button that looks like the legacy list item.
+@mixin card-button {
+  font: inherit;
+  color: inherit;
+  width: 100%;
+  cursor: pointer;
+  box-shadow: none;
+  background-color: #f4f4f4;
+  border: solid 3px transparent;
+  border-radius: var(--border-radius-m);
+  transition: none;
+  text-align: center;
+
+  &:hover,
+  &:focus-visible {
+    background-color: #f4f4f4;
+    border-color: var(--color-primary);
+    box-shadow: none;
+  }
+}
