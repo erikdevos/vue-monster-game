@@ -1,10 +1,15 @@
 name: Deploy v2 to GitHub Pages
 
-# IMPORTANT: this workflow runs manually only (workflow_dispatch).
-# Do NOT add a push/schedule trigger and do NOT switch the Pages source until
-# v2 has feature parity with the legacy version in the repo root. Until then the
-# legacy version stays live, served from `main`.
+# Deploys v2 on every push to `main`, and by hand (Actions tab, "Run workflow").
+#
+# One-time setup in GitHub: Settings > Pages > Source: "GitHub Actions". Until that is set,
+# the deploy step fails (nothing is broken: set it, then re-run the workflow).
+#
+# Deploying replaces what the Pages site served before, the legacy version from the repo
+# root. The checks run first, so a red build is never published.
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -30,6 +35,10 @@ jobs:
           cache: npm
           cache-dependency-path: app/package-lock.json
       - run: npm ci
+      - run: npm run lint
+      - run: npm run format:check
+      - run: npm run typecheck
+      - run: npm test
       - run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:

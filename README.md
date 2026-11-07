@@ -43,7 +43,7 @@ Try the latest version here: https://erikdevos.github.io/vue-monster-game/
 
 A rebuild of the game lives in [`app/`](app/): Vue 3 (Composition API, `<script setup>`), Vite, TypeScript (strict), Pinia, Vue Router (hash mode, for GitHub Pages), Vitest, ESLint and Prettier. It is built in phases. Phases 1 to 3 are in place: tooling, the game rules as pure TypeScript (`app/src/domain`, `app/src/data`), and the screens as router routes with event-driven battle animations. Images are still served from the legacy `resources/` folder (temporary, see `publicDir` in `app/vite.config.ts` and `app/src/assets.ts`) until phase 4.
 
-The legacy version (`index.html`, `scripting/`, `style/`, `resources/` in the repo root) is untouched and stays live until v2 has feature parity.
+Every push to `main` checks, builds and deploys v2 to GitHub Pages (`.github/workflows/deploy.yml`; one-time setup in GitHub: Settings > Pages > Source: "GitHub Actions"). That replaces the legacy version on the Pages URL. The legacy version (`index.html`, `scripting/`, `style/` in the repo root) stays in the repository, untouched, for reference. `resources/` is shared: v2 still serves its images from there.
 
 Run these from `app/` (Node 22, see `app/.nvmrc`):
 
